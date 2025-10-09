@@ -3,10 +3,14 @@
   "aliases": [],
   "categories": [],
   "update": {
-    "timestamp": "2022-08-16T17:22:56Z",
+    "timestamp": "2025-08-17T20:38:46.915137",
     "author": {
-      "id": 71191962,
-      "name": "walkxcode"
+      "id": 63781622,
+      "login": "Meierschlumpf"
     }
+  },
+  "colors": {
+    "light": "portainer",
+    "dark": "portainer-dark"
   }
 }
