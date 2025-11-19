@@ -1798,6 +1798,21 @@
             "light": "nextjs-light"
         }
     },
+    "miro": {
+        "base": "svg",
+        "aliases": [
+            "whiteboard",
+            "app"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-11-04T05:53:50.616122",
+            "author": {
+                "id": 181640218,
+                "login": "codenibler"
+            }
+        }
+    },
     "ghostty": {
         "base": "svg",
         "aliases": [],
@@ -2270,6 +2285,18 @@
             "author": {
                 "id": 71191962,
                 "name": "walkxcode"
+            }
+        }
+    },
+    "kleopatra": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-11-11T19:34:26.760861",
+            "author": {
+                "id": 54372740,
+                "login": "simoncollmann"
             }
         }
     },
@@ -4842,6 +4869,20 @@
             }
         }
     },
+    "fidelity": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Finance"
+        ],
+        "update": {
+            "timestamp": "2025-11-13T17:36:15.323255",
+            "author": {
+                "id": 38537903,
+                "login": "shalf-0"
+            }
+        }
+    },
     "reolink": {
         "base": "svg",
         "aliases": [],
@@ -6053,6 +6094,22 @@
                 "id": 71191962,
                 "name": "walkxcode"
             }
+        }
+    },
+    "bab-technologie": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-11-13T16:51:18.349896",
+            "author": {
+                "id": 240226970,
+                "login": "guridevatrin"
+            }
+        },
+        "colors": {
+            "light": "bab-technologie",
+            "dark": "bab-technologie-dark"
         }
     },
     "lychee": {
@@ -7817,6 +7874,26 @@
             }
         }
     },
+    "bottom": {
+        "base": "svg",
+        "aliases": [
+            "btm"
+        ],
+        "categories": [
+            "Development"
+        ],
+        "update": {
+            "timestamp": "2025-11-13T17:28:46.549922",
+            "author": {
+                "id": 432230,
+                "login": "lavaeater"
+            }
+        },
+        "colors": {
+            "light": "bottom",
+            "dark": "bottom-dark"
+        }
+    },
     "proton-calendar": {
         "base": "svg",
         "aliases": [],
@@ -8170,6 +8247,20 @@
             }
         }
     },
+    "victorialogs": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Cloud"
+        ],
+        "update": {
+            "timestamp": "2025-11-13T16:35:46.403694",
+            "author": {
+                "id": 9138499,
+                "login": "0x62ash"
+            }
+        }
+    },
     "shoko": {
         "base": "svg",
         "aliases": [],
@@ -8461,6 +8552,22 @@
             "author": {
                 "id": 71191962,
                 "name": "walkxcode"
+            }
+        }
+    },
+    "jamf": {
+        "base": "svg",
+        "aliases": [
+            "jamf pro"
+        ],
+        "categories": [
+            "Organization"
+        ],
+        "update": {
+            "timestamp": "2025-11-11T19:02:16.597263",
+            "author": {
+                "id": 204798340,
+                "login": "sebgorgone"
             }
         }
     },
@@ -13038,6 +13145,18 @@
             "author": {
                 "id": 71191962,
                 "name": "walkxcode"
+            }
+        }
+    },
+    "tryhackme": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-11-11T17:29:26.379179",
+            "author": {
+                "id": 73247090,
+                "login": "VladLopushko"
             }
         }
     },
@@ -19264,6 +19383,22 @@
             }
         }
     },
+    "neon-tech": {
+        "base": "svg",
+        "aliases": [
+            "neon"
+        ],
+        "categories": [
+            "Development"
+        ],
+        "update": {
+            "timestamp": "2025-11-13T17:48:10.931330",
+            "author": {
+                "id": 54763188,
+                "login": "IgnacyWie"
+            }
+        }
+    },
     "sendinblue": {
         "base": "svg",
         "aliases": [],
@@ -19984,6 +20119,20 @@
             "author": {
                 "id": 71191962,
                 "name": "walkxcode"
+            }
+        }
+    },
+    "public-pool": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Hardware"
+        ],
+        "update": {
+            "timestamp": "2025-11-12T06:22:02.797837",
+            "author": {
+                "id": 87340721,
+                "login": "Arhkos"
             }
         }
     },
@@ -23979,6 +24128,20 @@
         "colors": {
             "dark": "matrix-synapse",
             "light": "matrix-synapse-light"
+        }
+    },
+    "knx": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Communication"
+        ],
+        "update": {
+            "timestamp": "2025-11-13T16:42:00.558520",
+            "author": {
+                "id": 240226970,
+                "login": "guridevatrin"
+            }
         }
     },
     "aliyun": {
@@ -28120,6 +28283,21 @@
         "colors": {
             "light": "dashboard-icons",
             "dark": "dashboard-icons-dark"
+        }
+    },
+    "luxriot": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Security",
+            "Video"
+        ],
+        "update": {
+            "timestamp": "2025-11-13T16:39:03.319681",
+            "author": {
+                "id": 240226970,
+                "login": "guridevatrin"
+            }
         }
     },
     "yacd-blue": {
