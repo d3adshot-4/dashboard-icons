@@ -1,20 +1,19 @@
 import type { Metadata, ResolvingMetadata } from "next"
-import { notFound, permanentRedirect, redirect } from "next/navigation"
+import { notFound, permanentRedirect } from "next/navigation"
 import { IconDetails } from "@/components/icon-details"
 import { BASE_URL, WEB_URL } from "@/constants"
 import { getAllIcons } from "@/lib/api"
 import { getCommunityGalleryRecord, getCommunitySubmissionByName, getCommunitySubmissions } from "@/lib/community"
 
-export const dynamicParams = false
+export const dynamicParams = true
 export const revalidate = 21600 // 6 hours
+export const dynamic = "force-static"
 
 export async function generateStaticParams() {
 	const icons = await getCommunitySubmissions()
-	return icons
-		.filter((icon) => icon.name)
-		.map((icon) => ({
-			icon: icon.name,
-		}))
+	return icons.map((icon) => ({
+		icon: icon.name,
+	}))
 }
 
 type Props = {
@@ -49,8 +48,9 @@ export async function generateMetadata({ params }: Props, _parent: ResolvingMeta
 		.join(" ")
 
 	const mainIconUrl =
-		typeof iconData.data.base === "string" && iconData.data.base.startsWith("http") ? iconData.data.base : `${BASE_URL}/svg/${icon}.svg`
-
+		typeof iconData.data.base === "string" && iconData.data.base.startsWith("http")
+			? iconData.data.base
+			: (iconData.data as any).mainIconUrl || `${BASE_URL}/svg/${icon}.svg`
 	return {
 		title: `${formattedIconName} Icon (Community) | Dashboard Icons`,
 		description: `Download the ${formattedIconName} community-submitted icon. Part of a collection of ${totalIcons} community icons awaiting review and addition to the Dashboard Icons collection.`,
@@ -86,13 +86,14 @@ export async function generateMetadata({ params }: Props, _parent: ResolvingMeta
 			type: "website",
 			url: pageUrl,
 			siteName: "Dashboard Icons",
+			locale: "en_US",
 			images: [
 				{
 					url: mainIconUrl,
 					width: 512,
 					height: 512,
 					alt: `${formattedIconName} icon`,
-					type: typeof mainIconUrl === "string" && mainIconUrl.endsWith(".png") ? "image/png" : typeof mainIconUrl === "string" && mainIconUrl.endsWith(".svg") ? "image/svg+xml" : "image/png",
+					type: mainIconUrl.endsWith(".svg") ? "image/svg+xml" : mainIconUrl.endsWith(".webp") ? "image/webp" : "image/png",
 				},
 			],
 		},
@@ -144,6 +145,7 @@ export default async function CommunityIconPage({ params }: { params: Promise<{ 
 	}
 
 	const status = record?.status || "pending"
+	const rejectionReason = status === "rejected" ? record?.admin_comment : null
 
 	const getStatusDisplayName = (status: string) => {
 		switch (status) {
@@ -182,6 +184,7 @@ export default async function CommunityIconPage({ params }: { params: Promise<{ 
 		<>
 			<script
 				type="application/ld+json"
+				// biome-ignore lint/security/noDangerouslySetInnerHtml: Needs to be done
 				dangerouslySetInnerHTML={{
 					__html: JSON.stringify({
 						"@context": "https://schema.org",
@@ -202,6 +205,7 @@ export default async function CommunityIconPage({ params }: { params: Promise<{ 
 				authorData={authorData}
 				allIcons={allIcons}
 				status={status}
+				rejectionReason={rejectionReason ?? undefined}
 				statusDisplayName={statusDisplayName}
 				statusColor={statusColor}
 			/>

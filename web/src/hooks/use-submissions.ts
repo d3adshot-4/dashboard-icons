@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { toast } from "sonner"
+import { triggerAddIconWorkflow, triggerBulkAddIconWorkflow } from "@/app/actions/github"
 import { revalidateAllSubmissions } from "@/app/actions/submissions"
 import { getAllIcons } from "@/lib/api"
 import { pb, type Submission } from "@/lib/pb"
@@ -47,7 +48,7 @@ export function useApproveSubmission() {
 				},
 			)
 		},
-		onSuccess: async (data) => {
+		onSuccess: async (_data) => {
 			// Invalidate and refetch submissions
 			queryClient.invalidateQueries({ queryKey: submissionKeys.lists() })
 
@@ -74,12 +75,13 @@ export function useRejectSubmission() {
 	const queryClient = useQueryClient()
 
 	return useMutation({
-		mutationFn: async (submissionId: string) => {
+		mutationFn: async ({ submissionId, adminComment }: { submissionId: string; adminComment?: string }) => {
 			return await pb.collection("submissions").update(
 				submissionId,
 				{
 					status: "rejected",
 					approved_by: pb.authStore.record?.id || "",
+					admin_comment: adminComment || "",
 				},
 				{
 					requestKey: null,
@@ -173,5 +175,76 @@ export function useAuth() {
 		},
 		staleTime: 5 * 60 * 1000, // 5 minutes
 		retry: false,
+	})
+}
+
+// Trigger GitHub workflow to add icon to collection
+export function useTriggerWorkflow() {
+	return useMutation({
+		mutationFn: async ({ submissionId, dryRun = false }: { submissionId: string; dryRun?: boolean }) => {
+			// Get the auth token from the client-side PocketBase instance
+			const authToken = pb.authStore.token
+			if (!authToken) {
+				throw new Error("Not authenticated")
+			}
+
+			const result = await triggerAddIconWorkflow(authToken, submissionId, dryRun)
+			if (!result.success) {
+				throw new Error(result.error || "Failed to trigger workflow")
+			}
+			return result
+		},
+		onSuccess: (data) => {
+			toast.success("GitHub workflow triggered", {
+				description: "The icon addition workflow has been started",
+				action: data.workflowUrl
+					? {
+							label: "View on GitHub",
+							onClick: () => window.open(data.workflowUrl, "_blank"),
+						}
+					: undefined,
+			})
+		},
+		onError: (error: Error) => {
+			console.error("Error triggering workflow:", error)
+			toast.error("Failed to trigger workflow", {
+				description: error.message || "An error occurred",
+			})
+		},
+	})
+}
+
+// Trigger GitHub workflow for multiple submissions (bulk action)
+export function useBulkTriggerWorkflow() {
+	return useMutation({
+		mutationFn: async ({ submissionIds, dryRun = false }: { submissionIds: string[]; dryRun?: boolean }) => {
+			const authToken = pb.authStore.token
+			if (!authToken) {
+				throw new Error("Not authenticated")
+			}
+
+			const result = await triggerBulkAddIconWorkflow(authToken, submissionIds, dryRun)
+			if (!result.success) {
+				throw new Error(result.error || "Failed to trigger workflow")
+			}
+			return result
+		},
+		onSuccess: (data) => {
+			toast.success(`Workflow triggered for ${data.submissionCount} icon(s)`, {
+				description: "All icons will be processed sequentially in a single workflow run.",
+				action: data.workflowUrl
+					? {
+							label: "View on GitHub",
+							onClick: () => window.open(data.workflowUrl, "_blank"),
+						}
+					: undefined,
+			})
+		},
+		onError: (error: Error) => {
+			console.error("Error triggering bulk workflow:", error)
+			toast.error("Failed to trigger workflow", {
+				description: error.message || "An error occurred",
+			})
+		},
 	})
 }

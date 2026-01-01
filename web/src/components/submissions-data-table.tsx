@@ -4,6 +4,7 @@ import {
 	type ColumnDef,
 	type ColumnFiltersState,
 	type ExpandedState,
+	type RowSelectionState,
 	flexRender,
 	getCoreRowModel,
 	getExpandedRowModel,
@@ -14,11 +15,12 @@ import {
 } from "@tanstack/react-table"
 import dayjs from "dayjs"
 import relativeTime from "dayjs/plugin/relativeTime"
-import { Check, ChevronDown, ChevronRight, Filter, ImageIcon, Search, SortDesc, X } from "lucide-react"
+import { ChevronDown, ChevronRight, Filter, Github, ImageIcon, Search, SortDesc, X } from "lucide-react"
 import * as React from "react"
 import { SubmissionDetails } from "@/components/submission-details"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { UserDisplay } from "@/components/user-display"
@@ -31,7 +33,7 @@ dayjs.extend(relativeTime)
 // Utility function to get display name with priority: username > email > created_by field
 const getDisplayName = (submission: Submission, expandedData?: any): string => {
 	// Check if we have expanded user data
-	if (expandedData && expandedData.created_by) {
+	if (expandedData?.created_by) {
 		const user = expandedData.created_by
 
 		// Priority: username > email
@@ -53,8 +55,13 @@ interface SubmissionsDataTableProps {
 	currentUserId: string
 	onApprove: (id: string) => void
 	onReject: (id: string) => void
+	onTriggerWorkflow?: (id: string) => void
+	onBulkTriggerWorkflow?: (ids: string[]) => void
 	isApproving?: boolean
 	isRejecting?: boolean
+	isTriggeringWorkflow?: boolean
+	isBulkTriggeringWorkflow?: boolean
+	workflowUrl?: string
 }
 
 // Group submissions by status with priority order
@@ -107,14 +114,20 @@ export function SubmissionsDataTable({
 	currentUserId,
 	onApprove,
 	onReject,
+	onTriggerWorkflow,
+	onBulkTriggerWorkflow,
 	isApproving,
 	isRejecting,
+	isTriggeringWorkflow,
+	isBulkTriggeringWorkflow,
+	workflowUrl,
 }: SubmissionsDataTableProps) {
 	const [sorting, setSorting] = React.useState<SortingState>([])
 	const [expanded, setExpanded] = React.useState<ExpandedState>({})
 	const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
 	const [globalFilter, setGlobalFilter] = React.useState("")
 	const [userFilter, setUserFilter] = React.useState<{ userId: string; displayName: string } | null>(null)
+	const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({})
 
 	// Handle row expansion - only one row can be expanded at a time
 	const handleRowToggle = React.useCallback((rowId: string, isExpanded: boolean) => {
@@ -142,12 +155,50 @@ export function SubmissionsDataTable({
 
 	const columns: ColumnDef<Submission>[] = React.useMemo(
 		() => [
+			...(isAdmin
+				? [
+						{
+							id: "select",
+							header: ({ table }: { table: any }) => {
+								const approvedRows = table.getRowModel().rows.filter((row: any) => row.original.status === "approved")
+								const selectedApprovedCount = approvedRows.filter((row: any) => row.getIsSelected()).length
+								const allApprovedSelected = approvedRows.length > 0 && selectedApprovedCount === approvedRows.length
+
+								return approvedRows.length > 0 ? (
+									<Checkbox
+										checked={allApprovedSelected}
+										onCheckedChange={(value: boolean) => {
+											approvedRows.forEach((row: any) => row.toggleSelected(!!value))
+										}}
+										aria-label="Select all approved"
+										className="translate-y-[2px]"
+									/>
+								) : null
+							},
+							cell: ({ row }: { row: any }) => {
+								const isApproved = row.original.status === "approved"
+								return isApproved ? (
+									<Checkbox
+										checked={row.getIsSelected()}
+										onCheckedChange={(value: boolean) => row.toggleSelected(!!value)}
+										onClick={(e: React.MouseEvent) => e.stopPropagation()}
+										aria-label="Select row"
+										className="translate-y-[2px]"
+									/>
+								) : null
+							},
+							enableSorting: false,
+							enableHiding: false,
+						} as ColumnDef<Submission>,
+					]
+				: []),
 			{
 				id: "expander",
 				header: () => null,
 				cell: ({ row }) => {
 					return (
 						<button
+							type="button"
 							onClick={(e) => {
 								e.stopPropagation()
 								handleRowToggle(row.id, row.getIsExpanded())
@@ -284,7 +335,7 @@ export function SubmissionsDataTable({
 				},
 			},
 		],
-		[handleRowToggle, handleUserFilter, userFilter],
+		[handleRowToggle, handleUserFilter, userFilter, isAdmin],
 	)
 
 	const table = useReactTable({
@@ -298,14 +349,18 @@ export function SubmissionsDataTable({
 		onExpandedChange: setExpanded,
 		onColumnFiltersChange: setColumnFilters,
 		onGlobalFilterChange: setGlobalFilter,
+		onRowSelectionChange: setRowSelection,
+		enableRowSelection: (row) => row.original.status === "approved",
+		getRowId: (row) => row.id,
 		state: {
 			sorting,
 			expanded,
 			columnFilters,
 			globalFilter,
+			rowSelection,
 		},
 		getRowCanExpand: () => true,
-		globalFilterFn: (row, columnId, value) => {
+		globalFilterFn: (row, _columnId, value) => {
 			const searchValue = value.toLowerCase()
 			const name = row.getValue("name") as string
 			const status = row.getValue("status") as string
@@ -320,6 +375,17 @@ export function SubmissionsDataTable({
 			)
 		},
 	})
+
+	const selectedSubmissionIds = React.useMemo(() => {
+		return Object.keys(rowSelection).filter((id) => rowSelection[id])
+	}, [rowSelection])
+
+	const handleBulkTrigger = () => {
+		if (onBulkTriggerWorkflow && selectedSubmissionIds.length > 0) {
+			onBulkTriggerWorkflow(selectedSubmissionIds)
+			setRowSelection({})
+		}
+	}
 
 	return (
 		<div className="space-y-4">
@@ -357,6 +423,34 @@ export function SubmissionsDataTable({
 				)}
 			</div>
 
+			{/* Bulk Actions Toolbar */}
+			{isAdmin && selectedSubmissionIds.length > 0 && (
+				<div className="flex items-center justify-between p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
+					<div className="flex items-center gap-2">
+						<Badge variant="secondary" className="bg-blue-500/20 text-blue-400">
+							{selectedSubmissionIds.length} selected
+						</Badge>
+						<span className="text-sm text-muted-foreground">
+							approved submission{selectedSubmissionIds.length > 1 ? "s" : ""} ready to process
+						</span>
+					</div>
+					<div className="flex items-center gap-2">
+						<Button variant="ghost" size="sm" onClick={() => setRowSelection({})}>
+							Clear selection
+						</Button>
+						<Button
+							size="sm"
+							onClick={handleBulkTrigger}
+							disabled={isBulkTriggeringWorkflow}
+							className="bg-blue-600 hover:bg-blue-700"
+						>
+							<Github className="w-4 h-4 mr-2" />
+							{isBulkTriggeringWorkflow ? "Triggering..." : `Trigger All (${selectedSubmissionIds.length})`}
+						</Button>
+					</div>
+				</div>
+			)}
+
 			{/* Table */}
 			<div className="rounded-md border">
 				<Table>
@@ -377,7 +471,7 @@ export function SubmissionsDataTable({
 						{table.getRowModel().rows?.length ? (
 							(() => {
 								let lastStatus: string | null = null
-								return table.getRowModel().rows.map((row, index) => {
+								return table.getRowModel().rows.map((row, _index) => {
 									const currentStatus = row.original.status
 									const showStatusHeader = currentStatus !== lastStatus
 									lastStatus = currentStatus
@@ -419,8 +513,15 @@ export function SubmissionsDataTable({
 															onUserClick={handleUserFilter}
 															onApprove={row.original.status === "pending" && isAdmin ? () => onApprove(row.original.id) : undefined}
 															onReject={row.original.status === "pending" && isAdmin ? () => onReject(row.original.id) : undefined}
+															onTriggerWorkflow={
+																row.original.status === "approved" && isAdmin && onTriggerWorkflow
+																	? () => onTriggerWorkflow(row.original.id)
+																	: undefined
+															}
 															isApproving={isApproving}
 															isRejecting={isRejecting}
+															isTriggeringWorkflow={isTriggeringWorkflow}
+															workflowUrl={workflowUrl}
 														/>
 													</TableCell>
 												</TableRow>

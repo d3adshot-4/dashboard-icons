@@ -5,8 +5,8 @@ import { Check, FileImage, FileType, Plus, X } from "lucide-react"
 import { useState } from "react"
 import { toast } from "sonner"
 import { revalidateAllSubmissions } from "@/app/actions/submissions"
-import { ExperimentalWarning } from "@/components/experimental-warning"
 import { IconNameCombobox } from "@/components/icon-name-combobox"
+import { IconSubmissionGuidelines } from "@/components/icon-submission-guidelines"
 import {
 	AlertDialog,
 	AlertDialogAction,
@@ -25,6 +25,7 @@ import { Label } from "@/components/ui/label"
 import { MultiSelect, type MultiSelectOption } from "@/components/ui/multi-select"
 import { Dropzone, DropzoneContent, DropzoneEmptyState } from "@/components/ui/shadcn-io/dropzone"
 import { Textarea } from "@/components/ui/textarea"
+import { REPO_PATH } from "@/constants"
 import { useExistingIconNames } from "@/hooks/use-submissions"
 import { pb } from "@/lib/pb"
 
@@ -140,8 +141,8 @@ export function AdvancedIconSubmissionFormTanStack() {
 		try {
 			const assetFiles: File[] = []
 
-			// Add base file
 			if (value.files.base?.[0]) {
+				// Add base file
 				assetFiles.push(value.files.base[0])
 			}
 
@@ -152,8 +153,8 @@ export function AdvancedIconSubmissionFormTanStack() {
 				base: value.files.base[0]?.name.split(".").pop() || "svg",
 			}
 
-			// Add color variants if present
 			if (value.files.dark?.[0] || value.files.light?.[0]) {
+				// Add color variants if present
 				extras.colors = {}
 				if (value.files.dark?.[0]) {
 					extras.colors.dark = value.files.dark[0].name
@@ -165,8 +166,8 @@ export function AdvancedIconSubmissionFormTanStack() {
 				}
 			}
 
-			// Add wordmark variants if present
 			if (value.files.wordmark?.[0] || value.files.wordmark_dark?.[0]) {
+				// Add wordmark variants if present
 				extras.wordmark = {}
 				if (value.files.wordmark?.[0]) {
 					extras.wordmark.light = value.files.wordmark[0].name
@@ -182,12 +183,47 @@ export function AdvancedIconSubmissionFormTanStack() {
 			const submissionData = {
 				name: value.iconName,
 				assets: assetFiles,
-				created_by: pb.authStore.model?.id,
+				created_by: pb.authStore.record?.id,
 				status: "pending",
+				description: value.description,
 				extras: extras,
 			}
 
-			await pb.collection("submissions").create(submissionData)
+			const record = await pb.collection("submissions").create(submissionData)
+
+			if (record.assets && record.assets.length > 0) {
+				// Update extras with real filenames from PocketBase response
+				// PocketBase sanitizes and renames files, so we need to update our references
+				const updatedExtras = JSON.parse(JSON.stringify(extras))
+				let assetIndex = 0
+
+				// Skip base icon (first asset) as we track it by 'base' format string only
+				assetIndex++
+
+				if (value.files.dark?.[0] && updatedExtras.colors) {
+					updatedExtras.colors.dark = record.assets[assetIndex]
+					assetIndex++
+				}
+
+				if (value.files.light?.[0] && updatedExtras.colors) {
+					updatedExtras.colors.light = record.assets[assetIndex]
+					assetIndex++
+				}
+
+				if (value.files.wordmark?.[0] && updatedExtras.wordmark) {
+					updatedExtras.wordmark.light = record.assets[assetIndex]
+					assetIndex++
+				}
+
+				if (value.files.wordmark_dark?.[0] && updatedExtras.wordmark) {
+					updatedExtras.wordmark.dark = record.assets[assetIndex]
+					assetIndex++
+				}
+
+				await pb.collection("submissions").update(record.id, {
+					extras: updatedExtras,
+				})
+			}
 
 			// Revalidate Next.js cache for community pages
 			await revalidateAllSubmissions()
@@ -291,15 +327,19 @@ export function AdvancedIconSubmissionFormTanStack() {
 
 	return (
 		<div className="max-w-4xl mx-auto">
-			<ExperimentalWarning message="This icon submission form is currently in an experimentation phase. Submissions will not be reviewed or processed at this time. We're gathering feedback to improve the experience." />
 
 			<AlertDialog open={showConfirmDialog} onOpenChange={setShowConfirmDialog}>
-				<AlertDialogContent>
+				<AlertDialogContent className="bg-background">
 					<AlertDialogHeader>
 						<AlertDialogTitle>Confirm Submission</AlertDialogTitle>
 						<AlertDialogDescription>
-							This icon submission form is a work-in-progress and is currently in an experimentation phase. Your submission will not be
-							reviewed or processed at this time. We're using this to gather feedback and improve the experience.
+							This icon submission form is a work-in-progress and is currently in an experimentation phase. If you want a faster review,
+							please submit your icon to the dashboard icons{" "}
+							<a href={REPO_PATH} target="_blank">
+								{" "}
+								github repository{" "}
+							</a>{" "}
+							instead.
 							<br />
 							<br />
 							Do you still want to proceed with submitting your icon?
@@ -366,7 +406,12 @@ export function AdvancedIconSubmissionFormTanStack() {
 
 						{/* Icon Preview Section */}
 						{Object.keys(filePreviews).length > 0 && (
-							<form.Subscribe selector={(state) => ({ iconName: state.values.iconName, categories: state.values.categories })}>
+							<form.Subscribe
+								selector={(state) => ({
+									iconName: state.values.iconName,
+									categories: state.values.categories,
+								})}
+							>
 								{(state) => (
 									<div className="space-y-4">
 										<div>
@@ -397,6 +442,8 @@ export function AdvancedIconSubmissionFormTanStack() {
 								<h3 className="text-lg font-semibold mb-1">Icon Variants</h3>
 								<p className="text-sm text-muted-foreground">Select which variants you want to upload</p>
 							</div>
+
+							<IconSubmissionGuidelines />
 
 							<form.Field name="selectedVariants">
 								{(field) => (

@@ -50,12 +50,12 @@ export function IconSearch({ icons }: IconSearchProps) {
 		return () => clearTimeout(timer)
 	}, [searchQuery])
 
-	// Extract all unique categories
+	// Extract all unique categories (normalized to lowercase)
 	const allCategories = useMemo(() => {
 		const categories = new Set<string>()
 		for (const icon of icons) {
 			for (const category of icon.data.categories) {
-				categories.add(category)
+				categories.add(category.toLowerCase())
 			}
 		}
 		return Array.from(categories).sort()
@@ -127,14 +127,15 @@ export function IconSearch({ icons }: IconSearchProps) {
 
 	const handleCategoryChange = useCallback(
 		(category: string) => {
+			const normalizedCategory = category.toLowerCase()
 			let newCategories: string[]
 
-			if (selectedCategories.includes(category)) {
-				// Remove the category if it's already selected
-				newCategories = selectedCategories.filter((c) => c !== category)
+			if (selectedCategories.some((c) => c.toLowerCase() === normalizedCategory)) {
+				// Remove the category if it's already selected (case-insensitive)
+				newCategories = selectedCategories.filter((c) => c.toLowerCase() !== normalizedCategory)
 			} else {
 				// Add the category if it's not selected
-				newCategories = [...selectedCategories, category]
+				newCategories = [...selectedCategories, normalizedCategory]
 			}
 
 			setSelectedCategories(newCategories)
@@ -266,7 +267,7 @@ export function IconSearch({ icons }: IconSearchProps) {
 								{allCategories.map((category) => (
 									<DropdownMenuCheckboxItem
 										key={category}
-										checked={selectedCategories.includes(category)}
+										checked={selectedCategories.some((c) => c.toLowerCase() === category.toLowerCase())}
 										onCheckedChange={() => handleCategoryChange(category)}
 										className="cursor-pointer capitalize"
 									>
@@ -380,27 +381,6 @@ export function IconSearch({ icons }: IconSearchProps) {
 						{/** biome-ignore lint/correctness/useUniqueElementIds: I want the ID to be fixed */}
 						<div id="icon-submission-content" className="w-full">
 							<IconSubmissionContent />
-						</div>
-						<div className="mt-4 flex flex-col sm:flex-row items-center gap-2 justify-center w-full">
-							<span className="text-sm text-muted-foreground">Can't submit it yourself?</span>
-							<Button
-								className="cursor-pointer w-full sm:w-auto truncate whitespace-nowrap"
-								variant="outline"
-								size="sm"
-								onClick={() => {
-									setIsLazyRequestSubmitted(true)
-									toast("Request received!", {
-										description: `We've noted your request for "${searchQuery || "this icon"}". Thanks for your suggestion.`,
-									})
-									posthog.capture("lazy icon request", {
-										query: searchQuery,
-										categories: selectedCategories,
-									})
-								}}
-								disabled={isLazyRequestSubmitted}
-							>
-								Request this icon
-							</Button>
 						</div>
 					</div>
 				</div>

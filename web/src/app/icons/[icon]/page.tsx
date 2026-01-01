@@ -3,7 +3,6 @@ import { notFound } from "next/navigation"
 import { IconDetails } from "@/components/icon-details"
 import { BASE_URL, WEB_URL } from "@/constants"
 import { getAllIcons, getAuthorData } from "@/lib/api"
-import { AuthorData } from "@/types"
 
 export const dynamicParams = false
 export const revalidate = false
@@ -27,7 +26,8 @@ export async function generateMetadata({ params, searchParams }: Props, _parent:
 	if (!iconsData[icon]) {
 		notFound()
 	}
-	const authorData = await getAuthorData(iconsData[icon].update.author.id)
+	const author = iconsData[icon].update.author
+	const authorData = await getAuthorData(author.id, { name: author.name, login: author.login })
 	const authorName = authorData.name || authorData.login
 	const updateDate = new Date(iconsData[icon].update.timestamp)
 	const totalIcons = Object.keys(iconsData).length
@@ -39,7 +39,6 @@ export async function generateMetadata({ params, searchParams }: Props, _parent:
 		.split("-")
 		.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
 		.join(" ")
-
 	return {
 		title: `${formattedIconName} Icon | Dashboard Icons`,
 		description: `Download the ${formattedIconName} icon in SVG, PNG, and WEBP formats for FREE. Part of a collection of ${totalIcons} curated icons for services, applications and tools, designed specifically for dashboards and app directories.`,
@@ -78,6 +77,7 @@ export async function generateMetadata({ params, searchParams }: Props, _parent:
 			type: "website",
 			url: pageUrl,
 			siteName: "Dashboard Icons",
+			locale: "en_US",
 			images: [
 				{
 					url: `${BASE_URL}/png/${icon}.png`,
@@ -128,7 +128,8 @@ export default async function IconPage({ params }: { params: Promise<{ icon: str
 		notFound()
 	}
 
-	const authorData = await getAuthorData(originalIconData.update.author.id)
+	const author = originalIconData.update.author
+	const authorData = await getAuthorData(author.id, { name: author.name, login: author.login })
 
 	return (
 		<>

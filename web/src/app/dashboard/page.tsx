@@ -1,13 +1,16 @@
 "use client"
 
 import { AlertCircle, RefreshCw } from "lucide-react"
-import { ExperimentalWarning } from "@/components/experimental-warning"
+import * as React from "react"
 import { SubmissionsDataTable } from "@/components/submissions-data-table"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Label } from "@/components/ui/label"
 import { Skeleton } from "@/components/ui/skeleton"
-import { useApproveSubmission, useAuth, useRejectSubmission, useSubmissions } from "@/hooks/use-submissions"
+import { Textarea } from "@/components/ui/textarea"
+import { useApproveSubmission, useAuth, useBulkTriggerWorkflow, useRejectSubmission, useSubmissions, useTriggerWorkflow } from "@/hooks/use-submissions"
 
 export default function DashboardPage() {
 	// Fetch auth status
@@ -19,6 +22,16 @@ export default function DashboardPage() {
 	// Mutations
 	const approveMutation = useApproveSubmission()
 	const rejectMutation = useRejectSubmission()
+	const workflowMutation = useTriggerWorkflow()
+	const bulkWorkflowMutation = useBulkTriggerWorkflow()
+
+	// Track workflow URL for showing link after trigger
+	const [workflowUrl, setWorkflowUrl] = React.useState<string | undefined>()
+
+	// Rejection dialog state
+	const [rejectDialogOpen, setRejectDialogOpen] = React.useState(false)
+	const [rejectingSubmissionId, setRejectingSubmissionId] = React.useState<string | null>(null)
+	const [adminComment, setAdminComment] = React.useState("")
 
 	const isLoading = authLoading || submissionsLoading
 	const isAuthenticated = auth?.isAuthenticated ?? false
@@ -30,7 +43,55 @@ export default function DashboardPage() {
 	}
 
 	const handleReject = (submissionId: string) => {
-		rejectMutation.mutate(submissionId)
+		setRejectingSubmissionId(submissionId)
+		setAdminComment("")
+		setRejectDialogOpen(true)
+	}
+
+	const handleTriggerWorkflow = (submissionId: string) => {
+		workflowMutation.mutate(
+			{ submissionId },
+			{
+				onSuccess: (data) => {
+					setWorkflowUrl(data.workflowUrl)
+				},
+			},
+		)
+	}
+
+	const handleBulkTriggerWorkflow = (submissionIds: string[]) => {
+		bulkWorkflowMutation.mutate(
+			{ submissionIds },
+			{
+				onSuccess: (data) => {
+					setWorkflowUrl(data.workflowUrl)
+				},
+			},
+		)
+	}
+
+	const handleRejectSubmit = () => {
+		if (rejectingSubmissionId) {
+			rejectMutation.mutate(
+				{
+					submissionId: rejectingSubmissionId,
+					adminComment: adminComment.trim() || undefined,
+				},
+				{
+					onSuccess: () => {
+						setRejectDialogOpen(false)
+						setRejectingSubmissionId(null)
+						setAdminComment("")
+					},
+				},
+			)
+		}
+	}
+
+	const handleRejectDialogClose = () => {
+		setRejectDialogOpen(false)
+		setRejectingSubmissionId(null)
+		setAdminComment("")
 	}
 
 	// Not authenticated
@@ -104,29 +165,66 @@ export default function DashboardPage() {
 
 	// Success state
 	return (
-		<main className="container mx-auto pt-12 pb-14 px-4 sm:px-6 lg:px-8">
-			<ExperimentalWarning message="The submissions dashboard is currently in an experimentation phase. Submissions will not be reviewed or processed at this time. We're gathering feedback to improve the experience." />
-			<Card className="bg-background/50 border-none shadow-lg">
-				<CardHeader>
-					<CardTitle>Submissions Dashboard</CardTitle>
-					<CardDescription>
-						{isAdmin
-							? "Review and manage all icon submissions. Click on a row to see details."
-							: "View your icon submissions and track their status."}
-					</CardDescription>
-				</CardHeader>
-				<CardContent>
-					<SubmissionsDataTable
-						data={submissions}
-						isAdmin={isAdmin}
-						currentUserId={currentUserId}
-						onApprove={handleApprove}
-						onReject={handleReject}
-						isApproving={approveMutation.isPending}
-						isRejecting={rejectMutation.isPending}
-					/>
-				</CardContent>
-			</Card>
-		</main>
+		<>
+			<main className="container mx-auto pt-12 pb-14 px-4 sm:px-6 lg:px-8">
+				<Card className="bg-background/50 border-none shadow-lg">
+					<CardHeader>
+						<CardTitle>Submissions Dashboard</CardTitle>
+						<CardDescription>
+							{isAdmin
+								? "Review and manage all icon submissions. Click on a row to see details."
+								: "View your icon submissions and track their status."}
+						</CardDescription>
+					</CardHeader>
+					<CardContent>
+						<SubmissionsDataTable
+							data={submissions}
+							isAdmin={isAdmin}
+							currentUserId={currentUserId}
+							onApprove={handleApprove}
+							onReject={handleReject}
+							onTriggerWorkflow={handleTriggerWorkflow}
+							onBulkTriggerWorkflow={handleBulkTriggerWorkflow}
+							isApproving={approveMutation.isPending}
+							isRejecting={rejectMutation.isPending}
+							isTriggeringWorkflow={workflowMutation.isPending}
+							isBulkTriggeringWorkflow={bulkWorkflowMutation.isPending}
+							workflowUrl={workflowUrl}
+						/>
+					</CardContent>
+				</Card>
+			</main>
+
+			<Dialog open={rejectDialogOpen} onOpenChange={handleRejectDialogClose}>
+				<DialogContent>
+					<DialogHeader>
+						<DialogTitle>Reject Submission</DialogTitle>
+						<DialogDescription>
+							Please provide a reason for rejecting this submission. This comment will be visible to the submitter.
+						</DialogDescription>
+					</DialogHeader>
+					<div className="space-y-4 py-4">
+						<div className="space-y-2">
+							<Label htmlFor="admin-comment">Admin Comment</Label>
+							<Textarea
+								id="admin-comment"
+								placeholder="Enter rejection reason..."
+								value={adminComment}
+								onChange={(e) => setAdminComment(e.target.value)}
+								rows={4}
+							/>
+						</div>
+					</div>
+					<DialogFooter>
+						<Button variant="outline" onClick={handleRejectDialogClose} disabled={rejectMutation.isPending}>
+							Cancel
+						</Button>
+						<Button variant="destructive" onClick={handleRejectSubmit} disabled={rejectMutation.isPending}>
+							{rejectMutation.isPending ? "Rejecting..." : "Reject Submission"}
+						</Button>
+					</DialogFooter>
+				</DialogContent>
+			</Dialog>
+		</>
 	)
 }

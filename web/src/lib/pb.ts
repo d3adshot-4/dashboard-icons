@@ -36,14 +36,19 @@ export interface Submission {
 	}
 	created: string
 	updated: string
+	admin_comment: string
+	description: string
 }
 
 export interface CommunityGallery {
 	id: string
 	name: string
 	created_by: string
+	approved_by?: string
+	description?: string
 	status: "approved" | "rejected" | "pending" | "added_to_collection"
 	assets: string[]
+	admin_comment?: string
 	created: string
 	updated: string
 	extras: {

@@ -1402,6 +1402,20 @@
             "dark": "ollama-dark"
         }
     },
+    "upwork": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Organization"
+        ],
+        "update": {
+            "timestamp": "2025-11-23T16:00:48.669241",
+            "author": {
+                "id": 188760757,
+                "login": "itzh4r5h"
+            }
+        }
+    },
     "cosmos-cloud": {
         "base": "png",
         "aliases": [],
@@ -1810,6 +1824,23 @@
             "author": {
                 "id": 181640218,
                 "login": "codenibler"
+            }
+        }
+    },
+    "notediscovery": {
+        "base": "svg",
+        "aliases": [
+            "note-discovery",
+            "Note Discovery"
+        ],
+        "categories": [
+            "Organization"
+        ],
+        "update": {
+            "timestamp": "2025-12-20T17:44:42.763345",
+            "author": {
+                "id": 9968384,
+                "login": "gamosoft"
             }
         }
     },
@@ -2425,6 +2456,18 @@
             }
         }
     },
+    "hestia": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-12-20T18:04:14.646366",
+            "author": {
+                "id": 88500078,
+                "login": "OEncouracado"
+            }
+        }
+    },
     "todoist": {
         "base": "svg",
         "aliases": [],
@@ -2570,6 +2613,23 @@
             "author": {
                 "id": 71191962,
                 "name": "walkxcode"
+            }
+        }
+    },
+    "audora": {
+        "base": "svg",
+        "aliases": [
+            "audora",
+            "music"
+        ],
+        "categories": [
+            "Music"
+        ],
+        "update": {
+            "timestamp": "2025-12-07T15:44:34.070457",
+            "author": {
+                "id": 105375708,
+                "login": "priyanshuwq"
             }
         }
     },
@@ -2757,6 +2817,20 @@
             }
         }
     },
+    "filaman": {
+        "base": "png",
+        "aliases": [],
+        "categories": [
+            "Organization"
+        ],
+        "update": {
+            "timestamp": "2025-12-20T17:09:03.612591",
+            "author": {
+                "id": 24246957,
+                "login": "WWE-Corey"
+            }
+        }
+    },
     "playstation": {
         "base": "svg",
         "aliases": [],
@@ -2928,6 +3002,22 @@
             "light": "openemr-light"
         }
     },
+    "verriflo": {
+        "base": "svg",
+        "aliases": [
+            "verriflo-live"
+        ],
+        "categories": [
+            "Development"
+        ],
+        "update": {
+            "timestamp": "2025-12-07T15:58:36.419896",
+            "author": {
+                "id": 79579459,
+                "login": "sadiq-farhan"
+            }
+        }
+    },
     "chainguard": {
         "base": "svg",
         "aliases": [],
@@ -3087,6 +3177,20 @@
             }
         }
     },
+    "ksuite": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Cloud"
+        ],
+        "update": {
+            "timestamp": "2025-11-25T05:46:13.207943",
+            "author": {
+                "id": 34504819,
+                "login": "fucnim17"
+            }
+        }
+    },
     "tipi": {
         "base": "png",
         "aliases": [
@@ -3113,6 +3217,24 @@
                 "id": 198079232,
                 "login": "ersterDetektiv"
             }
+        }
+    },
+    "verdaccio": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Development"
+        ],
+        "update": {
+            "timestamp": "2025-12-07T15:29:23.199348",
+            "author": {
+                "id": 3270607,
+                "login": "moseslecce"
+            }
+        },
+        "colors": {
+            "light": "verdaccio",
+            "dark": "verdaccio-dark"
         }
     },
     "i2pd": {
@@ -4051,6 +4173,20 @@
             "author": {
                 "id": 104462012,
                 "login": "Deufel"
+            }
+        }
+    },
+    "posteria": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Media"
+        ],
+        "update": {
+            "timestamp": "2025-12-07T15:37:12.425409",
+            "author": {
+                "id": 67336980,
+                "login": "Droppisalt"
             }
         }
     },
@@ -5118,10 +5254,10 @@
             "Development"
         ],
         "update": {
-            "timestamp": "2025-07-02T20:59:19.549576",
+            "timestamp": "2025-12-07T16:08:39.557318",
             "author": {
-                "id": 88517757,
-                "login": "LukeGus"
+                "id": 46083123,
+                "login": "PCiunkiewicz"
             }
         }
     },
@@ -5221,6 +5357,20 @@
         "colors": {
             "light": "binner",
             "dark": "binner-dark"
+        }
+    },
+    "anime-kai": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Streaming"
+        ],
+        "update": {
+            "timestamp": "2025-11-25T06:09:03.822061",
+            "author": {
+                "id": 173467191,
+                "login": "Dikshith-Manjunath"
+            }
         }
     },
     "shoko-server": {
@@ -5564,6 +5714,24 @@
             }
         }
     },
+    "springboot-initializer": {
+        "base": "svg",
+        "aliases": [
+            "spring",
+            "springboot",
+            "initializer"
+        ],
+        "categories": [
+            "Development"
+        ],
+        "update": {
+            "timestamp": "2025-11-23T09:39:19.907952",
+            "author": {
+                "id": 34664839,
+                "login": "mohsabkha"
+            }
+        }
+    },
     "sphinx-relay": {
         "base": "svg",
         "aliases": [],
@@ -5778,6 +5946,18 @@
             "light": "zitadel-light"
         }
     },
+    "scanopy": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-12-20T17:54:23.083032",
+            "author": {
+                "id": 120260648,
+                "login": "mayanayza"
+            }
+        }
+    },
     "ipboard": {
         "base": "svg",
         "aliases": [],
@@ -5818,6 +5998,22 @@
         "colors": {
             "light": "leetcode",
             "dark": "leetcode-dark"
+        }
+    },
+    "keeper-security": {
+        "base": "svg",
+        "aliases": [
+            "keeper"
+        ],
+        "categories": [
+            "Security"
+        ],
+        "update": {
+            "timestamp": "2025-12-20T17:05:32.938673",
+            "author": {
+                "id": 2262308,
+                "login": "theFuribundi"
+            }
         }
     },
     "element": {
@@ -6037,6 +6233,22 @@
             "author": {
                 "id": 4167222,
                 "name": "Roundaround"
+            }
+        }
+    },
+    "hi-anime": {
+        "base": "svg",
+        "aliases": [
+            "hianime.to"
+        ],
+        "categories": [
+            "Streaming"
+        ],
+        "update": {
+            "timestamp": "2025-11-25T06:10:39.842366",
+            "author": {
+                "id": 173467191,
+                "login": "Dikshith-Manjunath"
             }
         }
     },
@@ -6845,6 +7057,18 @@
             }
         }
     },
+    "fmd": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-11-23T16:17:59.890776",
+            "author": {
+                "id": 67658465,
+                "login": "zuble"
+            }
+        }
+    },
     "teamtailor": {
         "base": "svg",
         "aliases": [],
@@ -7339,6 +7563,20 @@
             "light": "haptic-light"
         }
     },
+    "cloudreve": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "File"
+        ],
+        "update": {
+            "timestamp": "2025-11-25T05:31:17.093531",
+            "author": {
+                "id": 1967616,
+                "login": "stormtroopercs"
+            }
+        }
+    },
     "home-assistant-alt": {
         "base": "svg",
         "aliases": [
@@ -7398,6 +7636,24 @@
             }
         }
     },
+    "github-copilot": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Development"
+        ],
+        "update": {
+            "timestamp": "2025-12-20T17:42:07.195000",
+            "author": {
+                "id": 17213165,
+                "login": "marshalhayes"
+            }
+        },
+        "colors": {
+            "light": "github-copilot",
+            "dark": "github-copilot-dark"
+        }
+    },
     "zomro": {
         "base": "svg",
         "aliases": [],
@@ -7455,6 +7711,18 @@
             }
         }
     },
+    "patchmon": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-11-25T05:35:31.362090",
+            "author": {
+                "id": 85904361,
+                "login": "laparkaone"
+            }
+        }
+    },
     "arch-linux": {
         "base": "svg",
         "aliases": [],
@@ -7498,6 +7766,20 @@
         "colors": {
             "dark": "ryot",
             "light": "ryot-light"
+        }
+    },
+    "zellij": {
+        "base": "png",
+        "aliases": [],
+        "categories": [
+            "Development"
+        ],
+        "update": {
+            "timestamp": "2025-12-20T18:01:00.159158",
+            "author": {
+                "id": 3502902,
+                "login": "mattrayner"
+            }
         }
     },
     "harvester": {
@@ -7663,6 +7945,23 @@
             }
         }
     },
+    "anghami": {
+        "base": "png",
+        "aliases": [
+            "music",
+            "arabic"
+        ],
+        "categories": [
+            "Music"
+        ],
+        "update": {
+            "timestamp": "2025-11-23T16:03:48.272512",
+            "author": {
+                "id": 153842391,
+                "login": "A55AF"
+            }
+        }
+    },
     "ovirt": {
         "base": "svg",
         "aliases": [],
@@ -7787,6 +8086,18 @@
             "author": {
                 "id": 63781622,
                 "login": "Meierschlumpf"
+            }
+        }
+    },
+    "checkmate": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-11-25T06:27:04.571189",
+            "author": {
+                "id": 155592283,
+                "login": "beltzak"
             }
         }
     },
@@ -8177,6 +8488,20 @@
             }
         }
     },
+    "notion-mail": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Communication"
+        ],
+        "update": {
+            "timestamp": "2025-11-23T09:37:16.950910",
+            "author": {
+                "id": 198173282,
+                "login": "HamzaHeikal2011"
+            }
+        }
+    },
     "nixos": {
         "base": "svg",
         "aliases": [],
@@ -8216,6 +8541,24 @@
                 "id": 72495210,
                 "name": "v3DJG6GL"
             }
+        }
+    },
+    "tududi": {
+        "base": "png",
+        "aliases": [],
+        "categories": [
+            "Organization"
+        ],
+        "update": {
+            "timestamp": "2025-12-20T17:51:04.091034",
+            "author": {
+                "id": 3957092,
+                "login": "mxdevmanuel"
+            }
+        },
+        "colors": {
+            "light": "tududi",
+            "dark": "tududi-dark"
         }
     },
     "etcd": {
@@ -8480,6 +8823,20 @@
             }
         }
     },
+    "tracearr": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Media"
+        ],
+        "update": {
+            "timestamp": "2025-12-20T17:58:49.047941",
+            "author": {
+                "id": 10216384,
+                "login": "memesalot"
+            }
+        }
+    },
     "photostructure": {
         "base": "svg",
         "aliases": [],
@@ -8524,6 +8881,24 @@
                 "id": 71191962,
                 "name": "walkxcode"
             }
+        }
+    },
+    "sourcebot": {
+        "base": "png",
+        "aliases": [],
+        "categories": [
+            "Development"
+        ],
+        "update": {
+            "timestamp": "2025-12-20T16:47:15.502898",
+            "author": {
+                "id": 12487569,
+                "login": "xPartyBear"
+            }
+        },
+        "colors": {
+            "light": "sourcebot",
+            "dark": "sourcebot-dark"
         }
     },
     "openldap": {
@@ -9217,6 +9592,20 @@
             "author": {
                 "id": 412615,
                 "login": "johanekhager"
+            }
+        }
+    },
+    "advanzia": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Finance"
+        ],
+        "update": {
+            "timestamp": "2025-11-25T05:50:49.734299",
+            "author": {
+                "id": 34504819,
+                "login": "fucnim17"
             }
         }
     },
@@ -10096,6 +10485,20 @@
             }
         }
     },
+    "flowtunes": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Music"
+        ],
+        "update": {
+            "timestamp": "2025-11-23T08:32:29.649733",
+            "author": {
+                "id": 94133410,
+                "login": "Nanjiifr"
+            }
+        }
+    },
     "barcodebuddy": {
         "base": "png",
         "aliases": [],
@@ -10265,6 +10668,18 @@
             "author": {
                 "id": 71191962,
                 "name": "walkxcode"
+            }
+        }
+    },
+    "nextexplorer": {
+        "base": "png",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-12-20T17:12:16.378520",
+            "author": {
+                "id": 949587,
+                "login": "janreinhardt"
             }
         }
     },
@@ -10706,6 +11121,20 @@
             }
         }
     },
+    "wishlist": {
+        "base": "png",
+        "aliases": [],
+        "categories": [
+            "Organization"
+        ],
+        "update": {
+            "timestamp": "2025-12-07T15:13:56.157850",
+            "author": {
+                "id": 3504607,
+                "login": "TeddOravec"
+            }
+        }
+    },
     "organizr": {
         "base": "png",
         "aliases": [
@@ -10868,6 +11297,26 @@
                 "id": 71191962,
                 "name": "walkxcode"
             }
+        }
+    },
+    "title-card-maker": {
+        "base": "svg",
+        "aliases": [
+            "tcm"
+        ],
+        "categories": [
+            "Media"
+        ],
+        "update": {
+            "timestamp": "2025-12-07T15:35:31.092558",
+            "author": {
+                "id": 67336980,
+                "login": "Droppisalt"
+            }
+        },
+        "colors": {
+            "light": "title-card-maker",
+            "dark": "title-card-maker-dark"
         }
     },
     "counter-strike-2": {
@@ -11236,6 +11685,18 @@
             }
         }
     },
+    "zerobyte": {
+        "base": "png",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-12-21T10:17:34.269535",
+            "author": {
+                "id": 949587,
+                "login": "janreinhardt"
+            }
+        }
+    },
     "axis": {
         "base": "svg",
         "aliases": [
@@ -11330,6 +11791,24 @@
             }
         }
     },
+    "pepperbox-tv": {
+        "base": "svg",
+        "aliases": [
+            "pepperbox"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-12-07T15:18:42.205790",
+            "author": {
+                "id": 243823654,
+                "login": "Dusty1-1"
+            }
+        },
+        "colors": {
+            "light": "pepperbox-tv",
+            "dark": "pepperbox-tv-dark"
+        }
+    },
     "assetgrid": {
         "base": "png",
         "aliases": [
@@ -11388,6 +11867,23 @@
         "colors": {
             "dark": "devtooly",
             "light": "devtooly-light"
+        }
+    },
+    "tiny-media-manager": {
+        "base": "svg",
+        "aliases": [
+            "tmm"
+        ],
+        "categories": [
+            "Video",
+            "Media"
+        ],
+        "update": {
+            "timestamp": "2025-11-23T08:30:53.857111",
+            "author": {
+                "id": 38686640,
+                "login": "Antroxin"
+            }
         }
     },
     "netbootxyz": {
@@ -11764,6 +12260,23 @@
             }
         }
     },
+    "itau": {
+        "base": "png",
+        "aliases": [
+            "banco-itau",
+            "itau-unibanco"
+        ],
+        "categories": [
+            "Finance"
+        ],
+        "update": {
+            "timestamp": "2025-11-25T06:13:45.007753",
+            "author": {
+                "id": 33139500,
+                "login": "barcellos-pedro"
+            }
+        }
+    },
     "immich-public-proxy": {
         "base": "svg",
         "aliases": [],
@@ -12110,6 +12623,18 @@
             }
         }
     },
+    "ai-on-the-edge-device": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-11-25T06:28:32.170473",
+            "author": {
+                "id": 1585718,
+                "login": "wolfg1969"
+            }
+        }
+    },
     "hugging-face": {
         "base": "svg",
         "aliases": [
@@ -12340,6 +12865,20 @@
             "author": {
                 "id": 139988055,
                 "login": "prathamngundikere"
+            }
+        }
+    },
+    "open-wb": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Hardware"
+        ],
+        "update": {
+            "timestamp": "2025-11-23T09:23:37.090978",
+            "author": {
+                "id": 179207303,
+                "login": "Burn0ut2020"
             }
         }
     },
@@ -12687,6 +13226,20 @@
             "author": {
                 "id": 71191962,
                 "name": "walkxcode"
+            }
+        }
+    },
+    "infinite-craft": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Gaming"
+        ],
+        "update": {
+            "timestamp": "2025-11-23T21:09:57.858803",
+            "author": {
+                "id": 245531535,
+                "login": "hencohere"
             }
         }
     },
@@ -13693,6 +14246,20 @@
             }
         }
     },
+    "lockheed-martin": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Organization"
+        ],
+        "update": {
+            "timestamp": "2025-12-20T17:00:04.279455",
+            "author": {
+                "id": 173467191,
+                "login": "Dikshith-Manjunath"
+            }
+        }
+    },
     "jdownloader": {
         "base": "png",
         "aliases": [],
@@ -13702,6 +14269,18 @@
             "author": {
                 "id": 71191962,
                 "name": "walkxcode"
+            }
+        }
+    },
+    "pve-scripts-local": {
+        "base": "png",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-11-25T05:33:15.802035",
+            "author": {
+                "id": 37941392,
+                "login": "VenomousRage"
             }
         }
     },
@@ -13812,6 +14391,22 @@
         "colors": {
             "dark": "dillinger",
             "light": "dillinger-light"
+        }
+    },
+    "networking-toolbox": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-11-23T09:19:23.365073",
+            "author": {
+                "id": 4215150,
+                "login": "tsunulukai"
+            }
+        },
+        "colors": {
+            "light": "networking-toolbox",
+            "dark": "networking-toolbox-dark"
         }
     },
     "phpmyadmin": {
@@ -13933,6 +14528,24 @@
                 "id": 71191962,
                 "name": "walkxcode"
             }
+        }
+    },
+    "endel": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Health"
+        ],
+        "update": {
+            "timestamp": "2025-12-12T09:44:25.156388",
+            "author": {
+                "id": 3502902,
+                "login": "mattrayner"
+            }
+        },
+        "colors": {
+            "light": "endel",
+            "dark": "endel-dark"
         }
     },
     "synology-video-station": {
@@ -14128,6 +14741,18 @@
             }
         }
     },
+    "boeing": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-12-20T17:02:29.256834",
+            "author": {
+                "id": 173467191,
+                "login": "Dikshith-Manjunath"
+            }
+        }
+    },
     "eblocker": {
         "base": "svg",
         "aliases": [
@@ -14316,6 +14941,20 @@
         "colors": {
             "dark": "cloud9",
             "light": "cloud9-light"
+        }
+    },
+    "zalo": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Communication"
+        ],
+        "update": {
+            "timestamp": "2025-11-23T16:07:34.114844",
+            "author": {
+                "id": 86454191,
+                "login": "TheDeepVoid"
+            }
         }
     },
     "peertube": {
@@ -14708,6 +15347,20 @@
             "author": {
                 "id": 71191962,
                 "name": "walkxcode"
+            }
+        }
+    },
+    "blender": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Development"
+        ],
+        "update": {
+            "timestamp": "2025-12-07T16:05:07.217137",
+            "author": {
+                "id": 514903,
+                "login": "fnuecke"
             }
         }
     },
@@ -15409,6 +16062,23 @@
             }
         }
     },
+    "bunny": {
+        "base": "svg",
+        "aliases": [
+            "bunny-net",
+            "bunny-cdn"
+        ],
+        "categories": [
+            "Animal"
+        ],
+        "update": {
+            "timestamp": "2025-11-23T08:27:44.183943",
+            "author": {
+                "id": 7747985,
+                "login": "yeenbean"
+            }
+        }
+    },
     "oauth2-proxy": {
         "base": "svg",
         "aliases": [
@@ -16054,6 +16724,23 @@
             }
         }
     },
+    "vue-js": {
+        "base": "svg",
+        "aliases": [
+            "vue",
+            "vuejs"
+        ],
+        "categories": [
+            "Development"
+        ],
+        "update": {
+            "timestamp": "2025-12-07T16:13:39.183811",
+            "author": {
+                "id": 101410098,
+                "login": "juronja"
+            }
+        }
+    },
     "crowdin": {
         "base": "svg",
         "aliases": [],
@@ -16424,6 +17111,20 @@
             }
         }
     },
+    "proxmenu": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Hardware"
+        ],
+        "update": {
+            "timestamp": "2025-12-20T16:27:08.498534",
+            "author": {
+                "id": 65628838,
+                "login": "Tekonsite"
+            }
+        }
+    },
     "nagios": {
         "base": "svg",
         "aliases": [],
@@ -16532,6 +17233,18 @@
             "author": {
                 "id": 71191962,
                 "name": "walkxcode"
+            }
+        }
+    },
+    "mail-archiver": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-12-20T16:49:00.989369",
+            "author": {
+                "id": 48109134,
+                "login": "jdcool00"
             }
         }
     },
@@ -17038,6 +17751,18 @@
             "light": "zyxel-communications-light"
         }
     },
+    "netronome": {
+        "base": "png",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-12-20T17:04:00.792021",
+            "author": {
+                "id": 188731162,
+                "login": "4dg11a"
+            }
+        }
+    },
     "floorp": {
         "base": "svg",
         "aliases": [],
@@ -17115,6 +17840,20 @@
             "author": {
                 "id": 71191962,
                 "name": "walkxcode"
+            }
+        }
+    },
+    "diners-club": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Finance"
+        ],
+        "update": {
+            "timestamp": "2025-11-25T05:48:13.330312",
+            "author": {
+                "id": 34504819,
+                "login": "fucnim17"
             }
         }
     },
@@ -17218,6 +17957,18 @@
             "light": "matter-light"
         }
     },
+    "swingmusic": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-12-07T15:41:37.117431",
+            "author": {
+                "id": 92895537,
+                "login": "MattD8957"
+            }
+        }
+    },
     "mosquitto": {
         "base": "svg",
         "aliases": [
@@ -17283,7 +18034,7 @@
         "base": "svg",
         "aliases": [],
         "categories": [
-            "Networking Tools"
+            "Networking-Tools"
         ],
         "update": {
             "timestamp": "2025-05-13T16:25:16.880205",
@@ -17720,6 +18471,24 @@
             "light": "1password"
         }
     },
+    "mubi": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Media"
+        ],
+        "update": {
+            "timestamp": "2025-12-20T17:33:43.936912",
+            "author": {
+                "id": 33139500,
+                "login": "barcellos-pedro"
+            }
+        },
+        "colors": {
+            "light": "mubi",
+            "dark": "mubi-dark"
+        }
+    },
     "mousehole": {
         "base": "svg",
         "aliases": [],
@@ -17820,7 +18589,7 @@
         "base": "svg",
         "aliases": [],
         "categories": [
-            "SocialMedia"
+            "Social-Media"
         ],
         "update": {
             "timestamp": "2025-08-30T13:38:18.763229",
@@ -17990,7 +18759,7 @@
             "uptime-robot"
         ],
         "categories": [
-            "Monitoring Tools"
+            "Monitoring-Tools"
         ],
         "update": {
             "timestamp": "2025-04-28T18:02:44.073299",
@@ -18956,7 +19725,7 @@
             "of"
         ],
         "categories": [
-            "SocialMedia"
+            "Social-Media"
         ],
         "update": {
             "timestamp": "2025-08-17T18:12:58.038201",
@@ -19245,6 +20014,22 @@
             }
         }
     },
+    "alexandrie": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-12-07T15:39:11.434760",
+            "author": {
+                "id": 30108182,
+                "login": "GB238"
+            }
+        },
+        "colors": {
+            "light": "alexandrie",
+            "dark": "alexandrie-dark"
+        }
+    },
     "at-t": {
         "base": "svg",
         "aliases": [],
@@ -19271,6 +20056,22 @@
         "colors": {
             "dark": "wanderer",
             "light": "wanderer-light"
+        }
+    },
+    "rybbit": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-12-20T17:37:43.987979",
+            "author": {
+                "id": 10255587,
+                "login": "SteffeyDev"
+            }
+        },
+        "colors": {
+            "light": "rybbit",
+            "dark": "rybbit-dark"
         }
     },
     "webtop": {
@@ -19455,6 +20256,24 @@
                 "id": 71191962,
                 "name": "walkxcode"
             }
+        }
+    },
+    "oreilly": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Education"
+        ],
+        "update": {
+            "timestamp": "2025-11-23T08:08:19.686235",
+            "author": {
+                "id": 103865507,
+                "login": "nzgl-g"
+            }
+        },
+        "colors": {
+            "light": "oreilly",
+            "dark": "oreilly-dark"
         }
     },
     "mstream": {
@@ -19796,6 +20615,20 @@
             "light": "edgeos-light"
         }
     },
+    "ente-auth": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Security"
+        ],
+        "update": {
+            "timestamp": "2025-12-07T15:43:02.141854",
+            "author": {
+                "id": 48109134,
+                "login": "jdcool00"
+            }
+        }
+    },
     "plex-meta-manager": {
         "base": "png",
         "aliases": [
@@ -20084,6 +20917,27 @@
             }
         }
     },
+    "mantrae": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "cloud",
+            "network",
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2025-12-24T15:02:48.180Z",
+            "author": {
+                "id": "2m91qygzd1dqj3h",
+                "name": "Hotrod-Linc",
+                "login": "lincoln@linktechlab.net"
+            }
+        },
+        "colors": {
+            "light": "mantrae-light",
+            "dark": "mantrae-dark"
+        }
+    },
     "lostack": {
         "base": "svg",
         "aliases": [],
@@ -20208,6 +21062,22 @@
         "colors": {
             "light": "zen-browser",
             "dark": "zen-browser-dark"
+        }
+    },
+    "capjs": {
+        "base": "png",
+        "aliases": [
+            "cap"
+        ],
+        "categories": [
+            "Development"
+        ],
+        "update": {
+            "timestamp": "2025-12-20T18:05:03.150581",
+            "author": {
+                "id": 3414502,
+                "login": "John222"
+            }
         }
     },
     "pritunl": {
@@ -20582,6 +21452,24 @@
             "light": "tube-archivist-light"
         }
     },
+    "okta": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Security"
+        ],
+        "update": {
+            "timestamp": "2025-12-07T15:24:21.576213",
+            "author": {
+                "id": 34304594,
+                "login": "vijhhh2"
+            }
+        },
+        "colors": {
+            "light": "okta",
+            "dark": "okta-dark"
+        }
+    },
     "linkding": {
         "base": "svg",
         "aliases": [],
@@ -20722,6 +21610,22 @@
             "author": {
                 "id": 71191962,
                 "name": "walkxcode"
+            }
+        }
+    },
+    "ruby-on-rails": {
+        "base": "svg",
+        "aliases": [
+            "rails"
+        ],
+        "categories": [
+            "Development"
+        ],
+        "update": {
+            "timestamp": "2025-12-07T15:53:03.924405",
+            "author": {
+                "id": 33139500,
+                "login": "barcellos-pedro"
             }
         }
     },
@@ -21415,10 +22319,10 @@
         "aliases": [],
         "categories": [],
         "update": {
-            "timestamp": "2023-02-10T10:13:56Z",
+            "timestamp": "2025-12-20T17:15:33.298141",
             "author": {
-                "id": 77850077,
-                "name": "Frooodle"
+                "id": 141176710,
+                "login": "Qumumba"
             }
         }
     },
@@ -21460,6 +22364,20 @@
             "author": {
                 "id": 71191962,
                 "name": "walkxcode"
+            }
+        }
+    },
+    "ripe": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Organization"
+        ],
+        "update": {
+            "timestamp": "2025-11-23T15:55:30.514923",
+            "author": {
+                "id": 3414502,
+                "login": "John222"
             }
         }
     },
@@ -22497,6 +23415,18 @@
             }
         }
     },
+    "plane-finder": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-12-20T16:55:03.605694",
+            "author": {
+                "id": 25563515,
+                "login": "apo-mak"
+            }
+        }
+    },
     "betanin": {
         "base": "png",
         "aliases": [],
@@ -22578,6 +23508,22 @@
                 "id": 71191962,
                 "name": "walkxcode"
             }
+        }
+    },
+    "toggl": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-11-23T08:20:07.072595",
+            "author": {
+                "id": 56053,
+                "login": "meceo"
+            }
+        },
+        "colors": {
+            "light": "toggl",
+            "dark": "toggl-dark"
         }
     },
     "gentoo-linux": {
@@ -22673,7 +23619,7 @@
         "base": "svg",
         "aliases": [],
         "categories": [
-            "SocialMedia"
+            "Social-Media"
         ],
         "update": {
             "timestamp": "2025-08-30T13:35:57.844729",
@@ -23271,6 +24217,24 @@
                 "id": 71191962,
                 "name": "walkxcode"
             }
+        }
+    },
+    "unreal-engine": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Gaming"
+        ],
+        "update": {
+            "timestamp": "2025-12-20T16:36:24.786977",
+            "author": {
+                "id": 43233260,
+                "login": "Maski0"
+            }
+        },
+        "colors": {
+            "light": "unreal-engine",
+            "dark": "unreal-engine-dark"
         }
     },
     "keila": {
@@ -23953,6 +24917,24 @@
             }
         }
     },
+    "laracasts": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Development"
+        ],
+        "update": {
+            "timestamp": "2025-12-20T16:58:18.772722",
+            "author": {
+                "id": 33139500,
+                "login": "barcellos-pedro"
+            }
+        },
+        "colors": {
+            "light": "laracasts",
+            "dark": "laracasts-dark"
+        }
+    },
     "vmware-horizon": {
         "base": "png",
         "aliases": [
@@ -24610,6 +25592,20 @@
             "author": {
                 "id": 71191962,
                 "name": "walkxcode"
+            }
+        }
+    },
+    "google-tasks": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Organization"
+        ],
+        "update": {
+            "timestamp": "2025-12-20T17:24:41.692462",
+            "author": {
+                "id": 86807499,
+                "login": "Pacatro"
             }
         }
     },
@@ -25478,6 +26474,18 @@
             }
         }
     },
+    "formbricks": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-12-20T17:30:45.430839",
+            "author": {
+                "id": 10255587,
+                "login": "SteffeyDev"
+            }
+        }
+    },
     "flogo": {
         "base": "png",
         "aliases": [],
@@ -25654,6 +26662,20 @@
             "author": {
                 "id": 71191962,
                 "name": "walkxcode"
+            }
+        }
+    },
+    "action1": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Cloud"
+        ],
+        "update": {
+            "timestamp": "2025-11-23T08:29:17.477366",
+            "author": {
+                "id": 18566857,
+                "login": "code-explorer12"
             }
         }
     },
@@ -26170,6 +27192,24 @@
             }
         }
     },
+    "dashwise": {
+        "base": "svg",
+        "aliases": [
+            "homelab-dashboard",
+            "server-dashboard",
+            "application-launcher"
+        ],
+        "categories": [
+            "Organization"
+        ],
+        "update": {
+            "timestamp": "2025-11-23T08:15:03.696826",
+            "author": {
+                "id": 75847494,
+                "login": "andreasmolnardev"
+            }
+        }
+    },
     "phoscon": {
         "base": "svg",
         "aliases": [],
@@ -26258,6 +27298,20 @@
             "author": {
                 "id": 71191962,
                 "name": "walkxcode"
+            }
+        }
+    },
+    "laravel": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Development"
+        ],
+        "update": {
+            "timestamp": "2025-11-23T08:13:21.825017",
+            "author": {
+                "id": 123388670,
+                "login": "BRC-Thomas"
             }
         }
     },
@@ -26478,6 +27532,18 @@
             "author": {
                 "id": 48109134,
                 "login": "jdcool00"
+            }
+        }
+    },
+    "vera-crypt": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-11-23T09:41:54.742273",
+            "author": {
+                "id": 54372740,
+                "login": "simoncollmann"
             }
         }
     },
@@ -26805,6 +27871,24 @@
             "light": "notesnook-light"
         }
     },
+    "zashboard": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Communication"
+        ],
+        "update": {
+            "timestamp": "2025-11-23T08:24:27.462584",
+            "author": {
+                "id": 6201785,
+                "login": "eachgo"
+            }
+        },
+        "colors": {
+            "light": "zashboard",
+            "dark": "zashboard-dark"
+        }
+    },
     "etesync": {
         "base": "svg",
         "aliases": [],
@@ -27003,6 +28087,24 @@
                 "id": 71191962,
                 "name": "walkxcode"
             }
+        }
+    },
+    "exercism": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Education"
+        ],
+        "update": {
+            "timestamp": "2025-11-23T07:59:06.737666",
+            "author": {
+                "id": 124405596,
+                "login": "DanielLob-o"
+            }
+        },
+        "colors": {
+            "light": "exercism",
+            "dark": "exercism-dark"
         }
     },
     "ludus": {
@@ -27808,6 +28910,22 @@
             }
         }
     },
+    "libretranslate": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-12-20T18:07:16.610850",
+            "author": {
+                "id": 17731202,
+                "login": "Kvanrooyen"
+            }
+        },
+        "colors": {
+            "light": "libretranslate",
+            "dark": "libretranslate-dark"
+        }
+    },
     "ezbookkeeping": {
         "base": "png",
         "aliases": [],
@@ -28245,6 +29363,27 @@
             }
         }
     },
+    "20i": {
+        "base": "svg",
+        "aliases": [
+            "twenty",
+            "twenty-i"
+        ],
+        "categories": [
+            "Development"
+        ],
+        "update": {
+            "timestamp": "2025-11-25T05:52:17.015884",
+            "author": {
+                "id": 253237,
+                "login": "Jamesking56"
+            }
+        },
+        "colors": {
+            "light": "20i",
+            "dark": "20i-dark"
+        }
+    },
     "asus-full": {
         "base": "svg",
         "aliases": [],
@@ -28674,7 +29813,7 @@
         "base": "svg",
         "aliases": [],
         "categories": [
-            "SocialMedia"
+            "Social-Media"
         ],
         "update": {
             "timestamp": "2025-09-04T18:24:11.419068",
@@ -28795,6 +29934,20 @@
             "author": {
                 "id": 71191962,
                 "name": "walkxcode"
+            }
+        }
+    },
+    "dashlane": {
+        "base": "png",
+        "aliases": [],
+        "categories": [
+            "Security"
+        ],
+        "update": {
+            "timestamp": "2025-12-20T18:12:04.648132",
+            "author": {
+                "id": 1595680,
+                "login": "HackXIt"
             }
         }
     },
@@ -28999,6 +30152,24 @@
                 "id": 150545,
                 "name": "ajgon"
             }
+        }
+    },
+    "soundcloud": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Music"
+        ],
+        "update": {
+            "timestamp": "2025-12-20T16:21:00.951497",
+            "author": {
+                "id": 46387880,
+                "login": "pgroon"
+            }
+        },
+        "colors": {
+            "light": "soundcloud",
+            "dark": "soundcloud-dark"
         }
     },
     "watchyourlan": {
@@ -29229,6 +30400,20 @@
         "colors": {
             "light": "dockpeek",
             "dark": "dockpeek-dark"
+        }
+    },
+    "clickup": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Communication"
+        ],
+        "update": {
+            "timestamp": "2025-11-23T08:10:22.606843",
+            "author": {
+                "id": 31346333,
+                "login": "newmeta-ben"
+            }
         }
     },
     "thunderhub": {
@@ -30916,6 +32101,20 @@
             }
         }
     },
+    "postgresus": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Cloud"
+        ],
+        "update": {
+            "timestamp": "2025-11-25T05:41:36.430244",
+            "author": {
+                "id": 60519482,
+                "login": "luke-beep"
+            }
+        }
+    },
     "nextcloud-timemanager": {
         "base": "svg",
         "aliases": [],
@@ -30978,6 +32177,20 @@
             "author": {
                 "id": 71191962,
                 "name": "walkxcode"
+            }
+        }
+    },
+    "pinia": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "Development"
+        ],
+        "update": {
+            "timestamp": "2025-12-20T17:07:03.167466",
+            "author": {
+                "id": 101410098,
+                "login": "juronja"
             }
         }
     },
@@ -32470,10 +33683,10 @@
         "aliases": [],
         "categories": [],
         "update": {
-            "timestamp": "2025-08-30T15:23:24.584100",
+            "timestamp": "2025-11-23T07:55:03.697080",
             "author": {
-                "id": 10557728,
-                "login": "Bare7a"
+                "id": 949587,
+                "login": "janreinhardt"
             }
         }
     },
@@ -33073,6 +34286,24 @@
             }
         }
     },
+    "root-me": {
+        "base": "svg",
+        "aliases": [
+            "rm-icon"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-11-23T09:30:59.735855",
+            "author": {
+                "id": 60667857,
+                "login": "Vivien-Chambe"
+            }
+        },
+        "colors": {
+            "light": "root-me",
+            "dark": "root-me-dark"
+        }
+    },
     "openwrt": {
         "base": "svg",
         "aliases": [
@@ -33177,13 +34408,402 @@
         "base": "svg",
         "aliases": [],
         "categories": [
-            "SocialMedia"
+            "Social-Media"
         ],
         "update": {
             "timestamp": "2025-10-23T16:57:53.105894",
             "author": {
                 "id": 5697839,
                 "login": "taodo2291"
+            }
+        }
+    },
+    "sourcehut": {
+        "base": "svg",
+        "aliases": [
+            "sr"
+        ],
+        "categories": [
+            "development",
+            "monitoring",
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2025-12-24T10:15:14.326Z",
+            "author": {
+                "id": "un29yzs9dpnol9b",
+                "name": "thual",
+                "login": "tlabartbarnagaud@protonmail.com"
+            }
+        },
+        "colors": {
+            "dark": "sourcehut-dark"
+        },
+        "wordmark": {
+            "light": "sourcehut-wordmark-light",
+            "dark": "sourcehut-wordmark-dark"
+        }
+    },
+    "protondb": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "gaming",
+            "database"
+        ],
+        "update": {
+            "timestamp": "2025-12-27T23:20:20.469Z",
+            "author": {
+                "id": "fei5mlde4bg3kfo",
+                "name": "Greez2k5",
+                "login": "greez2k5@googlemail.com"
+            }
+        }
+    },
+    "tether": {
+        "base": "svg",
+        "aliases": [
+            "usdt"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-12-27T23:28:17.075Z",
+            "author": {
+                "id": "r3sl3nq666gskj1",
+                "name": "filogif403",
+                "login": "filogif403@httpsu.com"
+            }
+        },
+        "colors": {
+            "dark": "tether-dark"
+        },
+        "wordmark": {
+            "light": "tether-wordmark-light",
+            "dark": "tether-wordmark-dark"
+        }
+    },
+    "invoiceplane": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "cloud",
+            "database",
+            "finance",
+            "tools",
+            "utility"
+        ],
+        "update": {
+            "timestamp": "2025-12-27T23:24:21.128Z",
+            "author": {
+                "id": "evklyvl78ht1ydq",
+                "name": "bjoern",
+                "login": "bjoern.ebbrecht@gmail.com"
+            }
+        }
+    },
+    "lact": {
+        "base": "svg",
+        "aliases": [
+            "Linux GPU Control Application",
+            "LACT"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-12-27T23:28:14.823Z",
+            "author": {
+                "id": "r3sl3nq666gskj1",
+                "name": "filogif403",
+                "login": "filogif403@httpsu.com"
+            }
+        }
+    },
+    "helix": {
+        "base": "svg",
+        "aliases": [
+            "Helix editor",
+            "helix-editor"
+        ],
+        "categories": [
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2025-12-29T10:09:55.830Z",
+            "author": {
+                "id": "r3sl3nq666gskj1",
+                "name": "filogif403",
+                "login": "filogif403@httpsu.com"
+            }
+        },
+        "wordmark": {
+            "light": "helix-light",
+            "dark": "helix-dark"
+        }
+    },
+    "isc-bind9": {
+        "base": "png",
+        "aliases": [
+            "bind9",
+            "bind"
+        ],
+        "categories": [
+            "network"
+        ],
+        "update": {
+            "timestamp": "2025-12-29T10:33:02.087Z",
+            "author": {
+                "id": "rq613ure6ykbdhv",
+                "name": "pouley",
+                "login": "pierre@bellemainp.fr"
+            }
+        },
+        "colors": {
+            "light": "isc-bind9-light"
+        }
+    },
+    "mediafire": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-12-29T10:33:03.394Z",
+            "author": {
+                "id": "7ksqurcelxqenqb",
+                "name": "nguyentkge123@gmail.com",
+                "login": "nguyentkge123@gmail.com"
+            }
+        }
+    },
+    "behance": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-12-29T10:33:04.645Z",
+            "author": {
+                "id": "qnf6scp5rf6zflm",
+                "name": "freeqrcodegenerator",
+                "login": "chandrapalgond@outlook.com"
+            }
+        }
+    },
+    "niri": {
+        "base": "svg",
+        "aliases": [
+            "A scrollable-tiling Wayland compositor"
+        ],
+        "categories": [
+            "other"
+        ],
+        "update": {
+            "timestamp": "2025-12-29T10:35:34.705Z",
+            "author": {
+                "id": "r3sl3nq666gskj1",
+                "name": "filogif403",
+                "login": "filogif403@httpsu.com"
+            }
+        },
+        "wordmark": {
+            "light": "niri-wordmark-light",
+            "dark": "niri-wordmark-dark"
+        }
+    },
+    "isc-kea": {
+        "base": "png",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-12-29T10:35:36.230Z",
+            "author": {
+                "id": "rq613ure6ykbdhv",
+                "name": "pouley",
+                "login": "pierre@bellemainp.fr"
+            }
+        },
+        "colors": {
+            "light": "isc-kea-light"
+        }
+    },
+    "weibo": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2025-12-29T10:35:37.048Z",
+            "author": {
+                "id": "qnf6scp5rf6zflm",
+                "name": "freeqrcodegenerator",
+                "login": "chandrapalgond@outlook.com"
+            }
+        }
+    },
+    "cronmaster": {
+        "base": "svg",
+        "aliases": [
+            "cr*nmaster"
+        ],
+        "categories": [
+            "automation",
+            "monitoring",
+            "tools",
+            "utility"
+        ],
+        "update": {
+            "timestamp": "2025-12-29T10:35:38.161Z",
+            "author": {
+                "id": "tfj1oyvti4bkyzo",
+                "name": "fccview",
+                "login": "comm.campione@gmail.com"
+            }
+        }
+    },
+    "maltego": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "security"
+        ],
+        "update": {
+            "timestamp": "2025-12-31T11:31:59.394Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d",
+                "login": "fechten.52luffas@icloud.com"
+            }
+        },
+        "colors": {
+            "light": "maltego-light",
+            "dark": "maltego-dark"
+        },
+        "wordmark": {
+            "light": "maltego-wordmark-light",
+            "dark": "maltego-wordmark-dark"
+        }
+    },
+    "pypi": {
+        "base": "svg",
+        "aliases": [
+            "Python Package Index"
+        ],
+        "categories": [
+            "development"
+        ],
+        "update": {
+            "timestamp": "2025-12-31T11:32:03.010Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d",
+                "login": "fechten.52luffas@icloud.com"
+            }
+        },
+        "wordmark": {
+            "light": "pypi-wordmark-light",
+            "dark": "pypi-wordmark-dark"
+        }
+    },
+    "virustotal": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "security",
+            "cloud"
+        ],
+        "update": {
+            "timestamp": "2025-12-31T11:32:06.972Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d",
+                "login": "fechten.52luffas@icloud.com"
+            }
+        },
+        "colors": {
+            "light": "virustotal-light",
+            "dark": "virustotal-dark"
+        },
+        "wordmark": {
+            "light": "virustotal-wordmark-light",
+            "dark": "virustotal-wordmark-dark"
+        }
+    },
+    "tensorflow": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "development"
+        ],
+        "update": {
+            "timestamp": "2025-12-31T11:32:11.010Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d",
+                "login": "fechten.52luffas@icloud.com"
+            }
+        },
+        "colors": {
+            "light": "tensorflow-light",
+            "dark": "tensorflow-dark"
+        },
+        "wordmark": {
+            "light": "tensorflow-wordmark-light",
+            "dark": "tensorflow-wordmark-dark"
+        }
+    },
+    "ddev": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "automation",
+            "cloud",
+            "development"
+        ],
+        "update": {
+            "timestamp": "2025-12-31T11:32:13.797Z",
+            "author": {
+                "id": "0ml01v6bsmuecev",
+                "name": "oussema_harrabi",
+                "login": "harrabi.oussema6@hotmail.fr"
+            }
+        },
+        "colors": {
+            "dark": "ddev-dark"
+        },
+        "wordmark": {
+            "light": "ddev-wordmark-light",
+            "dark": "ddev-wordmark-dark"
+        }
+    },
+    "kinopub": {
+        "base": "svg",
+        "aliases": [
+            "kinopub"
+        ],
+        "categories": [
+            "entertainment",
+            "media"
+        ],
+        "update": {
+            "timestamp": "2025-12-31T11:32:16.113Z",
+            "author": {
+                "id": "om4r2kuu9b9mc9n",
+                "name": "drodel",
+                "login": "mr.drodel@gmail.com"
+            }
+        }
+    },
+    "shokoanime": {
+        "base": "svg",
+        "aliases": [
+            "shoko"
+        ],
+        "categories": [
+            "media",
+            "utility"
+        ],
+        "update": {
+            "timestamp": "2025-12-31T11:32:18.565Z",
+            "author": {
+                "id": "fv4b2sznnm5rt2c",
+                "name": "makinori",
+                "login": "maki+dashboardicons@hotmilk.space"
             }
         }
     }

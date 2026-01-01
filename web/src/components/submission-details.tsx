@@ -1,10 +1,24 @@
 "use client"
 
-import { Calendar, Check, Download, ExternalLink, FileType, FolderOpen, Palette, Tag, User as UserIcon, X } from "lucide-react"
+import {
+	Calendar,
+	Check,
+	Download,
+	ExternalLink,
+	Eye,
+	FileType,
+	FolderOpen,
+	Github,
+	MessageSquare,
+	Palette,
+	Tag,
+	User as UserIcon,
+	X,
+} from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { IconCard } from "@/components/icon-card"
 import { MagicCard } from "@/components/magicui/magic-card"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -17,7 +31,7 @@ import type { Icon } from "@/types/icons"
 // Utility function to get display name with priority: username > email > created_by field
 const getDisplayName = (submission: Submission, expandedData?: { created_by: User; approved_by: User }): string => {
 	// Check if we have expanded user data
-	if (expandedData && expandedData.created_by) {
+	if (expandedData?.created_by) {
 		const user = expandedData.created_by
 
 		// Priority: username > email
@@ -39,8 +53,11 @@ interface SubmissionDetailsProps {
 	onUserClick?: (userId: string, displayName: string) => void
 	onApprove?: () => void
 	onReject?: () => void
+	onTriggerWorkflow?: () => void
 	isApproving?: boolean
 	isRejecting?: boolean
+	isTriggeringWorkflow?: boolean
+	workflowUrl?: string
 }
 
 export function SubmissionDetails({
@@ -49,8 +66,11 @@ export function SubmissionDetails({
 	onUserClick,
 	onApprove,
 	onReject,
+	onTriggerWorkflow,
 	isApproving,
 	isRejecting,
+	isTriggeringWorkflow,
+	workflowUrl,
 }: SubmissionDetailsProps) {
 	const expandedData = submission.expand
 	const displayName = getDisplayName(submission, expandedData)
@@ -81,7 +101,7 @@ export function SubmissionDetails({
 	})
 
 	// Create a mock Icon object for the IconCard component
-	const mockIconData: Icon = {
+	const _mockIconData: Icon = {
 		base: sanitizedExtras.base,
 		aliases: sanitizedExtras.aliases,
 		categories: sanitizedExtras.categories,
@@ -193,40 +213,70 @@ export function SubmissionDetails({
 								<Tag className="w-5 h-5" />
 								Submission Details
 							</CardTitle>
-							{(onApprove || onReject) && (
-								<div className="flex gap-2">
-									{onApprove && (
-										<Button
-											size="sm"
-											color="green"
-											variant="outline"
-											onClick={(e) => {
-												e.stopPropagation()
-												onApprove()
-											}}
-											disabled={isApproving || isRejecting}
-										>
-											<Check className="w-4 h-4 mr-2" />
-											{isApproving ? "Approving..." : "Approve"}
-										</Button>
-									)}
-									{onReject && (
-										<Button
-											size="sm"
-											color="red"
-											variant="destructive"
-											onClick={(e) => {
-												e.stopPropagation()
-												onReject()
-											}}
-											disabled={isApproving || isRejecting}
-										>
-											<X className="w-4 h-4 mr-2" />
-											{isRejecting ? "Rejecting..." : "Reject"}
-										</Button>
-									)}
-								</div>
-							)}
+							<div className="flex gap-2">
+								<Button asChild size="sm" variant="outline">
+									<Link href={`/community/${submission.name}`} target="_blank">
+										<Eye className="w-4 h-4 mr-2" />
+										Preview
+									</Link>
+								</Button>
+								{(onApprove || onReject) && (
+									<>
+										{onApprove && (
+											<Button
+												size="sm"
+												color="green"
+												variant="outline"
+												onClick={(e) => {
+													e.stopPropagation()
+													onApprove()
+												}}
+												disabled={isApproving || isRejecting}
+											>
+												<Check className="w-4 h-4 mr-2" />
+												{isApproving ? "Approving..." : "Approve"}
+											</Button>
+										)}
+										{onReject && (
+											<Button
+												size="sm"
+												color="red"
+												variant="destructive"
+												onClick={(e) => {
+													e.stopPropagation()
+													onReject()
+												}}
+												disabled={isApproving || isRejecting}
+											>
+												<X className="w-4 h-4 mr-2" />
+												{isRejecting ? "Rejecting..." : "Reject"}
+											</Button>
+										)}
+									</>
+								)}
+								{onTriggerWorkflow && submission.status === "approved" && isAdmin && (
+									<Button
+										size="sm"
+										variant="default"
+										onClick={(e) => {
+											e.stopPropagation()
+											onTriggerWorkflow()
+										}}
+										disabled={isTriggeringWorkflow}
+									>
+										<Github className="w-4 h-4 mr-2" />
+										{isTriggeringWorkflow ? "Starting..." : "Run GitHub CI"}
+									</Button>
+								)}
+								{workflowUrl && (
+									<Button asChild size="sm" variant="outline">
+										<a href={workflowUrl} target="_blank" rel="noopener noreferrer">
+											<ExternalLink className="w-4 h-4 mr-2" />
+											View Workflow
+										</a>
+									</Button>
+								)}
+							</div>
 						</div>
 					</CardHeader>
 					<CardContent className="pt-0">
@@ -345,6 +395,14 @@ export function SubmissionDetails({
 									<p className="text-sm">{formattedUpdated}</p>
 								</div>
 							</div>
+
+							{submission.admin_comment?.trim() && (
+								<Alert variant={submission.status === "rejected" ? "destructive" : "default"}>
+									<MessageSquare className="h-4 w-4" />
+									<AlertTitle>Admin Comment</AlertTitle>
+									<AlertDescription className="mt-2 whitespace-pre-wrap">{submission.admin_comment}</AlertDescription>
+								</Alert>
+							)}
 
 							<Separator />
 

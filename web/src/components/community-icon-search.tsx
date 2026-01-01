@@ -84,7 +84,7 @@ export function CommunityIconSearch({ icons }: CommunityIconSearchProps) {
 		const categories = new Set<string>()
 		for (const icon of icons) {
 			for (const category of icon.data.categories) {
-				categories.add(category)
+				categories.add(category.toLowerCase())
 			}
 		}
 		return Array.from(categories).sort()
@@ -120,7 +120,7 @@ export function CommunityIconSearch({ icons }: CommunityIconSearchProps) {
 	}, [icons, debouncedQuery, selectedCategories, sortOption])
 
 	const groupedIcons = useMemo(() => {
-		const statusPriority = { pending: 0, approved: 1, rejected: 2, added_to_collection: 3 }
+		const statusPriority = { pending: 0, approved: 2, rejected: 3, added_to_collection: 1 }
 
 		const groups: Record<string, IconWithStatus[]> = {}
 
@@ -175,12 +175,13 @@ export function CommunityIconSearch({ icons }: CommunityIconSearchProps) {
 
 	const handleCategoryChange = useCallback(
 		(category: string) => {
+			const normalizedCategory = category.toLowerCase()
 			let newCategories: string[]
 
-			if (selectedCategories.includes(category)) {
-				newCategories = selectedCategories.filter((c) => c !== category)
+			if (selectedCategories.some((c) => c.toLowerCase() === normalizedCategory)) {
+				newCategories = selectedCategories.filter((c) => c.toLowerCase() !== normalizedCategory)
 			} else {
-				newCategories = [...selectedCategories, category]
+				newCategories = [...selectedCategories, normalizedCategory]
 			}
 
 			setSelectedCategories(newCategories)
@@ -281,7 +282,7 @@ export function CommunityIconSearch({ icons }: CommunityIconSearchProps) {
 								{allCategories.map((category) => (
 									<DropdownMenuCheckboxItem
 										key={category}
-										checked={selectedCategories.includes(category)}
+										checked={selectedCategories.some((c) => c.toLowerCase() === category.toLowerCase())}
 										onCheckedChange={() => handleCategoryChange(category)}
 										className="cursor-pointer capitalize"
 									>
