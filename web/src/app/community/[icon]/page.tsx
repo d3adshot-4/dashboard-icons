@@ -2,8 +2,16 @@ import type { Metadata, ResolvingMetadata } from "next"
 import { notFound, permanentRedirect } from "next/navigation"
 import { IconDetails } from "@/components/icon-details"
 import { BASE_URL, WEB_URL } from "@/constants"
-import { getAllIcons } from "@/lib/api"
+import { getAllIcons, getAuthorData } from "@/lib/api"
 import { getCommunityGalleryRecord, getCommunitySubmissionByName, getCommunitySubmissions } from "@/lib/community"
+
+function isIconAddedToCollection(
+	record: Awaited<ReturnType<typeof getCommunityGalleryRecord>>,
+	collectionIcons: Record<string, unknown>,
+	icon: string,
+) {
+	return record?.status === "added_to_collection" && Object.hasOwn(collectionIcons, icon)
+}
 
 export const dynamicParams = true
 export const revalidate = 21600 // 6 hours
@@ -30,7 +38,10 @@ export async function generateMetadata({ params }: Props, _parent: ResolvingMeta
 	}
 
 	const record = await getCommunityGalleryRecord(icon)
-	if (record?.status === "added_to_collection") {
+	const collectionIcons = await getAllIcons()
+	const isInCollection = isIconAddedToCollection(record, collectionIcons, icon)
+
+	if (isInCollection) {
 		permanentRedirect(`/icons/${icon}`)
 	}
 
@@ -118,19 +129,69 @@ export default async function CommunityIconPage({ params }: { params: Promise<{ 
 	}
 
 	const record = await getCommunityGalleryRecord(icon)
-	if (record?.status === "added_to_collection") {
+	const allIcons = await getAllIcons()
+	const isInCollection = isIconAddedToCollection(record, allIcons, icon)
+	if (isInCollection) {
 		permanentRedirect(`/icons/${icon}`)
 	}
 
-	const allIcons = await getAllIcons()
+	const author = iconData.data.update.author as any
+	const githubId = author?.github_id
+	const authorMetaLogin = author?.login || author?.name
 
-	const authorData = {
-		id: 0,
-		name: iconData.data.update.author.name || "Community",
-		login: iconData.data.update.author.name || "community",
-		avatar_url: "",
-		html_url: "",
+	let authorData:
+		| {
+				id: number | string
+				name?: string
+				login: string
+				avatar_url: string
+				html_url: string
+		  }
+		| undefined
+
+	if (githubId && /^\d+$/.test(String(githubId))) {
+		authorData = await getAuthorData(String(githubId), { login: authorMetaLogin, name: author?.name })
+	} else if (authorMetaLogin && authorMetaLogin !== "community" && authorMetaLogin !== "Community") {
+		// Fallback: resolve by GitHub username if we don't have github_id in the community_gallery view.
+		// This avoids losing the GitHub link when PB doesn't expose github_id in the view.
+		try {
+			const headers: Record<string, string> = {}
+			if (process.env.GITHUB_TOKEN) {
+				headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`
+			}
+			const res = await fetch(`https://api.github.com/users/${encodeURIComponent(authorMetaLogin)}`, { headers })
+			if (res.ok) {
+				const gh = await res.json()
+				authorData = {
+					id: gh?.id ?? 0,
+					name: gh?.name ?? authorMetaLogin,
+					login: gh?.login ?? authorMetaLogin,
+					avatar_url: gh?.avatar_url ?? "",
+					html_url: gh?.html_url ?? "",
+				}
+			}
+		} catch (err) {
+			console.log("[CommunityPage] GitHub username fallback failed:", { icon, login: authorMetaLogin, err })
+		}
 	}
+
+	if (!authorData) {
+		authorData = {
+			id: 0,
+			name: author?.name || "Community",
+			login: authorMetaLogin || "community",
+			avatar_url: "",
+			html_url: "",
+		}
+	}
+	console.log("[CommunityPage] resolved authorData:", {
+		icon,
+		id: authorData.id,
+		login: authorData.login,
+		html_url: authorData.html_url,
+		avatar_url: authorData.avatar_url,
+	})
+	console.log(iconData.data)
 
 	const mainIconUrl =
 		typeof iconData.data.base === "string" && iconData.data.base.startsWith("http")

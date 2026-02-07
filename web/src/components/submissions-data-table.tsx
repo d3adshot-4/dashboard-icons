@@ -4,12 +4,12 @@ import {
 	type ColumnDef,
 	type ColumnFiltersState,
 	type ExpandedState,
-	type RowSelectionState,
 	flexRender,
 	getCoreRowModel,
 	getExpandedRowModel,
 	getFilteredRowModel,
 	getSortedRowModel,
+	type RowSelectionState,
 	type SortingState,
 	useReactTable,
 } from "@tanstack/react-table"
@@ -17,6 +17,7 @@ import dayjs from "dayjs"
 import relativeTime from "dayjs/plugin/relativeTime"
 import { ChevronDown, ChevronRight, Filter, Github, ImageIcon, Search, SortDesc, X } from "lucide-react"
 import * as React from "react"
+import { StatusBadge } from "@/components/status-badge"
 import { SubmissionDetails } from "@/components/submission-details"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -78,35 +79,6 @@ const groupAndSortSubmissions = (submissions: Submission[]): Submission[] => {
 	})
 }
 
-const getStatusColor = (status: Submission["status"]) => {
-	switch (status) {
-		case "approved":
-			return "bg-blue-500/10 text-blue-400 font-bold border-blue-500/20"
-		case "rejected":
-			return "bg-red-500/10 text-red-500 border-red-500/20"
-		case "pending":
-			return "bg-yellow-500/10 text-yellow-500 border-yellow-500/20"
-		case "added_to_collection":
-			return "bg-green-500/10 text-green-500 border-green-500/20"
-		default:
-			return "bg-gray-500/10 text-gray-500 border-gray-500/20"
-	}
-}
-
-const getStatusDisplayName = (status: Submission["status"]) => {
-	switch (status) {
-		case "pending":
-			return "Pending"
-		case "approved":
-			return "Approved"
-		case "rejected":
-			return "Rejected"
-		case "added_to_collection":
-			return "Added to Collection"
-		default:
-			return status
-	}
-}
 
 export function SubmissionsDataTable({
 	data,
@@ -215,6 +187,30 @@ export function SubmissionsDataTable({
 				},
 			},
 			{
+				accessorKey: "assets",
+				header: "Preview",
+				cell: ({ row }) => {
+					const assets = row.getValue("assets") as string[]
+					const name = row.getValue("name") as string
+					if (assets.length > 0) {
+						return (
+							<div className="w-12 h-12 rounded border flex items-center justify-center bg-background p-2">
+								<img
+									src={`${pb.baseURL}/api/files/submissions/${row.original.id}/${assets[0]}?thumb=100x100` || "/placeholder.svg"}
+									alt={name}
+									className="w-full h-full object-contain"
+								/>
+							</div>
+						)
+					}
+					return (
+						<div className="w-12 h-12 rounded border flex items-center justify-center bg-muted">
+							<ImageIcon className="w-6 h-6 text-muted-foreground" />
+						</div>
+					)
+				},
+			},
+			{
 				accessorKey: "name",
 				header: ({ column }) => {
 					return (
@@ -246,11 +242,7 @@ export function SubmissionsDataTable({
 				},
 				cell: ({ row }) => {
 					const status = row.getValue("status") as Submission["status"]
-					return (
-						<Badge variant="outline" className={getStatusColor(status)}>
-							{getStatusDisplayName(status)}
-						</Badge>
-					)
+					return <StatusBadge status={status} showCollectionStatus />
 				},
 			},
 			{
@@ -306,30 +298,6 @@ export function SubmissionsDataTable({
 					return (
 						<div className="text-sm text-muted-foreground" title={dayjs(date).format("MMMM D, YYYY h:mm A")}>
 							{dayjs(date).fromNow()}
-						</div>
-					)
-				},
-			},
-			{
-				accessorKey: "assets",
-				header: "Preview",
-				cell: ({ row }) => {
-					const assets = row.getValue("assets") as string[]
-					const name = row.getValue("name") as string
-					if (assets.length > 0) {
-						return (
-							<div className="w-12 h-12 rounded border flex items-center justify-center bg-background p-2">
-								<img
-									src={`${pb.baseUrl}/api/files/submissions/${row.original.id}/${assets[0]}?thumb=100x100` || "/placeholder.svg"}
-									alt={name}
-									className="w-full h-full object-contain"
-								/>
-							</div>
-						)
-					}
-					return (
-						<div className="w-12 h-12 rounded border flex items-center justify-center bg-muted">
-							<ImageIcon className="w-6 h-6 text-muted-foreground" />
 						</div>
 					)
 				},
@@ -438,12 +406,7 @@ export function SubmissionsDataTable({
 						<Button variant="ghost" size="sm" onClick={() => setRowSelection({})}>
 							Clear selection
 						</Button>
-						<Button
-							size="sm"
-							onClick={handleBulkTrigger}
-							disabled={isBulkTriggeringWorkflow}
-							className="bg-blue-600 hover:bg-blue-700"
-						>
+						<Button size="sm" onClick={handleBulkTrigger} disabled={isBulkTriggeringWorkflow} className="bg-blue-600 hover:bg-blue-700">
 							<Github className="w-4 h-4 mr-2" />
 							{isBulkTriggeringWorkflow ? "Triggering..." : `Trigger All (${selectedSubmissionIds.length})`}
 						</Button>
@@ -482,9 +445,7 @@ export function SubmissionsDataTable({
 												<TableRow className="bg-muted/40 hover:bg-muted/40">
 													<TableCell colSpan={columns.length} className="py-2 font-semibold text-sm">
 														<div className="flex items-center gap-2">
-															<Badge variant="outline" className={getStatusColor(currentStatus)}>
-																{getStatusDisplayName(currentStatus)}
-															</Badge>
+															<StatusBadge status={currentStatus} showCollectionStatus />
 															<span className="text-xs text-muted-foreground">
 																{table.getRowModel().rows.filter((r) => r.original.status === currentStatus).length}
 																{table.getRowModel().rows.filter((r) => r.original.status === currentStatus).length === 1

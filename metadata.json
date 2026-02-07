@@ -1,4 +1,21 @@
 {
+    "8311": {
+        "base": "svg",
+        "aliases": [
+            "8311 community"
+        ],
+        "categories": [
+            "network",
+            "monitoring"
+        ],
+        "update": {
+            "timestamp": "2026-01-20T12:24:26.174Z",
+            "author": {
+                "id": "9n7fcjzcmecpv0l",
+                "name": "jesus.otero95@gmail.com"
+            }
+        }
+    },
     "dagster": {
         "base": "svg",
         "aliases": [],
@@ -8773,12 +8790,14 @@
     "kanidm": {
         "base": "svg",
         "aliases": [],
-        "categories": [],
+        "categories": [
+            "security"
+        ],
         "update": {
-            "timestamp": "2024-10-20T17:24:03Z",
+            "timestamp": "2026-01-23T13:01:26.964Z",
             "author": {
-                "id": 71191962,
-                "name": "walkxcode"
+                "id": 49837342,
+                "login": "ajnart"
             }
         }
     },
@@ -10106,12 +10125,15 @@
     "fladder": {
         "base": "svg",
         "aliases": [],
-        "categories": [],
+        "categories": [
+            "entertainment",
+            "media"
+        ],
         "update": {
-            "timestamp": "2024-10-20T17:24:03Z",
+            "timestamp": "2026-01-12T10:11:09.886Z",
             "author": {
-                "id": 71191962,
-                "name": "walkxcode"
+                "id": 72495210,
+                "login": "v3DJG6GL"
             }
         }
     },
@@ -12590,22 +12612,6 @@
             }
         }
     },
-    "perplexity-book": {
-        "base": "svg",
-        "aliases": [],
-        "categories": [],
-        "update": {
-            "timestamp": "2025-02-07T08:49:00Z",
-            "author": {
-                "id": 120187197,
-                "name": "janmile"
-            }
-        },
-        "colors": {
-            "dark": "perplexity-book-dark",
-            "light": "perplexity-book-light"
-        }
-    },
     "keenetic-new": {
         "base": "png",
         "aliases": [
@@ -13268,19 +13274,22 @@
         }
     },
     "archivebox": {
-        "base": "png",
-        "aliases": [
-            "web-archiver",
-            "site-scraper"
-        ],
+        "base": "svg",
+        "aliases": [],
         "categories": [
-            "Developer-Tools"
+            "cloud",
+            "media",
+            "network",
+            "storage",
+            "tools",
+            "utility",
+            "database"
         ],
         "update": {
-            "timestamp": "2024-10-20T19:32:46Z",
+            "timestamp": "2026-01-09T00:10:04.824Z",
             "author": {
-                "id": 71191962,
-                "name": "walkxcode"
+                "id": "pikfs74uzq6ksg9",
+                "name": "javiercastrode"
             }
         }
     },
@@ -17253,11 +17262,14 @@
         "aliases": [],
         "categories": [],
         "update": {
-            "timestamp": "2023-04-13T13:56:18Z",
+            "timestamp": "2026-01-20T12:24:33.315Z",
             "author": {
-                "id": 71191962,
-                "name": "walkxcode"
+                "id": 48501111,
+                "login": "mattxcnm"
             }
+        },
+        "colors": {
+            "light": "dell-light"
         }
     },
     "graylog": {
@@ -19149,20 +19161,28 @@
     },
     "opencode": {
         "base": "svg",
-        "aliases": [],
+        "aliases": [
+            "open code"
+        ],
         "categories": [
-            "Development"
+            "tools",
+            "development",
+            "utility"
         ],
         "update": {
-            "timestamp": "2025-09-06T18:30:18.556348",
+            "timestamp": "2026-01-17T22:14:30.988Z",
             "author": {
-                "id": 11842502,
-                "login": "ZainW"
+                "id": 690217,
+                "login": "tomups"
             }
         },
         "colors": {
-            "light": "opencode",
+            "light": "opencode-light",
             "dark": "opencode-dark"
+        },
+        "wordmark": {
+            "light": "opencode-wordmark-light",
+            "dark": "opencode-wordmark-dark"
         }
     },
     "nextcloud-white": {
@@ -20929,8 +20949,7 @@
             "timestamp": "2025-12-24T15:02:48.180Z",
             "author": {
                 "id": "2m91qygzd1dqj3h",
-                "name": "Hotrod-Linc",
-                "login": "lincoln@linktechlab.net"
+                "name": "Hotrod-Linc"
             }
         },
         "colors": {
@@ -28389,15 +28408,15 @@
         "aliases": [],
         "categories": [],
         "update": {
-            "timestamp": "2024-10-20T18:15:41Z",
+            "timestamp": "2026-01-17T22:29:03.148Z",
             "author": {
-                "id": 71191962,
-                "name": "walkxcode"
+                "id": "5o7q58fw0yf76z0",
+                "name": "Skyearli"
             }
         },
         "colors": {
-            "dark": "claude-ai",
-            "light": "claude-ai-light"
+            "light": "claude-ai-light",
+            "dark": "claude-ai-dark"
         }
     },
     "flightradar24": {
@@ -29700,18 +29719,25 @@
     },
     "perplexity": {
         "base": "svg",
-        "aliases": [],
+        "aliases": [
+            "perplexity-ai",
+            "perplexity-book"
+        ],
         "categories": [],
         "update": {
-            "timestamp": "2025-02-07T08:49:00Z",
+            "timestamp": "2026-01-19T11:16:02.345Z",
             "author": {
-                "id": 120187197,
-                "name": "janmile"
+                "id": 49837342,
+                "login": "ajnart"
             }
         },
         "colors": {
-            "dark": "perplexity-dark",
-            "light": "perplexity-light"
+            "light": "perplexity-light",
+            "dark": "perplexity-dark"
+        },
+        "wordmark": {
+            "light": "perplexity-wordmark-light",
+            "dark": "perplexity-wordmark-dark"
         }
     },
     "yarn-social": {
@@ -31717,16 +31743,14 @@
         }
     },
     "brick-tracker": {
-        "base": "svg",
+        "base": "png",
         "aliases": [],
-        "categories": [
-            "Logistics"
-        ],
+        "categories": [],
         "update": {
-            "timestamp": "2025-05-08T20:55:30.191802",
+            "timestamp": "2026-01-20T12:24:12.840Z",
             "author": {
-                "id": 31495062,
-                "login": "jeremywillans"
+                "id": 59868436,
+                "login": "101br03k"
             }
         }
     },
@@ -34432,8 +34456,7 @@
             "timestamp": "2025-12-24T10:15:14.326Z",
             "author": {
                 "id": "un29yzs9dpnol9b",
-                "name": "thual",
-                "login": "tlabartbarnagaud@protonmail.com"
+                "name": "thual"
             }
         },
         "colors": {
@@ -34455,8 +34478,7 @@
             "timestamp": "2025-12-27T23:20:20.469Z",
             "author": {
                 "id": "fei5mlde4bg3kfo",
-                "name": "Greez2k5",
-                "login": "greez2k5@googlemail.com"
+                "name": "Greez2k5"
             }
         }
     },
@@ -34470,8 +34492,7 @@
             "timestamp": "2025-12-27T23:28:17.075Z",
             "author": {
                 "id": "r3sl3nq666gskj1",
-                "name": "filogif403",
-                "login": "filogif403@httpsu.com"
+                "name": "filogif403"
             }
         },
         "colors": {
@@ -34496,8 +34517,7 @@
             "timestamp": "2025-12-27T23:24:21.128Z",
             "author": {
                 "id": "evklyvl78ht1ydq",
-                "name": "bjoern",
-                "login": "bjoern.ebbrecht@gmail.com"
+                "name": "bjoern"
             }
         }
     },
@@ -34512,8 +34532,7 @@
             "timestamp": "2025-12-27T23:28:14.823Z",
             "author": {
                 "id": "r3sl3nq666gskj1",
-                "name": "filogif403",
-                "login": "filogif403@httpsu.com"
+                "name": "filogif403"
             }
         }
     },
@@ -34530,8 +34549,7 @@
             "timestamp": "2025-12-29T10:09:55.830Z",
             "author": {
                 "id": "r3sl3nq666gskj1",
-                "name": "filogif403",
-                "login": "filogif403@httpsu.com"
+                "name": "filogif403"
             }
         },
         "wordmark": {
@@ -34552,8 +34570,7 @@
             "timestamp": "2025-12-29T10:33:02.087Z",
             "author": {
                 "id": "rq613ure6ykbdhv",
-                "name": "pouley",
-                "login": "pierre@bellemainp.fr"
+                "name": "pouley"
             }
         },
         "colors": {
@@ -34568,8 +34585,7 @@
             "timestamp": "2025-12-29T10:33:03.394Z",
             "author": {
                 "id": "7ksqurcelxqenqb",
-                "name": "nguyentkge123@gmail.com",
-                "login": "nguyentkge123@gmail.com"
+                "name": "nguyentkge123@gmail.com"
             }
         }
     },
@@ -34581,8 +34597,7 @@
             "timestamp": "2025-12-29T10:33:04.645Z",
             "author": {
                 "id": "qnf6scp5rf6zflm",
-                "name": "freeqrcodegenerator",
-                "login": "chandrapalgond@outlook.com"
+                "name": "freeqrcodegenerator"
             }
         }
     },
@@ -34598,8 +34613,7 @@
             "timestamp": "2025-12-29T10:35:34.705Z",
             "author": {
                 "id": "r3sl3nq666gskj1",
-                "name": "filogif403",
-                "login": "filogif403@httpsu.com"
+                "name": "filogif403"
             }
         },
         "wordmark": {
@@ -34615,8 +34629,7 @@
             "timestamp": "2025-12-29T10:35:36.230Z",
             "author": {
                 "id": "rq613ure6ykbdhv",
-                "name": "pouley",
-                "login": "pierre@bellemainp.fr"
+                "name": "pouley"
             }
         },
         "colors": {
@@ -34631,29 +34644,24 @@
             "timestamp": "2025-12-29T10:35:37.048Z",
             "author": {
                 "id": "qnf6scp5rf6zflm",
-                "name": "freeqrcodegenerator",
-                "login": "chandrapalgond@outlook.com"
+                "name": "freeqrcodegenerator"
             }
         }
     },
     "cronmaster": {
         "base": "svg",
-        "aliases": [
-            "cr*nmaster"
-        ],
-        "categories": [
-            "automation",
-            "monitoring",
-            "tools",
-            "utility"
-        ],
+        "aliases": [],
+        "categories": [],
         "update": {
-            "timestamp": "2025-12-29T10:35:38.161Z",
+            "timestamp": "2026-01-19T17:26:11.310Z",
             "author": {
                 "id": "tfj1oyvti4bkyzo",
-                "name": "fccview",
-                "login": "comm.campione@gmail.com"
+                "name": "fccview"
             }
+        },
+        "colors": {
+            "light": "cronmaster-light",
+            "dark": "cronmaster-dark"
         }
     },
     "maltego": {
@@ -34666,8 +34674,7 @@
             "timestamp": "2025-12-31T11:31:59.394Z",
             "author": {
                 "id": "sowxli2ysgkofo9",
-                "name": "0xb0ec1d",
-                "login": "fechten.52luffas@icloud.com"
+                "name": "0xb0ec1d"
             }
         },
         "colors": {
@@ -34691,8 +34698,7 @@
             "timestamp": "2025-12-31T11:32:03.010Z",
             "author": {
                 "id": "sowxli2ysgkofo9",
-                "name": "0xb0ec1d",
-                "login": "fechten.52luffas@icloud.com"
+                "name": "0xb0ec1d"
             }
         },
         "wordmark": {
@@ -34711,8 +34717,7 @@
             "timestamp": "2025-12-31T11:32:06.972Z",
             "author": {
                 "id": "sowxli2ysgkofo9",
-                "name": "0xb0ec1d",
-                "login": "fechten.52luffas@icloud.com"
+                "name": "0xb0ec1d"
             }
         },
         "colors": {
@@ -34734,8 +34739,7 @@
             "timestamp": "2025-12-31T11:32:11.010Z",
             "author": {
                 "id": "sowxli2ysgkofo9",
-                "name": "0xb0ec1d",
-                "login": "fechten.52luffas@icloud.com"
+                "name": "0xb0ec1d"
             }
         },
         "colors": {
@@ -34759,8 +34763,7 @@
             "timestamp": "2025-12-31T11:32:13.797Z",
             "author": {
                 "id": "0ml01v6bsmuecev",
-                "name": "oussema_harrabi",
-                "login": "harrabi.oussema6@hotmail.fr"
+                "name": "oussema_harrabi"
             }
         },
         "colors": {
@@ -34784,8 +34787,7 @@
             "timestamp": "2025-12-31T11:32:16.113Z",
             "author": {
                 "id": "om4r2kuu9b9mc9n",
-                "name": "drodel",
-                "login": "mr.drodel@gmail.com"
+                "name": "drodel"
             }
         }
     },
@@ -34802,8 +34804,2287 @@
             "timestamp": "2025-12-31T11:32:18.565Z",
             "author": {
                 "id": "fv4b2sznnm5rt2c",
-                "name": "makinori",
-                "login": "maki+dashboardicons@hotmilk.space"
+                "name": "makinori"
+            }
+        }
+    },
+    "gitam-university": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-07T16:12:08.400Z",
+            "author": {
+                "id": "g3x9e7vsiniaare",
+                "name": "kaziir"
+            }
+        }
+    },
+    "pytorch": {
+        "base": "svg",
+        "aliases": [
+            "torch"
+        ],
+        "categories": [
+            "development"
+        ],
+        "update": {
+            "timestamp": "2026-01-07T16:15:43.051Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d"
+            }
+        },
+        "colors": {
+            "light": "pytorch-light"
+        },
+        "wordmark": {
+            "light": "pytorch-wordmark-light",
+            "dark": "pytorch-wordmark-dark"
+        }
+    },
+    "deq": {
+        "base": "svg",
+        "aliases": [
+            "DeQ",
+            "deqrocks"
+        ],
+        "categories": [
+            "automation",
+            "monitoring",
+            "network",
+            "tools",
+            "utility",
+            "home-automation"
+        ],
+        "update": {
+            "timestamp": "2026-01-09T00:10:07.825Z",
+            "author": {
+                "id": "2afhvkw6cc0isme",
+                "name": "deqrocks"
+            }
+        }
+    },
+    "fastapi": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "development"
+        ],
+        "update": {
+            "timestamp": "2026-01-09T00:10:10.470Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d"
+            }
+        },
+        "wordmark": {
+            "light": "fastapi-wordmark-light",
+            "dark": "fastapi-wordmark-dark"
+        }
+    },
+    "a3": {
+        "base": "png",
+        "aliases": [],
+        "categories": [
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-01-09T00:10:12.887Z",
+            "author": {
+                "id": "vrp6jkk5py2bbw2",
+                "name": "bel.cou.act@gmail.com"
+            }
+        }
+    },
+    "qbitmanage": {
+        "base": "png",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-09T00:10:16.343Z",
+            "author": {
+                "id": "k7fvsx3yfgz070a",
+                "name": "Sioul"
+            }
+        }
+    },
+    "erugo": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "storage",
+            "tools",
+            "utility"
+        ],
+        "update": {
+            "timestamp": "2026-01-09T00:10:18.831Z",
+            "author": {
+                "id": "509o8mac5tnfu9u",
+                "name": "deandeandean"
+            }
+        }
+    },
+    "whatseerr": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-09T00:10:21.223Z",
+            "author": {
+                "id": "z8w9chgkl1v0twd",
+                "name": "SuFxDBI"
+            }
+        }
+    },
+    "aliasvault": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "utility",
+            "security",
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-01-09T00:10:23.451Z",
+            "author": {
+                "id": "o0zlzqagyymj3y3",
+                "name": "sn0wf4ll"
+            }
+        }
+    },
+    "prunemate": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "storage",
+            "tools",
+            "utility",
+            "other",
+            "automation"
+        ],
+        "update": {
+            "timestamp": "2026-01-09T00:10:25.658Z",
+            "author": {
+                "id": "0bagu87a1mx9g7g",
+                "name": "anoniemerd"
+            }
+        }
+    },
+    "svg": {
+        "base": "svg",
+        "aliases": [
+            "Scalable Vector Graphics",
+            "image/svg+xml",
+            "W3C SVG"
+        ],
+        "categories": [
+            "media",
+            "development"
+        ],
+        "update": {
+            "timestamp": "2026-01-09T00:10:27.898Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d"
+            }
+        }
+    },
+    "broadcom": {
+        "base": "svg",
+        "aliases": [
+            "VMware",
+            "Brocade",
+            "Symantec"
+        ],
+        "categories": [
+            "cloud",
+            "security",
+            "network",
+            "storage"
+        ],
+        "update": {
+            "timestamp": "2026-01-09T00:10:30.608Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d"
+            }
+        },
+        "wordmark": {
+            "light": "broadcom-wordmark-light",
+            "dark": "broadcom-dark"
+        }
+    },
+    "solarwinds": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "network",
+            "monitoring",
+            "security",
+            "database"
+        ],
+        "update": {
+            "timestamp": "2026-01-09T00:10:33.308Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d"
+            }
+        },
+        "wordmark": {
+            "light": "solarwinds-wordmark-light",
+            "dark": "solarwinds-wordmark-dark"
+        }
+    },
+    "freshbooks": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "finance"
+        ],
+        "update": {
+            "timestamp": "2026-01-09T00:10:35.548Z",
+            "author": {
+                "id": "0876gmv58gt9upk",
+                "name": "mwksl"
+            }
+        }
+    },
+    "apache-iceberg": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "cloud",
+            "database",
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-01-09T00:10:37.820Z",
+            "author": {
+                "id": "iq37xkubfmfm13x",
+                "name": "b.vrublevsky"
+            }
+        }
+    },
+    "comfyui": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-09T14:19:27.322Z",
+            "author": {
+                "id": 72495210,
+                "login": "v3DJG6GL"
+            }
+        },
+        "colors": {
+            "light": "comfyui-light",
+            "dark": "comfyui-dark"
+        },
+        "wordmark": {
+            "light": "comfyui-wordmark-light",
+            "dark": "comfyui-wordmark-dark"
+        }
+    },
+    "streamyfin": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "media",
+            "entertainment"
+        ],
+        "update": {
+            "timestamp": "2026-01-09T14:19:33.284Z",
+            "author": {
+                "id": 72495210,
+                "login": "v3DJG6GL"
+            }
+        }
+    },
+    "duolingo": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "other"
+        ],
+        "update": {
+            "timestamp": "2026-01-19T10:41:56.518Z",
+            "author": {
+                "id": 97221303,
+                "login": "HattaPauzi"
+            }
+        }
+    },
+    "av1": {
+        "base": "svg",
+        "aliases": [
+            "AOMedia Video 1",
+            "video/AV1"
+        ],
+        "categories": [
+            "media"
+        ],
+        "update": {
+            "timestamp": "2026-01-19T17:50:51.126Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d"
+            }
+        },
+        "colors": {
+            "light": "av1-light",
+            "dark": "av1-dark"
+        }
+    },
+    "flutter": {
+        "base": "svg",
+        "aliases": [
+            "Google Flutter"
+        ],
+        "categories": [
+            "development"
+        ],
+        "update": {
+            "timestamp": "2026-01-19T17:50:54.599Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d"
+            }
+        },
+        "wordmark": {
+            "light": "flutter-wordmark-light",
+            "dark": "flutter-wordmark-dark"
+        }
+    },
+    "bitly": {
+        "base": "svg",
+        "aliases": [
+            "bit.ly"
+        ],
+        "categories": [
+            "cloud"
+        ],
+        "update": {
+            "timestamp": "2026-01-19T17:50:57.965Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d"
+            }
+        },
+        "colors": {
+            "light": "bitly-light",
+            "dark": "bitly-dark"
+        },
+        "wordmark": {
+            "light": "bitly-wordmark-light"
+        }
+    },
+    "black-forest-labs": {
+        "base": "svg",
+        "aliases": [
+            "bfl",
+            "flux"
+        ],
+        "categories": [
+            "cloud",
+            "development"
+        ],
+        "update": {
+            "timestamp": "2026-01-19T17:51:01.794Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d"
+            }
+        },
+        "colors": {
+            "light": "black-forest-labs-light",
+            "dark": "black-forest-labs-dark"
+        },
+        "wordmark": {
+            "light": "black-forest-labs-wordmark-light",
+            "dark": "black-forest-labs-wordmark-dark"
+        }
+    },
+    "thread": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "home-automation",
+            "network"
+        ],
+        "update": {
+            "timestamp": "2026-01-19T17:51:04.436Z",
+            "author": {
+                "id": 12561505,
+                "login": "yutamago"
+            }
+        },
+        "wordmark": {
+            "dark": "thread-wordmark-dark"
+        }
+    },
+    "rackula": {
+        "base": "svg",
+        "aliases": [
+            "rackarr"
+        ],
+        "categories": [
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-01-19T20:10:51.245Z",
+            "author": {
+                "id": 162880856,
+                "login": "RioLi08123"
+            }
+        },
+        "colors": {
+            "light": "rackula-light",
+            "dark": "rackula-dark"
+        }
+    },
+    "anytype": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-01-20T10:51:27.450Z",
+            "author": {
+                "id": 48501111,
+                "login": "mattxcnm"
+            }
+        }
+    },
+    "booklore": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "media",
+            "utility"
+        ],
+        "update": {
+            "timestamp": "2026-01-20T12:23:41.766Z",
+            "author": {
+                "id": 1108200,
+                "login": "rgooler"
+            }
+        },
+        "wordmark": {
+            "light": "booklore-wordmark-light"
+        }
+    },
+    "check-point": {
+        "base": "svg",
+        "aliases": [
+            "Checkpoint",
+            "Check Point Software"
+        ],
+        "categories": [
+            "security",
+            "network"
+        ],
+        "update": {
+            "timestamp": "2026-01-20T12:23:45.116Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d"
+            }
+        },
+        "wordmark": {
+            "light": "check-point-wordmark-light"
+        }
+    },
+    "godoxy": {
+        "base": "png",
+        "aliases": [
+            "go-doxy",
+            "go doxy"
+        ],
+        "categories": [
+            "network",
+            "security"
+        ],
+        "update": {
+            "timestamp": "2026-01-20T12:23:47.668Z",
+            "author": {
+                "id": 29818713,
+                "login": "Zareix"
+            }
+        }
+    },
+    "nzbdav": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-20T12:23:49.816Z",
+            "author": {
+                "id": 145717983,
+                "login": "krier-julien"
+            }
+        }
+    },
+    "databricks": {
+        "base": "svg",
+        "aliases": [
+            "spark",
+            "data-analytics",
+            "lakehouse"
+        ],
+        "categories": [
+            "cloud",
+            "database",
+            "development"
+        ],
+        "update": {
+            "timestamp": "2026-01-20T12:23:52.160Z",
+            "author": {
+                "id": 94511260,
+                "login": "treenod-trudy"
+            }
+        }
+    },
+    "paperless-gpt": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "automation",
+            "media",
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-01-20T12:23:54.342Z",
+            "author": {
+                "id": 14909916,
+                "login": "zhorvath83"
+            }
+        }
+    },
+    "statistics-for-strava": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "other"
+        ],
+        "update": {
+            "timestamp": "2026-01-20T12:23:56.478Z",
+            "author": {
+                "id": 59868436,
+                "login": "101br03k"
+            }
+        }
+    },
+    "lunch-money": {
+        "base": "png",
+        "aliases": [],
+        "categories": [
+            "finance",
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-01-20T12:23:58.715Z",
+            "author": {
+                "id": 41840767,
+                "login": "b-Tomas"
+            }
+        }
+    },
+    "elabftw": {
+        "base": "svg",
+        "aliases": [
+            "elabftw",
+            "eLabFTW"
+        ],
+        "categories": [
+            "database",
+            "other",
+            "tools",
+            "utility"
+        ],
+        "update": {
+            "timestamp": "2026-01-20T12:24:00.881Z",
+            "author": {
+                "id": 57649463,
+                "login": "doctordarko"
+            }
+        }
+    },
+    "json": {
+        "base": "svg",
+        "aliases": [
+            "JavaScript Object Notation",
+            "application/json",
+            "RFC 8259"
+        ],
+        "categories": [
+            "development"
+        ],
+        "update": {
+            "timestamp": "2026-01-20T12:24:03.042Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d"
+            }
+        }
+    },
+    "servicenow": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "cloud"
+        ],
+        "update": {
+            "timestamp": "2026-01-20T12:24:05.759Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d"
+            }
+        },
+        "wordmark": {
+            "light": "servicenow-wordmark-light",
+            "dark": "servicenow-wordmark-dark"
+        }
+    },
+    "ibm": {
+        "base": "svg",
+        "aliases": [
+            "International Business Machines Corporation"
+        ],
+        "categories": [
+            "cloud",
+            "storage",
+            "security",
+            "network"
+        ],
+        "update": {
+            "timestamp": "2026-01-20T12:24:08.291Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d"
+            }
+        },
+        "colors": {
+            "light": "ibm-light",
+            "dark": "ibm-dark"
+        }
+    },
+    "dockhand": {
+        "base": "png",
+        "aliases": [],
+        "categories": [
+            "monitoring",
+            "automation",
+            "network",
+            "tools",
+            "utility"
+        ],
+        "update": {
+            "timestamp": "2026-01-20T12:24:10.551Z",
+            "author": {
+                "id": 33779326,
+                "login": "nicktheone"
+            }
+        }
+    },
+    "danmaku": {
+        "base": "png",
+        "aliases": [],
+        "categories": [
+            "entertainment"
+        ],
+        "update": {
+            "timestamp": "2026-01-20T12:24:15.014Z",
+            "author": {
+                "id": "ldqkzxa6vg9mqs1",
+                "name": "Shimakaze"
+            }
+        }
+    },
+    "google-ai-studio": {
+        "base": "png",
+        "aliases": [
+            "Google AI Studio",
+            "AI Studio"
+        ],
+        "categories": [
+            "tools",
+            "utility",
+            "cloud",
+            "development"
+        ],
+        "update": {
+            "timestamp": "2026-01-20T12:24:17.181Z",
+            "author": {
+                "id": "47qf4zkbou5ag6s",
+                "name": "ahFzxpiuMUqMe5-2N4Uaa"
+            }
+        }
+    },
+    "libreelec": {
+        "base": "png",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-20T12:24:19.349Z",
+            "author": {
+                "id": 94646007,
+                "login": "lukasheinz92"
+            }
+        }
+    },
+    "filerise": {
+        "base": "png",
+        "aliases": [],
+        "categories": [
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-01-20T12:24:21.555Z",
+            "author": {
+                "id": "awgqe6prb1kj5xc",
+                "name": "jan_reinhardt"
+            }
+        }
+    },
+    "nutify": {
+        "base": "png",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-20T12:24:24.005Z",
+            "author": {
+                "id": 167335399,
+                "login": "heathaolson"
+            }
+        }
+    },
+    "fail2ban": {
+        "base": "png",
+        "aliases": [],
+        "categories": [
+            "security",
+            "tools",
+            "utility",
+            "network"
+        ],
+        "update": {
+            "timestamp": "2026-01-20T12:24:28.355Z",
+            "author": {
+                "id": 61244159,
+                "login": "giannf"
+            }
+        }
+    },
+    "lenovo": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "other"
+        ],
+        "update": {
+            "timestamp": "2026-01-20T12:24:30.865Z",
+            "author": {
+                "id": 48501111,
+                "login": "mattxcnm"
+            }
+        },
+        "colors": {
+            "light": "lenovo-light"
+        }
+    },
+    "pvy-base": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T13:24:58.362Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-base-dark"
+        },
+        "wordmark": {
+            "light": "pvy-base-wordmark-light",
+            "dark": "pvy-base-wordmark-dark"
+        }
+    },
+    "pvy-backup": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T13:25:03.353Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-backup-dark"
+        },
+        "wordmark": {
+            "light": "pvy-backup-wordmark-light",
+            "dark": "pvy-backup-wordmark-dark"
+        }
+    },
+    "pvy-automat": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T13:25:07.946Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-automat-dark"
+        },
+        "wordmark": {
+            "light": "pvy-automat-wordmark-light",
+            "dark": "pvy-automat-wordmark-dark"
+        }
+    },
+    "pvy-assets": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T13:25:12.309Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-assets-dark"
+        },
+        "wordmark": {
+            "light": "pvy-assets-wordmark-light",
+            "dark": "pvy-assets-wordmark-dark"
+        }
+    },
+    "pvy-archiver": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T13:25:16.753Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-archiver-dark"
+        },
+        "wordmark": {
+            "light": "pvy-archiver-wordmark-light",
+            "dark": "pvy-archiver-wordmark-dark"
+        }
+    },
+    "pvy-appstore": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T13:25:20.854Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-appstore-dark"
+        },
+        "wordmark": {
+            "light": "pvy-appstore-wordmark-light",
+            "dark": "pvy-appstore-wordmark-dark"
+        }
+    },
+    "pvy-applytics": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T13:25:24.716Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-applytics-dark"
+        },
+        "wordmark": {
+            "light": "pvy-applytics-wordmark-light",
+            "dark": "pvy-applytics-wordmark-dark"
+        }
+    },
+    "pvy-analytics": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T13:25:28.744Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-analytics-dark"
+        },
+        "wordmark": {
+            "light": "pvy-analytics-wordmark-light",
+            "dark": "pvy-analytics-wordmark-dark"
+        }
+    },
+    "pvy-ai": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T13:25:32.833Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-ai-dark"
+        },
+        "wordmark": {
+            "light": "pvy-ai-wordmark-light",
+            "dark": "pvy-ai-wordmark-dark"
+        }
+    },
+    "pvyaffiliate": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T13:25:36.655Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvyaffiliate-dark"
+        },
+        "wordmark": {
+            "light": "pvyaffiliate-wordmark-light",
+            "dark": "pvyaffiliate-wordmark-dark"
+        }
+    },
+    "pvy-messenger": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:42:45.717Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-messenger-dark"
+        },
+        "wordmark": {
+            "light": "pvy-messenger-wordmark-light",
+            "dark": "pvy-messenger-wordmark-dark"
+        }
+    },
+    "pvy-mesh": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:42:50.979Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-mesh-dark"
+        },
+        "wordmark": {
+            "light": "pvy-mesh-wordmark-light",
+            "dark": "pvy-mesh-wordmark-dark"
+        }
+    },
+    "pvy-meeting": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:42:55.010Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-meeting-dark"
+        },
+        "wordmark": {
+            "light": "pvy-meeting-wordmark-light",
+            "dark": "pvy-meeting-wordmark-dark"
+        }
+    },
+    "pvy-mediahub": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:42:58.507Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-mediahub-dark"
+        },
+        "wordmark": {
+            "light": "pvy-mediahub-wordmark-light",
+            "dark": "pvy-mediahub-wordmark-dark"
+        }
+    },
+    "pvy-media": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:43:02.127Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-media-dark"
+        },
+        "wordmark": {
+            "light": "pvy-media-wordmark-light",
+            "dark": "pvy-media-wordmark-dark"
+        }
+    },
+    "pvy-mdm": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:43:05.722Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-mdm-dark"
+        },
+        "wordmark": {
+            "light": "pvy-mdm-wordmark-light",
+            "dark": "pvy-mdm-wordmark-dark"
+        }
+    },
+    "pvy-maps": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:43:08.970Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-maps-dark"
+        },
+        "wordmark": {
+            "light": "pvy-maps-wordmark-light",
+            "dark": "pvy-maps-wordmark-dark"
+        }
+    },
+    "pvy-mailr": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:43:12.698Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-mailr-dark"
+        },
+        "wordmark": {
+            "light": "pvy-mailr-wordmark-light",
+            "dark": "pvy-mailr-wordmark-dark"
+        }
+    },
+    "pvy-mailarchiver": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:43:16.535Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-mailarchiver-dark"
+        },
+        "wordmark": {
+            "light": "pvy-mailarchiver-wordmark-light",
+            "dark": "pvy-mailarchiver-wordmark-dark"
+        }
+    },
+    "pvy-localize": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:43:20.001Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-localize-dark"
+        },
+        "wordmark": {
+            "light": "pvy-localize-wordmark-light",
+            "dark": "pvy-localize-wordmark-dark"
+        }
+    },
+    "pvy-local": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:43:23.682Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-local-dark"
+        },
+        "wordmark": {
+            "light": "pvy-local-wordmark-light",
+            "dark": "pvy-local-wordmark-dark"
+        }
+    },
+    "pvy-lnkr": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:43:27.196Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-lnkr-dark"
+        },
+        "wordmark": {
+            "light": "pvy-lnkr-wordmark-light",
+            "dark": "pvy-lnkr-wordmark-dark"
+        }
+    },
+    "pvy-id": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:43:30.692Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-id-dark"
+        },
+        "wordmark": {
+            "light": "pvy-id-wordmark-light",
+            "dark": "pvy-id-wordmark-dark"
+        }
+    },
+    "pvy-homeassistant": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:43:34.391Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-homeassistant-dark"
+        },
+        "wordmark": {
+            "light": "pvy-homeassistant-wordmark-light",
+            "dark": "pvy-homeassistant-wordmark-dark"
+        }
+    },
+    "pvy-gtd": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:43:37.569Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-gtd-dark"
+        },
+        "wordmark": {
+            "light": "pvy-gtd-wordmark-light",
+            "dark": "pvy-gtd-wordmark-dark"
+        }
+    },
+    "pvy-groupware": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:43:41.008Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-groupware-dark"
+        },
+        "wordmark": {
+            "light": "pvy-groupware-wordmark-light",
+            "dark": "pvy-groupware-wordmark-dark"
+        }
+    },
+    "pvy-forms": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:43:44.680Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-forms-dark"
+        },
+        "wordmark": {
+            "light": "pvy-forms-wordmark-light",
+            "dark": "pvy-forms-wordmark-dark"
+        }
+    },
+    "pvy-files": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:43:48.301Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-files-dark"
+        },
+        "wordmark": {
+            "light": "pvy-files-wordmark-light",
+            "dark": "pvy-files-wordmark-dark"
+        }
+    },
+    "pvy-devices": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:43:51.786Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-devices-dark"
+        },
+        "wordmark": {
+            "light": "pvy-devices-wordmark-light",
+            "dark": "pvy-devices-wordmark-dark"
+        }
+    },
+    "pvy-community": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:43:55.398Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-community-dark"
+        },
+        "wordmark": {
+            "light": "pvy-community-wordmark-light",
+            "dark": "pvy-community-wordmark-dark"
+        }
+    },
+    "pvy-code": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:43:59.047Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-code-dark"
+        },
+        "wordmark": {
+            "light": "pvy-code-wordmark-light",
+            "dark": "pvy-code-wordmark-dark"
+        }
+    },
+    "pvy-central": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:44:02.564Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-central-dark"
+        },
+        "wordmark": {
+            "light": "pvy-central-wordmark-light",
+            "dark": "pvy-central-wordmark-dark"
+        }
+    },
+    "pvy-captcha": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:44:06.213Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-captcha-dark"
+        },
+        "wordmark": {
+            "light": "pvy-captcha-wordmark-light",
+            "dark": "pvy-captcha-wordmark-dark"
+        }
+    },
+    "pvy-cal": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:44:09.871Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-cal-dark"
+        },
+        "wordmark": {
+            "light": "pvy-cal-wordmark-light",
+            "dark": "pvy-cal-wordmark-dark"
+        }
+    },
+    "pvy-buttler": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:44:13.376Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-buttler-dark"
+        },
+        "wordmark": {
+            "light": "pvy-buttler-wordmark-light",
+            "dark": "pvy-buttler-wordmark-dark"
+        }
+    },
+    "pvy-businessos": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:44:17.029Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-businessos-dark"
+        },
+        "wordmark": {
+            "light": "pvy-businessos-wordmark-light",
+            "dark": "pvy-businessos-wordmark-dark"
+        }
+    },
+    "pvy-bugtracker": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:44:20.712Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-bugtracker-dark"
+        },
+        "wordmark": {
+            "light": "pvy-bugtracker-wordmark-light",
+            "dark": "pvy-bugtracker-wordmark-dark"
+        }
+    },
+    "pvy-buddy": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:44:24.199Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-buddy-dark"
+        },
+        "wordmark": {
+            "light": "pvy-buddy-wordmark-light",
+            "dark": "pvy-buddy-wordmark-dark"
+        }
+    },
+    "pvy-bot": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:44:27.854Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-bot-dark"
+        },
+        "wordmark": {
+            "light": "pvy-bot-wordmark-light",
+            "dark": "pvy-bot-wordmark-dark"
+        }
+    },
+    "pvy-bookmarks": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-22T16:44:31.552Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-bookmarks-dark"
+        },
+        "wordmark": {
+            "light": "pvy-bookmarks-wordmark-light",
+            "dark": "pvy-bookmarks-wordmark-dark"
+        }
+    },
+    "pvy-wiki": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-23T12:59:49.401Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-wiki-dark"
+        },
+        "wordmark": {
+            "light": "pvy-wiki-wordmark-light",
+            "dark": "pvy-wiki-wordmark-dark"
+        }
+    },
+    "pvy-webcall": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-23T12:59:56.698Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-webcall-dark"
+        },
+        "wordmark": {
+            "light": "pvy-webcall-wordmark-light",
+            "dark": "pvy-webcall-wordmark-dark"
+        }
+    },
+    "pvy-vpn": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-23T13:00:05.369Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-vpn-dark"
+        },
+        "wordmark": {
+            "light": "pvy-vpn-wordmark-light",
+            "dark": "pvy-vpn-wordmark-dark"
+        }
+    },
+    "pvy-vault": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-23T13:00:11.504Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-vault-dark"
+        },
+        "wordmark": {
+            "light": "pvy-vault-wordmark-light",
+            "dark": "pvy-vault-wordmark-dark"
+        }
+    },
+    "pvy-ux": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-23T13:00:16.240Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-ux-dark"
+        },
+        "wordmark": {
+            "light": "pvy-ux-wordmark-light",
+            "dark": "pvy-ux-wordmark-dark"
+        }
+    },
+    "pvy-timer": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-23T13:00:20.196Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-timer-dark"
+        },
+        "wordmark": {
+            "light": "pvy-timer-wordmark-light",
+            "dark": "pvy-timer-wordmark-dark"
+        }
+    },
+    "pvy-start": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-23T13:00:23.648Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-start-dark"
+        },
+        "wordmark": {
+            "light": "pvy-start-wordmark-light",
+            "dark": "pvy-start-wordmark-dark"
+        }
+    },
+    "pvy-spreadsheet": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-23T13:00:29.060Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-spreadsheet-dark"
+        },
+        "wordmark": {
+            "light": "pvy-spreadsheet-wordmark-light",
+            "dark": "pvy-spreadsheet-wordmark-dark"
+        }
+    },
+    "pvy-snippets": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-23T13:00:32.531Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-snippets-dark"
+        },
+        "wordmark": {
+            "light": "pvy-snippets-wordmark-light",
+            "dark": "pvy-snippets-wordmark-dark"
+        }
+    },
+    "pvy-sign": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-23T13:00:36.273Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-sign-dark"
+        },
+        "wordmark": {
+            "light": "pvy-sign-wordmark-light",
+            "dark": "pvy-sign-wordmark-dark"
+        }
+    },
+    "pvy-servicedesk": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-23T13:00:40.964Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-servicedesk-dark"
+        },
+        "wordmark": {
+            "light": "pvy-servicedesk-wordmark-light",
+            "dark": "pvy-servicedesk-wordmark-dark"
+        }
+    },
+    "pvy-search": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-23T13:00:46.854Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-search-dark"
+        },
+        "wordmark": {
+            "light": "pvy-search-wordmark-light",
+            "dark": "pvy-search-wordmark-dark"
+        }
+    },
+    "pvy-safe": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-23T13:00:51.295Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-safe-dark"
+        },
+        "wordmark": {
+            "light": "pvy-safe-wordmark-light",
+            "dark": "pvy-safe-wordmark-dark"
+        }
+    },
+    "pvy-remote": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-23T13:00:54.824Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-remote-dark"
+        },
+        "wordmark": {
+            "light": "pvy-remote-wordmark-light",
+            "dark": "pvy-remote-wordmark-dark"
+        }
+    },
+    "pvy-photo": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-23T13:00:58.560Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-photo-dark"
+        },
+        "wordmark": {
+            "light": "pvy-photo-wordmark-light",
+            "dark": "pvy-photo-wordmark-dark"
+        }
+    },
+    "pvy-pbx": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-23T13:01:05.999Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-pbx-dark"
+        },
+        "wordmark": {
+            "light": "pvy-pbx-wordmark-light",
+            "dark": "pvy-pbx-wordmark-dark"
+        }
+    },
+    "pvy-pad": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-23T13:01:11.134Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-pad-dark"
+        },
+        "wordmark": {
+            "light": "pvy-pad-wordmark-light",
+            "dark": "pvy-pad-wordmark-dark"
+        }
+    },
+    "pvy-office": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-23T13:01:14.685Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-office-dark"
+        },
+        "wordmark": {
+            "light": "pvy-office-wordmark-light",
+            "dark": "pvy-office-wordmark-dark"
+        }
+    },
+    "pvy-notes": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-23T13:01:20.951Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-notes-dark"
+        },
+        "wordmark": {
+            "light": "pvy-notes-wordmark-light",
+            "dark": "pvy-notes-wordmark-dark"
+        }
+    },
+    "pvy-news": {
+        "base": "svg",
+        "aliases": [
+            "pvy.swiss"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-23T13:01:24.555Z",
+            "author": {
+                "id": "twc3018b3j6v3db",
+                "name": "Guido F"
+            }
+        },
+        "colors": {
+            "dark": "pvy-news-dark"
+        },
+        "wordmark": {
+            "light": "pvy-news-wordmark-light",
+            "dark": "pvy-news-wordmark-dark"
+        }
+    },
+    "itop": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-01-26T13:04:45.510Z",
+            "author": {
+                "id": 97460839,
+                "login": "horned1"
+            }
+        }
+    },
+    "sharewood": {
+        "base": "svg",
+        "aliases": [
+            "torrent"
+        ],
+        "categories": [
+            "media"
+        ],
+        "update": {
+            "timestamp": "2026-01-26T13:04:49.597Z",
+            "author": {
+                "id": "9y34g6yccnw9k2i",
+                "name": "Sbog"
+            }
+        }
+    },
+    "sponsorblock": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "social",
+            "tools",
+            "utility",
+            "automation",
+            "entertainment"
+        ],
+        "update": {
+            "timestamp": "2026-01-26T13:04:52.332Z",
+            "author": {
+                "id": 111227405,
+                "login": "bheyne666"
+            }
+        }
+    },
+    "fortran": {
+        "base": "svg",
+        "aliases": [
+            "Fortran Programming Language"
+        ],
+        "categories": [
+            "development"
+        ],
+        "update": {
+            "timestamp": "2026-01-26T13:04:54.768Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d"
+            }
+        }
+    },
+    "blu-ray-3d": {
+        "base": "svg",
+        "aliases": [
+            "3d",
+            "blue ray",
+            "disc",
+            "cd",
+            "dvd"
+        ],
+        "categories": [
+            "entertainment",
+            "media",
+            "storage"
+        ],
+        "update": {
+            "timestamp": "2026-02-02T10:41:25.796Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d"
+            }
+        }
+    },
+    "blu-ray": {
+        "base": "svg",
+        "aliases": [
+            "disc",
+            "dvd",
+            "cd",
+            "blu-ray-disc",
+            "blue ray"
+        ],
+        "categories": [
+            "media",
+            "storage"
+        ],
+        "update": {
+            "timestamp": "2026-02-02T10:41:28.926Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d"
+            }
+        }
+    },
+    "dvd": {
+        "base": "svg",
+        "aliases": [
+            "digital video disc",
+            "digital versatile disc"
+        ],
+        "categories": [
+            "storage",
+            "media"
+        ],
+        "update": {
+            "timestamp": "2026-02-02T10:41:32.559Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d"
+            }
+        },
+        "colors": {
+            "light": "dvd-light",
+            "dark": "dvd-dark"
+        }
+    },
+    "cd": {
+        "base": "svg",
+        "aliases": [
+            "compact disc",
+            "disc"
+        ],
+        "categories": [
+            "media",
+            "storage"
+        ],
+        "update": {
+            "timestamp": "2026-02-02T10:41:36.147Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d"
+            }
+        },
+        "colors": {
+            "light": "cd-light",
+            "dark": "cd-dark"
+        }
+    },
+    "uefi": {
+        "base": "svg",
+        "aliases": [
+            "The UEFI Forum",
+            "BIOS"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-02-02T10:41:40.686Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d"
+            }
+        }
+    },
+    "dependency-track": {
+        "base": "svg",
+        "aliases": [
+            "OWASP dependency track"
+        ],
+        "categories": [
+            "monitoring",
+            "security",
+            "development"
+        ],
+        "update": {
+            "timestamp": "2026-02-02T10:41:44.350Z",
+            "author": {
+                "id": "sowxli2ysgkofo9",
+                "name": "0xb0ec1d"
+            }
+        },
+        "wordmark": {
+            "light": "dependency-track-wordmark-light",
+            "dark": "dependency-track-wordmark-dark"
+        }
+    },
+    "9anime": {
+        "base": "png",
+        "aliases": [],
+        "categories": [
+            "media"
+        ],
+        "update": {
+            "timestamp": "2026-02-02T10:41:47.282Z",
+            "author": {
+                "id": 248841200,
+                "login": "MarkRamiel"
+            }
+        }
+    },
+    "homehub": {
+        "base": "svg",
+        "aliases": [
+            "home-hub"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-02-02T10:41:50.026Z",
+            "author": {
+                "id": 112346609,
+                "login": "gaby7129"
+            }
+        }
+    },
+    "cypress": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "utility"
+        ],
+        "update": {
+            "timestamp": "2026-02-02T10:41:52.572Z",
+            "author": {
+                "id": 207097691,
+                "login": "GioSalvador"
+            }
+        }
+    },
+    "rustfs": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "storage"
+        ],
+        "update": {
+            "timestamp": "2026-02-02T10:41:55.139Z",
+            "author": {
+                "id": "om0u0kgta39laxz",
+                "name": "rustfs"
+            }
+        }
+    },
+    "proton": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-02-02T10:41:57.831Z",
+            "author": {
+                "id": 165878227,
+                "login": "Zain3967"
             }
         }
     }

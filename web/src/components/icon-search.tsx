@@ -5,7 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useTheme } from "next-themes"
 import posthog from "posthog-js"
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
-import { toast } from "sonner"
+import { AddToSearchBarButton } from "@/components/add-to-search-bar-button"
 import { VirtualizedIconsGrid } from "@/components/icon-grid"
 import { IconSubmissionContent } from "@/components/icon-submission-form"
 import { Badge } from "@/components/ui/badge"
@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
-import { filterAndSortIcons, type SortOption } from "@/lib/utils"
+import { filterAndSortIcons, normalizeForSearch, type SortOption } from "@/lib/utils"
 import type { IconSearchProps } from "@/types/icons"
 
 export function IconSearch({ icons }: IconSearchProps) {
@@ -66,12 +66,18 @@ export function IconSearch({ icons }: IconSearchProps) {
 		if (!searchQuery.trim()) return {}
 
 		const q = searchQuery.toLowerCase()
+		const qNormalized = normalizeForSearch(searchQuery)
 		const matches: Record<string, string> = {}
 
 		for (const { name, data } of icons) {
-			// If name doesn't match but an alias does, store the first matching alias
-			if (!name.toLowerCase().includes(q)) {
-				const matchingAlias = data.aliases.find((alias) => alias.toLowerCase().includes(q))
+			const nameNormalized = normalizeForSearch(name)
+			// If name doesn't match (including normalized), but an alias does, store the first matching alias
+			if (!name.toLowerCase().includes(q) && !nameNormalized.includes(qNormalized)) {
+				const matchingAlias = data.aliases.find((alias) => {
+					const aliasLower = alias.toLowerCase()
+					const aliasNormalized = normalizeForSearch(alias)
+					return aliasLower.includes(q) || aliasNormalized.includes(qNormalized)
+				})
 				if (matchingAlias) {
 					matches[name] = matchingAlias
 				}
@@ -325,6 +331,8 @@ export function IconSearch({ icons }: IconSearchProps) {
 						</DropdownMenuContent>
 					</DropdownMenu>
 
+					<AddToSearchBarButton className="flex-1 sm:flex-none rounded-sm" />
+
 					{/* Clear all button */}
 					{(searchQuery || selectedCategories.length > 0 || sortOption !== "relevance") && (
 						<Button variant="outline" size="sm" onClick={clearFilters} className="flex-1 sm:flex-none cursor-pointer bg-background">
@@ -374,8 +382,7 @@ export function IconSearch({ icons }: IconSearchProps) {
 			{filteredIcons.length === 0 ? (
 				<div className="flex flex-col gap-8 py-12 px-2 w-full max-w-full sm:max-w-2xl mx-auto items-center overflow-x-hidden">
 					<div className="text-center w-full">
-						<h2 className="text-3xl sm:text-5xl font-semibold">Icon not found</h2>
-						<p className="text-lg text-muted-foreground mt-2">Help us expand our collection</p>
+						<h2 className="text-3xl sm:text-5xl font-semibold">404: Not Found</h2>
 					</div>
 					<div className="flex flex-col gap-4 items-center w-full">
 						{/** biome-ignore lint/correctness/useUniqueElementIds: I want the ID to be fixed */}
