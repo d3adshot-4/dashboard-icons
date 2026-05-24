@@ -8,6 +8,7 @@ import { toast } from "sonner"
 import { revalidateAllSubmissions } from "@/app/actions/submissions"
 import type { MultiSelectOption } from "@/components/ui/multi-select"
 import { pb } from "@/lib/pb"
+import { submitOrReplaceRejected } from "@/lib/submit-or-replace"
 
 export interface VariantConfig {
 	id: string
@@ -72,7 +73,7 @@ export const AVAILABLE_CATEGORIES = [
 	"social",
 	"storage",
 	"tools",
-	"utility"
+	"utility",
 ]
 
 export interface FormData {
@@ -87,7 +88,7 @@ export interface FormData {
 
 export const ACCEPTED_FILE_TYPES = {
 	"image/svg+xml": [".svg"],
-	"image/png": [".png"]
+	"image/png": [".png"],
 }
 
 export const MAX_FILE_SIZE = 1024 * 1024 * 5
@@ -110,7 +111,7 @@ export function useIconSubmissionForm() {
 		} satisfies FormData,
 		onSubmit: async ({ value }) => {
 			if (isSubmittingRef.current) return
-			
+
 			if (!pb.authStore.isValid) {
 				toast.error("You must be logged in to submit an icon")
 				return
@@ -163,13 +164,13 @@ export function useIconSubmissionForm() {
 				const submissionData = {
 					name: value.iconName,
 					assets: assetFiles,
-					created_by: (pb.authStore.record as any)?.id ?? pb.authStore.record?.id,
-					status: "pending",
+					created_by: (pb.authStore.record as any)?.id ?? pb.authStore.record?.id ?? "",
+					status: "pending" as const,
 					description: value.description,
 					extras: extras,
 				}
 
-				const record = await pb.collection("submissions").create(submissionData)
+				const record = await submitOrReplaceRejected(submissionData)
 
 				if (record.assets && record.assets.length > 0) {
 					const updatedExtras = JSON.parse(JSON.stringify(extras))
@@ -248,12 +249,12 @@ export function useIconSubmissionForm() {
 
 	const handleFileDrop = (variantId: string, droppedFiles: File[]) => {
 		const currentFiles = form.getFieldValue("files")
-		
+
 		if (droppedFiles.length === 0) {
 			const newFiles = { ...currentFiles }
 			delete newFiles[variantId]
 			form.setFieldValue("files", newFiles)
-			
+
 			setFilePreviews((prev) => {
 				const newPreviews = { ...prev }
 				delete newPreviews[variantId]
@@ -261,7 +262,7 @@ export function useIconSubmissionForm() {
 			})
 			return
 		}
-		
+
 		form.setFieldValue("files", {
 			...currentFiles,
 			[variantId]: droppedFiles,

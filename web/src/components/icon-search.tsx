@@ -2,19 +2,15 @@
 
 import { ArrowDownAZ, ArrowUpZA, Calendar, Filter, Search, SortAsc, X } from "lucide-react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { useTheme } from "next-themes"
 import posthog from "posthog-js"
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { AddToSearchBarButton } from "@/components/add-to-search-bar-button"
 import { VirtualizedIconsGrid } from "@/components/icon-grid"
 import { IconSubmissionContent } from "@/components/icon-submission-form"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
 	DropdownMenu,
-	DropdownMenuCheckboxItem,
 	DropdownMenuContent,
-	DropdownMenuItem,
 	DropdownMenuLabel,
 	DropdownMenuRadioGroup,
 	DropdownMenuRadioItem,
@@ -23,24 +19,32 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
+import { DASHBOARD_ICONS_ICON, EXTERNAL_SOURCE_IDS, EXTERNAL_SOURCES, type ExternalSourceId } from "@/constants"
 import { filterAndSortIcons, normalizeForSearch, type SortOption } from "@/lib/utils"
-import type { IconSearchProps } from "@/types/icons"
+import type { IconRecord, IconSearchProps } from "@/types/icons"
+
+type SourceFilter = "all" | "native" | ExternalSourceId
+
+function getIconsForSource(icons: IconRecord[], source: SourceFilter) {
+	if (source === "all") return icons
+	return icons.filter((icon) => icon.source === source)
+}
 
 export function IconSearch({ icons }: IconSearchProps) {
 	const searchParams = useSearchParams()
 	const initialQuery = searchParams.get("q")
-	const initialCategories = searchParams.getAll("category")
 	const initialSort = (searchParams.get("sort") as SortOption) || "relevance"
+	const initialSource = ((searchParams.get("source") as SourceFilter | null) || "all") as SourceFilter
 	const router = useRouter()
 	const pathname = usePathname()
 	const [searchQuery, setSearchQuery] = useState(initialQuery ?? "")
 	const [debouncedQuery, setDebouncedQuery] = useState(initialQuery ?? "")
-	const [selectedCategories, setSelectedCategories] = useState<string[]>(initialCategories ?? [])
 	const [sortOption, setSortOption] = useState<SortOption>(initialSort)
+	const [sourceFilter, setSourceFilter] = useState<SourceFilter>(
+		["all", "native", ...EXTERNAL_SOURCE_IDS].includes(initialSource) ? initialSource : "all",
+	)
 	const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 	const noIconsFoundTimeoutRef = useRef<NodeJS.Timeout | null>(null)
-	const { resolvedTheme } = useTheme()
-	const [isLazyRequestSubmitted, setIsLazyRequestSubmitted] = useState(false)
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
@@ -49,17 +53,6 @@ export function IconSearch({ icons }: IconSearchProps) {
 
 		return () => clearTimeout(timer)
 	}, [searchQuery])
-
-	// Extract all unique categories (normalized to lowercase)
-	const allCategories = useMemo(() => {
-		const categories = new Set<string>()
-		for (const icon of icons) {
-			for (const category of icon.data.categories) {
-				categories.add(category.toLowerCase())
-			}
-		}
-		return Array.from(categories).sort()
-	}, [icons])
 
 	// Find matched aliases for display purposes
 	const matchedAliases = useMemo(() => {
@@ -87,27 +80,20 @@ export function IconSearch({ icons }: IconSearchProps) {
 		return matches
 	}, [icons, searchQuery])
 
-	// Use useMemo for filtered icons with debounced query
 	const filteredIcons = useMemo(() => {
 		return filterAndSortIcons({
-			icons,
+			icons: getIconsForSource(icons, sourceFilter),
 			query: debouncedQuery,
-			categories: selectedCategories,
 			sort: sortOption,
 		})
-	}, [icons, debouncedQuery, selectedCategories, sortOption])
+	}, [icons, debouncedQuery, sortOption, sourceFilter])
 
 	const updateResults = useCallback(
-		(query: string, categories: string[], sort: SortOption) => {
+		(query: string, sort: SortOption, source: SourceFilter) => {
 			const params = new URLSearchParams()
 			if (query) params.set("q", query)
+			if (source !== "all") params.set("source", source)
 
-			// Clear existing category params and add new ones
-			for (const category of categories) {
-				params.append("category", category)
-			}
-
-			// Add sort parameter if not default
 			if (sort !== "relevance" || initialSort !== "relevance") {
 				params.set("sort", sort)
 			}
@@ -125,44 +111,33 @@ export function IconSearch({ icons }: IconSearchProps) {
 				clearTimeout(timeoutRef.current)
 			}
 			timeoutRef.current = setTimeout(() => {
-				updateResults(query, selectedCategories, sortOption)
-			}, 200) // Changed from 100ms to 200ms
+				updateResults(query, sortOption, sourceFilter)
+			}, 200)
 		},
-		[updateResults, selectedCategories, sortOption],
-	)
-
-	const handleCategoryChange = useCallback(
-		(category: string) => {
-			const normalizedCategory = category.toLowerCase()
-			let newCategories: string[]
-
-			if (selectedCategories.some((c) => c.toLowerCase() === normalizedCategory)) {
-				// Remove the category if it's already selected (case-insensitive)
-				newCategories = selectedCategories.filter((c) => c.toLowerCase() !== normalizedCategory)
-			} else {
-				// Add the category if it's not selected
-				newCategories = [...selectedCategories, normalizedCategory]
-			}
-
-			setSelectedCategories(newCategories)
-			updateResults(searchQuery, newCategories, sortOption)
-		},
-		[updateResults, searchQuery, selectedCategories, sortOption],
+		[updateResults, sortOption, sourceFilter],
 	)
 
 	const handleSortChange = useCallback(
 		(sort: SortOption) => {
 			setSortOption(sort)
-			updateResults(searchQuery, selectedCategories, sort)
+			updateResults(searchQuery, sort, sourceFilter)
 		},
-		[updateResults, searchQuery, selectedCategories],
+		[updateResults, searchQuery, sourceFilter],
+	)
+
+	const handleSourceChange = useCallback(
+		(source: SourceFilter) => {
+			setSourceFilter(source)
+			updateResults(searchQuery, sortOption, source)
+		},
+		[searchQuery, sortOption, updateResults],
 	)
 
 	const clearFilters = useCallback(() => {
 		setSearchQuery("")
-		setSelectedCategories([])
 		setSortOption("relevance")
-		updateResults("", [], "relevance")
+		setSourceFilter("all")
+		updateResults("", "relevance", "all")
 	}, [updateResults])
 
 	useEffect(() => {
@@ -233,6 +208,12 @@ export function IconSearch({ icons }: IconSearchProps) {
 		}
 	}
 
+	const getSourceLabel = (source: SourceFilter) => {
+		if (source === "native") return "Dashboard Icons"
+		if (source === "all") return "All sources"
+		return EXTERNAL_SOURCES[source]?.label ?? source
+	}
+
 	return (
 		<>
 			<div className="space-y-4 w-full">
@@ -243,7 +224,8 @@ export function IconSearch({ icons }: IconSearchProps) {
 					</div>
 					<Input
 						type="search"
-						placeholder="Search icons by name, alias, or category..."
+						placeholder="Search icons by name or alias..."
+						aria-label="Search icons"
 						className="w-full h-10 pl-9 cursor-text transition-all duration-300 text-sm md:text-base   border-border shadow-sm"
 						value={searchQuery}
 						onChange={(e) => handleSearch(e.target.value)}
@@ -252,53 +234,6 @@ export function IconSearch({ icons }: IconSearchProps) {
 
 				{/* Filter and sort controls */}
 				<div className="flex flex-wrap gap-2 justify-start">
-					{/* Filter dropdown */}
-					<DropdownMenu>
-						<DropdownMenuTrigger asChild>
-							<Button variant="outline" size="sm" className="flex-1 sm:flex-none cursor-pointer bg-background border-border shadow-sm ">
-								<Filter className="h-4 w-4 mr-2" />
-								<span>Filter</span>
-								{selectedCategories.length > 0 && (
-									<Badge variant="secondary" className="ml-2 px-1.5">
-										{selectedCategories.length}
-									</Badge>
-								)}
-							</Button>
-						</DropdownMenuTrigger>
-						<DropdownMenuContent align="start" className="w-64 sm:w-56">
-							<DropdownMenuLabel className="font-semibold">Select Categories</DropdownMenuLabel>
-							<DropdownMenuSeparator />
-
-							<div className="max-h-[40vh] overflow-y-auto p-1">
-								{allCategories.map((category) => (
-									<DropdownMenuCheckboxItem
-										key={category}
-										checked={selectedCategories.some((c) => c.toLowerCase() === category.toLowerCase())}
-										onCheckedChange={() => handleCategoryChange(category)}
-										className="cursor-pointer capitalize"
-									>
-										{category.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
-									</DropdownMenuCheckboxItem>
-								))}
-							</div>
-
-							{selectedCategories.length > 0 && (
-								<>
-									<DropdownMenuSeparator />
-									<DropdownMenuItem
-										onClick={() => {
-											setSelectedCategories([])
-											updateResults(searchQuery, [], sortOption)
-										}}
-										className="cursor-pointer  focus: focus:bg-rose-50 dark:focus:bg-rose-950/20"
-									>
-										Clear categories
-									</DropdownMenuItem>
-								</>
-							)}
-						</DropdownMenuContent>
-					</DropdownMenu>
-
 					{/* Sort dropdown */}
 					<DropdownMenu>
 						<DropdownMenuTrigger asChild>
@@ -331,50 +266,50 @@ export function IconSearch({ icons }: IconSearchProps) {
 						</DropdownMenuContent>
 					</DropdownMenu>
 
+					<DropdownMenu>
+						<DropdownMenuTrigger asChild>
+							<Button variant="outline" size="sm" className="flex-1 sm:flex-none cursor-pointer bg-background border-border shadow-sm">
+								{sourceFilter === "all" ? (
+									<Filter className="h-4 w-4 mr-2" />
+								) : sourceFilter === "native" ? (
+									<img src={DASHBOARD_ICONS_ICON} alt="" width={16} height={16} className="shrink-0 mr-2" />
+								) : (
+									<img src={EXTERNAL_SOURCES[sourceFilter].icon} alt="" width={16} height={16} className="shrink-0 mr-2" />
+								)}
+								<span>{getSourceLabel(sourceFilter)}</span>
+							</Button>
+						</DropdownMenuTrigger>
+						<DropdownMenuContent align="start" className="w-56">
+							<DropdownMenuLabel className="font-semibold">Source</DropdownMenuLabel>
+							<DropdownMenuSeparator />
+							<DropdownMenuRadioGroup value={sourceFilter} onValueChange={(value) => handleSourceChange(value as SourceFilter)}>
+								<DropdownMenuRadioItem value="all" className="cursor-pointer">
+									All
+								</DropdownMenuRadioItem>
+								<DropdownMenuRadioItem value="native" className="cursor-pointer">
+									<img src={DASHBOARD_ICONS_ICON} alt="" width={14} height={14} className="shrink-0" />
+									Dashboard Icons
+								</DropdownMenuRadioItem>
+								{EXTERNAL_SOURCE_IDS.map((sourceId) => (
+									<DropdownMenuRadioItem key={sourceId} value={sourceId} className="cursor-pointer">
+										<img src={EXTERNAL_SOURCES[sourceId].icon} alt="" width={14} height={14} className="shrink-0" />
+										{EXTERNAL_SOURCES[sourceId].label}
+									</DropdownMenuRadioItem>
+								))}
+							</DropdownMenuRadioGroup>
+						</DropdownMenuContent>
+					</DropdownMenu>
+
 					<AddToSearchBarButton className="flex-1 sm:flex-none rounded-sm" />
 
 					{/* Clear all button */}
-					{(searchQuery || selectedCategories.length > 0 || sortOption !== "relevance") && (
+					{(searchQuery || sortOption !== "relevance" || sourceFilter !== "all") && (
 						<Button variant="outline" size="sm" onClick={clearFilters} className="flex-1 sm:flex-none cursor-pointer bg-background">
 							<X className="h-4 w-4 mr-2" />
 							<span>Reset all</span>
 						</Button>
 					)}
 				</div>
-
-				{/* Active filter badges */}
-				{selectedCategories.length > 0 && (
-					<div className="flex flex-wrap items-center gap-2 mt-2">
-						<span className="text-sm text-muted-foreground">Selected:</span>
-						<div className="flex flex-wrap gap-2">
-							{selectedCategories.map((category) => (
-								<Badge key={category} variant="secondary" className="flex items-center gap-1 pl-2 pr-1">
-									{category.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
-									<Button
-										variant="ghost"
-										size="sm"
-										className="h-4 w-4 p-0 hover:bg-transparent cursor-pointer"
-										onClick={() => handleCategoryChange(category)}
-									>
-										<X className="h-3 w-3" />
-									</Button>
-								</Badge>
-							))}
-						</div>
-
-						<Button
-							variant="ghost"
-							size="sm"
-							onClick={() => {
-								setSelectedCategories([])
-								updateResults(searchQuery, [], sortOption)
-							}}
-							className="text-xs h-7 px-2 cursor-pointer"
-						>
-							Clear
-						</Button>
-					</div>
-				)}
 
 				<Separator className="my-2" />
 			</div>
@@ -385,7 +320,6 @@ export function IconSearch({ icons }: IconSearchProps) {
 						<h2 className="text-3xl sm:text-5xl font-semibold">404: Not Found</h2>
 					</div>
 					<div className="flex flex-col gap-4 items-center w-full">
-						{/** biome-ignore lint/correctness/useUniqueElementIds: I want the ID to be fixed */}
 						<div id="icon-submission-content" className="w-full">
 							<IconSubmissionContent />
 						</div>

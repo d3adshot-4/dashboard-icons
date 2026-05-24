@@ -1,6 +1,7 @@
 "use client"
 
 import { Github, LayoutDashboard, LogOut, PlusCircle, Search } from "lucide-react"
+import dynamic from "next/dynamic"
 import Link from "next/link"
 import { usePostHog } from "posthog-js/react"
 import { useEffect, useState } from "react"
@@ -8,10 +9,13 @@ import { LoginModal } from "@/components/login-modal"
 import { ThemeSwitcher } from "@/components/theme-switcher"
 import { REPO_NAME, REPO_PATH } from "@/constants"
 import { getIconsArray } from "@/lib/api"
+import { getExternalIcons } from "@/lib/external-icons"
 import { pb } from "@/lib/pb"
 import { resetPostHogIdentity } from "@/lib/posthog-utils"
 import type { IconWithName } from "@/types/icons"
-import { CommandMenu } from "./command-menu"
+
+const CommandMenu = dynamic(() => import("./command-menu").then((mod) => mod.CommandMenu), { ssr: false })
+
 import { HeaderNav } from "./header-nav"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import { Button } from "./ui/button"
@@ -44,8 +48,8 @@ export function Header() {
 	useEffect(() => {
 		async function loadIcons() {
 			try {
-				const icons = await getIconsArray()
-				setIconsData(icons)
+				const [native, external] = await Promise.all([getIconsArray(), getExternalIcons()])
+				setIconsData([...native, ...external])
 				setIsLoaded(true)
 			} catch (error) {
 				console.error("Failed to load icons:", error)
@@ -207,7 +211,7 @@ export function Header() {
 							<Tooltip>
 								<TooltipTrigger asChild>
 									<Button variant="ghost" className="rounded-lg cursor-pointer transition-all duration-300 hover:ring-2 gap-1.5" asChild>
-										<Link href={REPO_PATH} target="_blank" className="group flex items-center">
+										<Link href={REPO_PATH} target="_blank" rel="noopener noreferrer" className="group flex items-center">
 											<Github className="h-5 w-5 group-hover: transition-all duration-300" />
 											{stars > 0 && <span className="text-xs font-medium text-muted-foreground">{formatStars(stars)}</span>}
 											<span className="sr-only">View on GitHub</span>

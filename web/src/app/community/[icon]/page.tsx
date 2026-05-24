@@ -2,7 +2,7 @@ import type { Metadata, ResolvingMetadata } from "next"
 import { notFound, permanentRedirect } from "next/navigation"
 import { IconDetails } from "@/components/icon-details"
 import { BASE_URL, WEB_URL } from "@/constants"
-import { getAllIcons, getAuthorData } from "@/lib/api"
+import { computeRelatedIcons, getAllIcons, getAuthorData } from "@/lib/api"
 import { getCommunityGalleryRecord, getCommunitySubmissionByName, getCommunitySubmissions } from "@/lib/community"
 
 function isIconAddedToCollection(
@@ -63,14 +63,17 @@ export async function generateMetadata({ params }: Props, _parent: ResolvingMeta
 			? iconData.data.base
 			: (iconData.data as any).mainIconUrl || `${BASE_URL}/svg/${icon}.svg`
 	return {
-		title: `${formattedIconName} Icon (Community) | Dashboard Icons`,
-		description: `Download the ${formattedIconName} community-submitted icon. Part of a collection of ${totalIcons} community icons awaiting review and addition to the Dashboard Icons collection.`,
+		title: `${formattedIconName} Icon & Logo (Community)`,
+		description: `Download the ${formattedIconName} community-submitted icon and logo. Part of a collection of ${totalIcons} community icons and logos awaiting review and addition to the Dashboard Icons collection.`,
 		assets: [mainIconUrl],
 		keywords: [
 			`${formattedIconName} icon`,
+			`${formattedIconName} logo`,
 			`${formattedIconName} icon download`,
+			`${formattedIconName} logo download`,
 			`${formattedIconName} icon community`,
 			`${icon} icon`,
+			`${icon} logo`,
 			"community icon",
 			"user submitted icon",
 			"dashboard icon",
@@ -90,10 +93,10 @@ export async function generateMetadata({ params }: Props, _parent: ResolvingMeta
 				"max-image-preview": "large",
 			},
 		},
-		abstract: `Download the ${formattedIconName} community-submitted icon. Part of a collection of ${totalIcons} community icons awaiting review and addition to the Dashboard Icons collection.`,
+		abstract: `Download the ${formattedIconName} community-submitted icon and logo. Part of a collection of ${totalIcons} community icons and logos awaiting review and addition to the Dashboard Icons collection.`,
 		openGraph: {
-			title: `${formattedIconName} Icon (Community) | Dashboard Icons`,
-			description: `Download the ${formattedIconName} community-submitted icon. Part of a collection of ${totalIcons} community icons awaiting review and addition to the Dashboard Icons collection.`,
+			title: `${formattedIconName} Icon & Logo (Community)`,
+			description: `Download the ${formattedIconName} community-submitted icon and logo. Part of a collection of ${totalIcons} community icons and logos awaiting review and addition to the Dashboard Icons collection.`,
 			type: "website",
 			url: pageUrl,
 			siteName: "Dashboard Icons",
@@ -110,8 +113,8 @@ export async function generateMetadata({ params }: Props, _parent: ResolvingMeta
 		},
 		twitter: {
 			card: "summary_large_image",
-			title: `${formattedIconName} Icon (Community) | Dashboard Icons`,
-			description: `Download the ${formattedIconName} community-submitted icon. Part of a collection of ${totalIcons} community icons awaiting review and addition to the Dashboard Icons collection.`,
+			title: `${formattedIconName} Icon & Logo (Community)`,
+			description: `Download the ${formattedIconName} community-submitted icon and logo. Part of a collection of ${totalIcons} community icons and logos awaiting review and addition to the Dashboard Icons collection.`,
 			images: [mainIconUrl],
 		},
 		alternates: {
@@ -129,11 +132,13 @@ export default async function CommunityIconPage({ params }: { params: Promise<{ 
 	}
 
 	const record = await getCommunityGalleryRecord(icon)
-	const allIcons = await getAllIcons()
-	const isInCollection = isIconAddedToCollection(record, allIcons, icon)
+	const allIconsData = await getAllIcons()
+	const isInCollection = isIconAddedToCollection(record, allIconsData, icon)
 	if (isInCollection) {
 		permanentRedirect(`/icons/${icon}`)
 	}
+	const categories = iconData.data.categories || []
+	const relatedIcons = computeRelatedIcons(icon, categories, allIconsData)
 
 	const author = iconData.data.update.author as any
 	const githubId = author?.github_id
@@ -241,11 +246,16 @@ export default async function CommunityIconPage({ params }: { params: Promise<{ 
 	const statusDisplayName = getStatusDisplayName(status)
 	const statusColor = getStatusColor(status)
 
+	const formattedName = icon
+		.split("-")
+		.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+		.join(" ")
+
 	return (
 		<>
 			<script
 				type="application/ld+json"
-				// biome-ignore lint/security/noDangerouslySetInnerHtml: Needs to be done
+				// biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD structured data
 				dangerouslySetInnerHTML={{
 					__html: JSON.stringify({
 						"@context": "https://schema.org",
@@ -253,18 +263,41 @@ export default async function CommunityIconPage({ params }: { params: Promise<{ 
 						contentUrl: mainIconUrl,
 						license: "https://creativecommons.org/licenses/by/4.0/",
 						acquireLicensePage: `${WEB_URL}/license`,
+						creditText: `Icon by ${authorData.name || authorData.login}`,
+						copyrightNotice: "© Homarr Labs",
 						creator: {
 							"@type": "Person",
 							name: authorData.name || authorData.login,
 						},
-					}),
+					}).replace(/</g, "\\u003c"),
+				}}
+			/>
+			<script
+				type="application/ld+json"
+				// biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD structured data
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						"@context": "https://schema.org",
+						"@type": "BreadcrumbList",
+						itemListElement: [
+							{ "@type": "ListItem", position: 1, name: "Home", item: WEB_URL },
+							{ "@type": "ListItem", position: 2, name: "Community Icons", item: `${WEB_URL}/community` },
+							{ "@type": "ListItem", position: 3, name: `${formattedName} Icon`, item: `${WEB_URL}/community/${icon}` },
+						],
+					}).replace(/</g, "\\u003c"),
 				}}
 			/>
 			<IconDetails
+				breadcrumbItems={[
+					{ label: "Home", href: "/" },
+					{ label: "Community Icons", href: "/community" },
+					{ label: formattedName },
+				]}
 				icon={icon}
 				iconData={iconDataForDisplay as any}
 				authorData={authorData}
-				allIcons={allIcons}
+				relatedIcons={relatedIcons}
+				relatedCategories={categories}
 				status={status}
 				rejectionReason={rejectionReason ?? undefined}
 				statusDisplayName={statusDisplayName}

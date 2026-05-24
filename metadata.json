@@ -556,10 +556,10 @@
         "aliases": [],
         "categories": [],
         "update": {
-            "timestamp": "2023-04-13T13:56:18Z",
+            "timestamp": "2026-05-01T15:27:25.673Z",
             "author": {
-                "id": 71191962,
-                "name": "walkxcode"
+                "id": 163436602,
+                "login": "agoettl"
             }
         }
     },
@@ -1661,10 +1661,10 @@
         "aliases": [],
         "categories": [],
         "update": {
-            "timestamp": "2023-04-13T13:56:18Z",
+            "timestamp": "2026-05-01T15:28:36.268Z",
             "author": {
-                "id": 71191962,
-                "name": "walkxcode"
+                "id": 277670796,
+                "login": "spitivalleyt3-glitch"
             }
         }
     },
@@ -13471,12 +13471,14 @@
     "microsoft-365-admin-center": {
         "base": "svg",
         "aliases": [],
-        "categories": [],
+        "categories": [
+            "cloud"
+        ],
         "update": {
-            "timestamp": "2024-10-20T17:24:03Z",
+            "timestamp": "2026-05-21T14:59:13.550Z",
             "author": {
-                "id": 71191962,
-                "name": "walkxcode"
+                "id": 74353441,
+                "login": "Tedlix"
             }
         }
     },
@@ -16818,14 +16820,14 @@
         }
     },
     "lancache": {
-        "base": "png",
+        "base": "svg",
         "aliases": [],
         "categories": [],
         "update": {
-            "timestamp": "2025-01-07T17:54:03Z",
+            "timestamp": "2026-05-01T15:27:20.499Z",
             "author": {
-                "id": 71191962,
-                "name": "walkxcode"
+                "id": 274374549,
+                "login": "yeasure-server"
             }
         }
     },
@@ -16850,12 +16852,14 @@
     "microsoft-onedrive": {
         "base": "svg",
         "aliases": [],
-        "categories": [],
+        "categories": [
+            "cloud"
+        ],
         "update": {
-            "timestamp": "2024-10-20T17:24:03Z",
+            "timestamp": "2026-05-21T14:59:15.913Z",
             "author": {
-                "id": 71191962,
-                "name": "walkxcode"
+                "id": 74353441,
+                "login": "Tedlix"
             }
         }
     },
@@ -18851,18 +18855,20 @@
     },
     "immich-frame": {
         "base": "svg",
-        "aliases": [],
-        "categories": [],
+        "aliases": [
+            "ImmichFrame",
+            "Immich Frame"
+        ],
+        "categories": [
+            "media",
+            "entertainment"
+        ],
         "update": {
-            "timestamp": "2024-10-20T17:24:03Z",
+            "timestamp": "2026-04-27T14:29:22.009Z",
             "author": {
-                "id": 71191962,
-                "name": "walkxcode"
+                "id": 17313367,
+                "login": "JW-CH"
             }
-        },
-        "colors": {
-            "dark": "immich-frame",
-            "light": "immich-frame-light"
         }
     },
     "flame": {
@@ -22692,10 +22698,10 @@
         "aliases": [],
         "categories": [],
         "update": {
-            "timestamp": "2023-04-13T13:56:18Z",
+            "timestamp": "2026-05-01T15:26:52.835Z",
             "author": {
-                "id": 71191962,
-                "name": "walkxcode"
+                "id": 273580321,
+                "login": "kaiydwi"
             }
         }
     },
@@ -26146,19 +26152,14 @@
         }
     },
     "jdownloader2": {
-        "base": "png",
-        "aliases": [
-            "jdownloader",
-            "jd2"
-        ],
-        "categories": [
-            "Download-Managers"
-        ],
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
         "update": {
-            "timestamp": "2025-01-07T17:54:03Z",
+            "timestamp": "2026-05-01T15:27:41.205Z",
             "author": {
-                "id": 71191962,
-                "name": "walkxcode"
+                "id": 50268291,
+                "login": "infinit7even"
             }
         }
     },
@@ -28492,23 +28493,21 @@
     },
     "backrest": {
         "base": "svg",
-        "aliases": [
-            "Backup Tool"
-        ],
+        "aliases": [],
         "categories": [
-            "Databases",
-            "Developer-Tools"
+            "storage",
+            "tools"
         ],
         "update": {
-            "timestamp": "2024-10-20T17:24:03Z",
+            "timestamp": "2026-05-21T14:58:53.656Z",
             "author": {
-                "id": 71191962,
-                "name": "walkxcode"
+                "id": 86840787,
+                "login": "CuddlyCornet645"
             }
         },
         "colors": {
-            "dark": "backrest",
-            "light": "backrest-light"
+            "light": "backrest-light",
+            "dark": "backrest-dark"
         }
     },
     "codex": {
@@ -30617,14 +30616,31 @@
     },
     "ilo": {
         "base": "svg",
-        "aliases": [],
-        "categories": [],
+        "aliases": [
+            "ProLiant",
+            "Density Line (DL)"
+        ],
+        "categories": [
+            "automation",
+            "monitoring",
+            "network",
+            "cloud",
+            "development",
+            "security",
+            "social",
+            "storage",
+            "tools",
+            "utility"
+        ],
         "update": {
-            "timestamp": "2023-04-13T13:56:18Z",
+            "timestamp": "2026-05-01T15:26:58.694Z",
             "author": {
-                "id": 71191962,
-                "name": "walkxcode"
+                "id": 1542904,
+                "login": "iamk3"
             }
+        },
+        "colors": {
+            "dark": "ilo-dark"
         }
     },
     "zoraxy": {
@@ -35461,24 +35477,6 @@
                 "id": "sowxli2ysgkofo9",
                 "name": "0xb0ec1d"
             }
-        }
-    },
-    "servicenow": {
-        "base": "svg",
-        "aliases": [],
-        "categories": [
-            "cloud"
-        ],
-        "update": {
-            "timestamp": "2026-01-20T12:24:05.759Z",
-            "author": {
-                "id": "sowxli2ysgkofo9",
-                "name": "0xb0ec1d"
-            }
-        },
-        "wordmark": {
-            "light": "servicenow-wordmark-light",
-            "dark": "servicenow-wordmark-dark"
         }
     },
     "ibm": {
@@ -42103,6 +42101,1917 @@
                 "id": 18232,
                 "login": "dkam"
             }
+        }
+    },
+    "google-find": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "utility"
+        ],
+        "update": {
+            "timestamp": "2026-04-27T14:29:13.630Z",
+            "author": {
+                "id": 33619177,
+                "login": "EddyMercier"
+            }
+        }
+    },
+    "postmarketos": {
+        "base": "svg",
+        "aliases": [
+            "pmos",
+            "postmarket-os"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:29:16.939Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        }
+    },
+    "sailfishos": {
+        "base": "svg",
+        "aliases": [
+            "sailfish",
+            "sailfish-os"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:29:19.683Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        },
+        "colors": {
+            "dark": "sailfishos-dark"
+        }
+    },
+    "houndarr": {
+        "base": "png",
+        "aliases": [
+            "arr-stack"
+        ],
+        "categories": [
+            "monitoring"
+        ],
+        "update": {
+            "timestamp": "2026-04-27T14:29:24.793Z",
+            "author": {
+                "id": 10246822,
+                "login": "robinvoor"
+            }
+        }
+    },
+    "tempo": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "monitoring"
+        ],
+        "update": {
+            "timestamp": "2026-04-27T14:29:27.212Z",
+            "author": {
+                "id": "8dbll9bychk0sd5",
+                "name": "showing265"
+            }
+        }
+    },
+    "milinote": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "development",
+            "media"
+        ],
+        "update": {
+            "timestamp": "2026-04-27T14:29:29.626Z",
+            "author": {
+                "id": 64378901,
+                "login": "Veilios"
+            }
+        }
+    },
+    "toshiba": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "utility"
+        ],
+        "update": {
+            "timestamp": "2026-04-27T14:29:32.025Z",
+            "author": {
+                "id": 170592029,
+                "login": "ITGenConnect"
+            }
+        }
+    },
+    "mapillary": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:29:34.368Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        }
+    },
+    "zoho": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:29:36.729Z",
+            "author": {
+                "id": 170592029,
+                "login": "ITGenConnect"
+            }
+        }
+    },
+    "rapid7": {
+        "base": "svg",
+        "aliases": [
+            "Rapid 7",
+            "rapid7",
+            "insight vm"
+        ],
+        "categories": [
+            "security"
+        ],
+        "update": {
+            "timestamp": "2026-04-27T14:33:06.215Z",
+            "author": {
+                "id": 163436602,
+                "login": "agoettl"
+            }
+        },
+        "colors": {
+            "light": "rapid7-light",
+            "dark": "rapid7-dark"
+        }
+    },
+    "microsoft-dataverse": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:33:09.847Z",
+            "author": {
+                "id": 277670796,
+                "login": "spitivalleyt3-glitch"
+            }
+        }
+    },
+    "aws-dynamodb": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "database"
+        ],
+        "update": {
+            "timestamp": "2026-04-27T14:33:12.754Z",
+            "author": {
+                "id": 277670796,
+                "login": "spitivalleyt3-glitch"
+            }
+        }
+    },
+    "aws-dynamodb-logo": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "database"
+        ],
+        "update": {
+            "timestamp": "2026-04-27T14:33:15.423Z",
+            "author": {
+                "id": 277670796,
+                "login": "spitivalleyt3-glitch"
+            }
+        }
+    },
+    "tricentis-tosca": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:33:18.352Z",
+            "author": {
+                "id": 277670796,
+                "login": "spitivalleyt3-glitch"
+            }
+        }
+    },
+    "data-studio": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:33:20.985Z",
+            "author": {
+                "id": 277670796,
+                "login": "spitivalleyt3-glitch"
+            }
+        }
+    },
+    "looker": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:33:23.633Z",
+            "author": {
+                "id": 277670796,
+                "login": "spitivalleyt3-glitch"
+            }
+        }
+    },
+    "qlik": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:33:26.351Z",
+            "author": {
+                "id": 277670796,
+                "login": "spitivalleyt3-glitch"
+            }
+        }
+    },
+    "qlik2": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:33:29.558Z",
+            "author": {
+                "id": 277670796,
+                "login": "spitivalleyt3-glitch"
+            }
+        }
+    },
+    "drupal": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:33:58.316Z",
+            "author": {
+                "id": 277670796,
+                "login": "spitivalleyt3-glitch"
+            }
+        }
+    },
+    "libreoffice-colibre-spreadsheet": {
+        "base": "svg",
+        "aliases": [
+            "ods"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:34:01.764Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        },
+        "colors": {
+            "dark": "libreoffice-colibre-spreadsheet-dark"
+        }
+    },
+    "libreoffice-colibre-presentation": {
+        "base": "svg",
+        "aliases": [
+            "odp"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:34:05.159Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        },
+        "colors": {
+            "dark": "libreoffice-colibre-presentation-dark"
+        }
+    },
+    "libreoffice-colibre-database": {
+        "base": "svg",
+        "aliases": [
+            "odb"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:34:08.272Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        },
+        "colors": {
+            "dark": "libreoffice-colibre-database-dark"
+        }
+    },
+    "libreoffice-colibre-graphic": {
+        "base": "svg",
+        "aliases": [
+            "odg"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:34:11.463Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        },
+        "colors": {
+            "dark": "libreoffice-colibre-graphic-dark"
+        }
+    },
+    "libreoffice-colibre-text": {
+        "base": "svg",
+        "aliases": [
+            "odt"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:34:14.502Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        },
+        "colors": {
+            "dark": "libreoffice-colibre-text-dark"
+        }
+    },
+    "surfshark": {
+        "base": "svg",
+        "aliases": [
+            "surfshark-vpn"
+        ],
+        "categories": [
+            "network"
+        ],
+        "update": {
+            "timestamp": "2026-04-27T14:34:17.161Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        }
+    },
+    "polarisoffice": {
+        "base": "svg",
+        "aliases": [
+            "polaris-office"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:34:20.185Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        }
+    },
+    "mobioffice": {
+        "base": "svg",
+        "aliases": [
+            "mobi-office"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:34:23.078Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        }
+    },
+    "softmakeroffice": {
+        "base": "svg",
+        "aliases": [
+            "softmaker-office"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:34:26.490Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        }
+    },
+    "softmakerfreeoffice": {
+        "base": "svg",
+        "aliases": [
+            "softmaker-freeoffice",
+            "freeoffice"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:34:29.063Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        }
+    },
+    "falkon-breeze": {
+        "base": "svg",
+        "aliases": [
+            "falkon-browser"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:34:31.724Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        }
+    },
+    "ctrader": {
+        "base": "svg",
+        "aliases": [
+            "ctrader-trading-platform"
+        ],
+        "categories": [
+            "finance"
+        ],
+        "update": {
+            "timestamp": "2026-04-27T14:34:36.432Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        },
+        "colors": {
+            "light": "ctrader-light",
+            "dark": "ctrader-dark"
+        },
+        "wordmark": {
+            "light": "ctrader-wordmark-light",
+            "dark": "ctrader-wordmark-dark"
+        }
+    },
+    "osmand": {
+        "base": "svg",
+        "aliases": [
+            "osmand-maps"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:34:39.010Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        }
+    },
+    "ubports": {
+        "base": "svg",
+        "aliases": [
+            "ubports-robot",
+            "ubuntu-touch"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:34:41.945Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        }
+    },
+    "calyxos": {
+        "base": "svg",
+        "aliases": [
+            "calyx-os"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-04-27T14:34:45.343Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        },
+        "colors": {
+            "dark": "calyxos-dark"
+        }
+    },
+    "surrealdb": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "database"
+        ],
+        "update": {
+            "timestamp": "2026-04-27T14:34:47.880Z",
+            "author": {
+                "id": 111348410,
+                "login": "ChrisA95G"
+            }
+        }
+    },
+    "kafka": {
+        "base": "svg",
+        "aliases": [
+            "apache-kafka"
+        ],
+        "categories": [
+            "storage",
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-04-27T14:34:52.276Z",
+            "author": {
+                "id": 4228134,
+                "login": "barry-luijten"
+            }
+        },
+        "colors": {
+            "light": "kafka-light",
+            "dark": "kafka-dark"
+        },
+        "wordmark": {
+            "light": "kafka-wordmark-light",
+            "dark": "kafka-wordmark-dark"
+        }
+    },
+    "telmex": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-05-01T15:26:22.279Z",
+            "author": {
+                "id": "lil1ckwoi22xx5z",
+                "name": "groldeath"
+            }
+        }
+    },
+    "terramaster": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "network",
+            "storage",
+            "database"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:26:26.751Z",
+            "author": {
+                "id": 228809649,
+                "login": "ryekass3"
+            }
+        }
+    },
+    "sharry": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "tools",
+            "storage"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:26:30.241Z",
+            "author": {
+                "id": 33349740,
+                "login": "ellygaytor"
+            }
+        },
+        "colors": {
+            "dark": "sharry-dark"
+        }
+    },
+    "chimera-linux": {
+        "base": "svg",
+        "aliases": [
+            "chimera",
+            "linux"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-05-01T15:26:33.196Z",
+            "author": {
+                "id": 233751021,
+                "login": "mains-hum"
+            }
+        }
+    },
+    "angel-studios": {
+        "base": "svg",
+        "aliases": [
+            "Angel"
+        ],
+        "categories": [
+            "entertainment",
+            "media"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:26:35.852Z",
+            "author": {
+                "id": 25753452,
+                "login": "stake25"
+            }
+        }
+    },
+    "wiz": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "home-automation"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:26:38.489Z",
+            "author": {
+                "id": 41442410,
+                "login": "rkoktan"
+            }
+        }
+    },
+    "velero": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "automation",
+            "cloud",
+            "storage"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:26:41.149Z",
+            "author": {
+                "id": 2225871,
+                "login": "vexdev"
+            }
+        }
+    },
+    "librariarr": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "automation",
+            "entertainment",
+            "media",
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:26:43.965Z",
+            "author": {
+                "id": "yf9qh5rnldwdqzz",
+                "name": "ahembree"
+            }
+        }
+    },
+    "wise-moneytransfer": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-05-01T15:26:46.565Z",
+            "author": {
+                "id": 41553131,
+                "login": "RoyalKiwi"
+            }
+        }
+    },
+    "2dehands": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-05-01T15:26:49.281Z",
+            "author": {
+                "id": 108151652,
+                "login": "astradti"
+            }
+        }
+    },
+    "railway": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "network",
+            "automation",
+            "cloud"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:26:55.493Z",
+            "author": {
+                "id": 41553131,
+                "login": "RoyalKiwi"
+            }
+        }
+    },
+    "vllm": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "development",
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:27:01.750Z",
+            "author": {
+                "id": 156610488,
+                "login": "zenonsommers"
+            }
+        }
+    },
+    "signaturepdf": {
+        "base": "svg",
+        "aliases": [
+            "signature-pdf"
+        ],
+        "categories": [
+            "utility",
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:27:04.664Z",
+            "author": {
+                "id": 18155001,
+                "login": "redxtech"
+            }
+        }
+    },
+    "hpe": {
+        "base": "svg",
+        "aliases": [
+            "Hewlett Packard Enterprise",
+            "HPE",
+            "HPE Aruba Networking",
+            "HPE Juniper Mist"
+        ],
+        "categories": [
+            "network",
+            "automation",
+            "security",
+            "tools",
+            "utility",
+            "storage",
+            "development",
+            "cloud"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:27:08.014Z",
+            "author": {
+                "id": 1542904,
+                "login": "iamk3"
+            }
+        },
+        "colors": {
+            "dark": "hpe-dark"
+        }
+    },
+    "nrk-logo": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-05-01T15:27:12.102Z",
+            "author": {
+                "id": 4692965,
+                "login": "esnor"
+            }
+        },
+        "colors": {
+            "light": "nrk-logo-light",
+            "dark": "nrk-logo-dark"
+        }
+    },
+    "open-notebook": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "automation"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:27:14.961Z",
+            "author": {
+                "id": 111348410,
+                "login": "ChrisA95G"
+            }
+        }
+    },
+    "iliadbox-svg": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "network"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:27:17.899Z",
+            "author": {
+                "id": 65242258,
+                "login": "Retrograde-i486"
+            }
+        }
+    },
+    "lakefs": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "storage",
+            "database"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:27:23.067Z",
+            "author": {
+                "id": 51554341,
+                "login": "ssouthcity"
+            }
+        }
+    },
+    "material-design-icons": {
+        "base": "svg",
+        "aliases": [
+            "mdi"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-05-01T15:27:28.349Z",
+            "author": {
+                "id": 162880856,
+                "login": "RioLi08123"
+            }
+        }
+    },
+    "font-awesome-icons": {
+        "base": "svg",
+        "aliases": [
+            "fa",
+            "fa icon"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-05-01T15:27:31.088Z",
+            "author": {
+                "id": 162880856,
+                "login": "RioLi08123"
+            }
+        }
+    },
+    "azure-service-bus": {
+        "base": "svg",
+        "aliases": [
+            "azure service bus",
+            "azure",
+            "service bus"
+        ],
+        "categories": [
+            "cloud",
+            "tools",
+            "utility"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:27:33.689Z",
+            "author": {
+                "id": 50410476,
+                "login": "deogratias-saidi"
+            }
+        }
+    },
+    "nextbike": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "utility",
+            "monitoring"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:27:38.216Z",
+            "author": {
+                "id": 8660192,
+                "login": "flukas"
+            }
+        },
+        "colors": {
+            "light": "nextbike-light",
+            "dark": "nextbike-dark"
+        },
+        "wordmark": {
+            "light": "nextbike-wordmark-light",
+            "dark": "nextbike-wordmark-dark"
+        }
+    },
+    "hcl-verse": {
+        "base": "svg",
+        "aliases": [
+            "hcl verse",
+            "verse",
+            "hcl mail",
+            "hcl email"
+        ],
+        "categories": [
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:27:43.746Z",
+            "author": {
+                "id": 163436602,
+                "login": "agoettl"
+            }
+        }
+    },
+    "magicinfo": {
+        "base": "svg",
+        "aliases": [
+            "MagicInfo",
+            "Magic Info",
+            "Samsung MagicInfo",
+            "Samsung MagicINFO"
+        ],
+        "categories": [
+            "media",
+            "entertainment"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:27:46.486Z",
+            "author": {
+                "id": 163436602,
+                "login": "agoettl"
+            }
+        }
+    },
+    "gnustep": {
+        "base": "svg",
+        "aliases": [
+            "openstep",
+            "cocoa"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-05-01T15:27:49.550Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        },
+        "colors": {
+            "dark": "gnustep-dark"
+        }
+    },
+    "barco": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-05-01T15:27:52.216Z",
+            "author": {
+                "id": 163436602,
+                "login": "agoettl"
+            }
+        }
+    },
+    "iode-os": {
+        "base": "svg",
+        "aliases": [
+            "iode"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-05-01T15:27:55.811Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        },
+        "colors": {
+            "dark": "iode-os-dark"
+        }
+    },
+    "nuxt-js": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "development"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:28:00.176Z",
+            "author": {
+                "id": 41539419,
+                "login": "XoTENoC"
+            }
+        },
+        "colors": {
+            "light": "nuxt-js-light",
+            "dark": "nuxt-js-dark"
+        },
+        "wordmark": {
+            "light": "nuxt-js-wordmark-light",
+            "dark": "nuxt-js-wordmark-dark"
+        }
+    },
+    "foxit": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:28:02.804Z",
+            "author": {
+                "id": 170592029,
+                "login": "ITGenConnect"
+            }
+        }
+    },
+    "konica-minolta": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "utility"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:28:05.354Z",
+            "author": {
+                "id": 170592029,
+                "login": "ITGenConnect"
+            }
+        }
+    },
+    "hexedit": {
+        "base": "svg",
+        "aliases": [
+            "hexed.it"
+        ],
+        "categories": [
+            "tools",
+            "utility"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:28:07.948Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        }
+    },
+    "qobuz": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "entertainment"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:28:10.988Z",
+            "author": {
+                "id": 97809825,
+                "login": "thomaswilliams123"
+            }
+        }
+    },
+    "solus": {
+        "base": "svg",
+        "aliases": [
+            "Linux Distribution",
+            "Operating Systems"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-05-01T15:28:13.782Z",
+            "author": {
+                "id": 76603258,
+                "login": "Jaredy899"
+            }
+        }
+    },
+    "haiku": {
+        "base": "svg",
+        "aliases": [
+            "haiku-os",
+            "zeta",
+            "beos"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-05-01T15:28:17.390Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        },
+        "wordmark": {
+            "light": "haiku-wordmark-light",
+            "dark": "haiku-wordmark-dark"
+        }
+    },
+    "ivanti": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "network",
+            "security"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:28:20.125Z",
+            "author": {
+                "id": 84699196,
+                "login": "alkanlab"
+            }
+        }
+    },
+    "wolframalpha": {
+        "base": "svg",
+        "aliases": [
+            "wolfram|alpha"
+        ],
+        "categories": [
+            "utility"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:28:22.853Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        }
+    },
+    "dictcc": {
+        "base": "svg",
+        "aliases": [
+            "dict.cc"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-05-01T15:28:25.431Z",
+            "author": {
+                "id": 40307321,
+                "login": "sixsixfive"
+            }
+        }
+    },
+    "doozle": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "utility",
+            "tools",
+            "monitoring"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:28:28.374Z",
+            "author": {
+                "id": 1685289,
+                "login": "OberstK"
+            }
+        }
+    },
+    "gitbucket": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "tools",
+            "utility",
+            "development"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:28:30.972Z",
+            "author": {
+                "id": 84699196,
+                "login": "alkanlab"
+            }
+        }
+    },
+    "appium": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T15:28:33.708Z",
+            "author": {
+                "id": 277670796,
+                "login": "spitivalleyt3-glitch"
+            }
+        }
+    },
+    "k3s": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "cloud",
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:51:36.688Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "k3s-light",
+            "dark": "k3s-dark"
+        }
+    },
+    "baidu": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "search"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:51:41.077Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "baidu-light",
+            "dark": "baidu-dark"
+        }
+    },
+    "qemu": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "tools",
+            "utility"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:51:44.142Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "qemu-light",
+            "dark": "qemu-dark"
+        }
+    },
+    "neovim": {
+        "base": "svg",
+        "aliases": [
+            "nvim"
+        ],
+        "categories": [
+            "development",
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:51:47.256Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "neovim-light",
+            "dark": "neovim-dark"
+        }
+    },
+    "nebula": {
+        "base": "svg",
+        "aliases": [
+            "nebula.tv"
+        ],
+        "categories": [
+            "media",
+            "streaming"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:51:50.293Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "nebula-light",
+            "dark": "nebula-dark"
+        }
+    },
+    "salesforce": {
+        "base": "svg",
+        "aliases": [
+            "sfdc"
+        ],
+        "categories": [
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:51:53.312Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "salesforce-light",
+            "dark": "salesforce-dark"
+        }
+    },
+    "astro": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "development"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:51:56.314Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "astro-light",
+            "dark": "astro-dark"
+        }
+    },
+    "anthropic": {
+        "base": "svg",
+        "aliases": [
+            "claude",
+            "claude-ai"
+        ],
+        "categories": [
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:51:58.794Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "anthropic-light",
+            "dark": "anthropic-dark"
+        }
+    },
+    "wechat": {
+        "base": "svg",
+        "aliases": [
+            "weixin"
+        ],
+        "categories": [
+            "social"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:52:01.764Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "wechat-light",
+            "dark": "wechat-dark"
+        }
+    },
+    "vim": {
+        "base": "svg",
+        "aliases": [
+            "vi"
+        ],
+        "categories": [
+            "development",
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:52:04.800Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "vim-light",
+            "dark": "vim-dark"
+        }
+    },
+    "stripe": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "finance"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:52:07.775Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "stripe-light",
+            "dark": "stripe-dark"
+        }
+    },
+    "dotnet": {
+        "base": "svg",
+        "aliases": [
+            ".net",
+            "dot-net",
+            "microsoft-dotnet"
+        ],
+        "categories": [
+            "development"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:52:10.853Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "dotnet-light",
+            "dark": "dotnet-dark"
+        }
+    },
+    "django": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "development"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:52:13.854Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "django-light",
+            "dark": "django-dark"
+        }
+    },
+    "sonos": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "media",
+            "home-automation"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:52:16.856Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "sonos-light",
+            "dark": "sonos-dark"
+        }
+    },
+    "postman": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "development",
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:52:19.854Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "postman-light",
+            "dark": "postman-dark"
+        }
+    },
+    "xray": {
+        "base": "svg",
+        "aliases": [
+            "xtls",
+            "v2ray-ng",
+            "xray-core"
+        ],
+        "categories": [
+            "networking",
+            "security"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:52:22.781Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "xray-light",
+            "dark": "xray-dark"
+        }
+    },
+    "mcp": {
+        "base": "png",
+        "aliases": [
+            "model-context-protocol",
+            "anthropic-mcp"
+        ],
+        "categories": [
+            "ai",
+            "developer-tools"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:52:25.151Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        }
+    },
+    "cloudflared": {
+        "base": "svg",
+        "aliases": [
+            "cloudflare-tunnel",
+            "argo-tunnel",
+            "cloudflare"
+        ],
+        "categories": [
+            "network",
+            "security",
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:52:28.146Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "cloudflared-light",
+            "dark": "cloudflared-dark"
+        }
+    },
+    "bambu-lab": {
+        "base": "svg",
+        "aliases": [
+            "bambu",
+            "bambulab"
+        ],
+        "categories": [
+            "home-automation",
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:52:31.245Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "bambu-lab-light",
+            "dark": "bambu-lab-dark"
+        }
+    },
+    "mermaid": {
+        "base": "svg",
+        "aliases": [
+            "mermaidjs"
+        ],
+        "categories": [
+            "development",
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:52:34.288Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "mermaid-light",
+            "dark": "mermaid-dark"
+        }
+    },
+    "unpackerr": {
+        "base": "png",
+        "aliases": [],
+        "categories": [
+            "media",
+            "automation",
+            "self-hosted"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:52:36.793Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        }
+    },
+    "omarchy": {
+        "base": "png",
+        "aliases": [
+            "omakub"
+        ],
+        "categories": [
+            "developer-tools"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:52:39.139Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        }
+    },
+    "paramount-plus": {
+        "base": "svg",
+        "aliases": [
+            "paramount",
+            "paramountplus"
+        ],
+        "categories": [
+            "media",
+            "streaming"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:52:42.115Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "paramount-plus-light",
+            "dark": "paramount-plus-dark"
+        }
+    },
+    "golang": {
+        "base": "svg",
+        "aliases": [
+            "go",
+            "go-lang"
+        ],
+        "categories": [
+            "development"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:52:45.104Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "golang-light",
+            "dark": "golang-dark"
+        }
+    },
+    "proxmox-backup-server": {
+        "base": "svg",
+        "aliases": [
+            "pbs",
+            "proxmox-backup"
+        ],
+        "categories": [
+            "storage",
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:52:48.118Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "proxmox-backup-server-light",
+            "dark": "proxmox-backup-server-dark"
+        }
+    },
+    "apache-superset": {
+        "base": "svg",
+        "aliases": [
+            "superset"
+        ],
+        "categories": [
+            "monitoring",
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-05-01T19:52:51.097Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "apache-superset-light",
+            "dark": "apache-superset-dark"
+        }
+    },
+    "hermes-icon": {
+        "base": "svg",
+        "aliases": [
+            "hermes-agent"
+        ],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-05-16T10:37:27.861Z",
+            "author": {
+                "id": 278858066,
+                "login": "NetRoberts"
+            }
+        }
+    },
+    "proton-meet": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-05-21T14:58:57.531Z",
+            "author": {
+                "id": 1457250,
+                "login": "slc66"
+            }
+        }
+    },
+    "wetransfer": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "cloud",
+            "media",
+            "storage",
+            "utility"
+        ],
+        "update": {
+            "timestamp": "2026-05-21T14:59:00.495Z",
+            "author": {
+                "id": 108546860,
+                "login": "NoxuuDev"
+            }
+        },
+        "colors": {
+            "light": "wetransfer-light"
+        }
+    },
+    "multifactor-authenticator": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "cloud",
+            "security",
+            "tools",
+            "utility"
+        ],
+        "update": {
+            "timestamp": "2026-05-21T14:59:02.782Z",
+            "author": {
+                "id": 50410476,
+                "login": "deogratias-saidi"
+            }
+        }
+    },
+    "gsap": {
+        "base": "svg",
+        "aliases": [
+            "gsap-dark",
+            "gsap-light",
+            "gsap-base",
+            "gsap-wordmark"
+        ],
+        "categories": [
+            "development",
+            "tools",
+            "media"
+        ],
+        "update": {
+            "timestamp": "2026-05-21T14:59:05.692Z",
+            "author": {
+                "id": 139521392,
+                "login": "wyu4"
+            }
+        },
+        "colors": {
+            "light": "gsap-light",
+            "dark": "gsap-dark"
+        }
+    },
+    "snapmaker": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "tools",
+            "home-automation",
+            "automation",
+            "utility"
+        ],
+        "update": {
+            "timestamp": "2026-05-21T14:59:08.799Z",
+            "author": {
+                "id": 3790635,
+                "login": "marcin212"
+            }
+        },
+        "wordmark": {
+            "light": "snapmaker-wordmark-light",
+            "dark": "snapmaker-wordmark-dark"
+        }
+    },
+    "instacart": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [],
+        "update": {
+            "timestamp": "2026-05-21T14:59:11.225Z",
+            "author": {
+                "id": 95183366,
+                "login": "danu9622"
+            }
+        }
+    },
+    "koreader": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "utility"
+        ],
+        "update": {
+            "timestamp": "2026-05-21T14:59:18.154Z",
+            "author": {
+                "id": "pyxxzeqx1a5je4e",
+                "name": "glavata"
+            }
+        }
+    },
+    "basecamp": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "productivity",
+            "collaboration"
+        ],
+        "update": {
+            "timestamp": "2026-05-21T14:59:21.367Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "basecamp-light",
+            "dark": "basecamp-dark"
+        }
+    },
+    "google-cloud": {
+        "base": "svg",
+        "aliases": [
+            "gcp",
+            "googlecloud",
+            "google cloud platform"
+        ],
+        "categories": [
+            "cloud",
+            "infrastructure",
+            "developer-tools"
+        ],
+        "update": {
+            "timestamp": "2026-05-21T14:59:24.342Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "google-cloud-light",
+            "dark": "google-cloud-dark"
+        }
+    },
+    "minimax": {
+        "base": "svg",
+        "aliases": [],
+        "categories": [
+            "tools"
+        ],
+        "update": {
+            "timestamp": "2026-05-21T14:59:27.244Z",
+            "author": {
+                "id": "65iz5jsxx5jc2yw",
+                "name": "browser-agent-robot"
+            }
+        },
+        "colors": {
+            "light": "minimax-light",
+            "dark": "minimax-dark"
         }
     }
 }

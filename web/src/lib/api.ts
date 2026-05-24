@@ -1,6 +1,7 @@
+import type { RelatedIcon } from "@/components/icon-details"
 import { METADATA_URL } from "@/constants"
 import { ApiError } from "@/lib/errors"
-import type { AuthorData, IconFile, IconWithName } from "@/types/icons"
+import type { AuthorData, Icon, IconFile, IconWithName, NativeIconRecord } from "@/types/icons"
 
 /**
  * Fetches all icon data from the metadata.json file
@@ -40,13 +41,15 @@ export const getIconNames = async (): Promise<string[]> => {
 /**
  * Converts icon data to an array format for easier rendering
  */
-export async function getIconsArray(): Promise<IconWithName[]> {
+export async function getIconsArray(): Promise<NativeIconRecord[]> {
 	try {
 		const iconsData = await getAllIcons()
 
 		return Object.entries(iconsData)
 			.map(([name, data]) => ({
 				name,
+				slug: name,
+				source: "native" as const,
 				data,
 			}))
 			.sort((a, b) => a.name.localeCompare(b.name))
@@ -185,15 +188,55 @@ export async function getAuthorData(authorId: number | string, authorMeta?: { na
 	return data
 }
 
+const MAX_RELATED_ICONS = 16
+
+export function computeRelatedIcons(currentIcon: string, currentCategories: string[], allIcons: IconFile): RelatedIcon[] {
+	if (currentCategories.length === 0) return []
+
+	const scored: { name: string; data: Icon; score: number }[] = []
+	for (const [name, data] of Object.entries(allIcons)) {
+		if (name === currentIcon) continue
+		const otherCategories = data.categories || []
+		let score = 0
+		for (const cat of currentCategories) {
+			if (otherCategories.includes(cat)) score++
+		}
+		if (score > 0) scored.push({ name, data, score })
+	}
+
+	scored.sort((a, b) => b.score - a.score)
+
+	return scored.slice(0, MAX_RELATED_ICONS).map(({ name, data }) => ({
+		name,
+		data: {
+			base: data.base,
+			aliases: data.aliases ?? [],
+			categories: data.categories ?? [],
+			update: data.update,
+			colors: data.colors,
+		},
+	}))
+}
+
 /**
- * Fetches total icon count
+ * Fetches total icon count with per-source breakdown
  */
 export async function getTotalIcons() {
+	const { getExternalIcons } = await import("@/lib/external-icons")
 	try {
-		const iconsData = await getAllIcons()
+		const [iconsData, externalIcons] = await Promise.all([getAllIcons(), getExternalIcons()])
+		const nativeCount = Object.keys(iconsData).length
+		const externalCount = externalIcons.length
+		const sourceCounts: Record<string, number> = {}
+		for (const icon of externalIcons) {
+			sourceCounts[icon.source] = (sourceCounts[icon.source] || 0) + 1
+		}
 
 		return {
-			totalIcons: Object.keys(iconsData).length,
+			totalIcons: nativeCount + externalCount,
+			nativeCount,
+			externalCount,
+			sourceCounts,
 		}
 	} catch (error) {
 		console.error("Error getting total icons:", error)

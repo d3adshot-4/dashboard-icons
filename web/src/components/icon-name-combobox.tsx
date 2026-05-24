@@ -1,6 +1,6 @@
 "use client"
 
-import { AlertCircle } from "lucide-react"
+import { AlertCircle, Info } from "lucide-react"
 import { useEffect, useMemo, useState } from "react"
 import { SourceBadge, StatusBadge } from "@/components/status-badge"
 import { Command, CommandEmpty, CommandGroup, CommandItem, CommandList } from "@/components/ui/command"
@@ -44,6 +44,13 @@ export function IconNameCombobox({ value, onValueChange, onIconSelected, error, 
 		const lowerSearch = searchTerm.toLowerCase()
 		return existingIcons.filter((icon) => icon.value.toLowerCase().includes(lowerSearch) || icon.label.toLowerCase().includes(lowerSearch))
 	}, [rawInput, value, existingIcons])
+
+	const matchedIcon = useMemo(() => {
+		if (!value || !existingIcons.length) return null
+		return existingIcons.find((icon) => icon.value === value) ?? null
+	}, [value, existingIcons])
+
+	const isRejectedResubmit = matchedIcon?.source === "community" && matchedIcon?.status === "rejected"
 
 	const showSuggestions = isFocused && (rawInput || value) && filteredIcons.length > 0
 
@@ -94,9 +101,7 @@ export function IconNameCombobox({ value, onValueChange, onIconSelected, error, 
 										<span className="font-mono text-sm">{icon.label}</span>
 										<div className="flex items-center gap-1">
 											<SourceBadge source={icon.source} showIcon={false} />
-											{icon.source === "community" && icon.status && (
-												<StatusBadge status={icon.status} showIcon={false} />
-											)}
+											{icon.source === "community" && icon.status && <StatusBadge status={icon.status} showIcon={false} />}
 										</div>
 									</CommandItem>
 								))}
@@ -114,8 +119,16 @@ export function IconNameCombobox({ value, onValueChange, onIconSelected, error, 
 				</p>
 			)}
 
+			{/* Rejected resubmit notice */}
+			{!error && isRejectedResubmit && (
+				<p className="text-sm text-amber-600 dark:text-amber-400 mt-1.5 flex items-center gap-1.5">
+					<Info className="h-3.5 w-3.5 flex-shrink-0" />
+					<span>This icon was previously rejected. Submitting will replace the old submission.</span>
+				</p>
+			)}
+
 			{/* Helper text when no error */}
-			{!error && value && (
+			{!error && !isRejectedResubmit && value && (
 				<p className="text-sm text-muted-foreground mt-1.5">
 					{loading ? "Loading icon names..." : "Select an existing icon to update or enter a new ID"}
 				</p>

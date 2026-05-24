@@ -2,9 +2,10 @@
 
 import confetti from "canvas-confetti"
 import { AnimatePresence, motion } from "framer-motion"
-import { ArrowRight, Check, FileType, Github, Moon, Palette, PaletteIcon, Sun, Type } from "lucide-react"
+import { ArrowRight, Check, ExternalLink, FileType, Github, Moon, Palette, PaletteIcon, Sun, Type } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import posthog from "posthog-js"
 import type React from "react"
 import { useCallback, useEffect, useMemo, useState } from "react"
 import { toast } from "sonner"
@@ -13,26 +14,24 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from "@/components/ui/select"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { BASE_URL, REPO_PATH } from "@/constants"
+import { BASE_URL, EXTERNAL_SOURCES, type ExternalSourceId, REPO_PATH } from "@/constants"
+import { canResolveExternalIconUrl, getExternalIconPreviewUrl, resolveExternalIconUrl } from "@/lib/external-icon-urls"
 import { isClipboardAvailable } from "@/lib/svg-color-utils"
 import { formatIconName } from "@/lib/utils"
-import type { AuthorData, Icon, IconFile } from "@/types/icons"
+import type { AuthorData, ExternalIcon, Icon } from "@/types/icons"
 import { Carbon } from "./carbon"
 import { IconActions } from "./icon-actions"
 import { IconCustomizerInline } from "./icon-customizer-inline"
 import { MagicCard } from "./magicui/magic-card"
 import { Badge } from "./ui/badge"
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "./ui/breadcrumb"
 import { Separator } from "./ui/separator"
 
 type RenderVariantFn = (format: string, iconName: string, theme?: "light" | "dark") => React.ReactNode
+
+const COPY_SUPPORTED_FORMATS = new Set(["svg", "png", "webp"])
 
 type IconVariantsSectionProps = {
 	title: string
@@ -127,26 +126,42 @@ function WordmarkSection({ iconData, aavailableFormats, renderVariant }: Wordmar
 	)
 }
 
+export type RelatedIcon = {
+	name: string
+	data: Icon
+}
+
+export type BreadcrumbItem = {
+	label: string
+	href?: string
+}
+
 export type IconDetailsProps = {
 	icon: string
 	iconData: Icon
 	authorData: AuthorData
-	allIcons: IconFile
+	relatedIcons?: RelatedIcon[]
+	relatedCategories?: string[]
 	status?: string
 	statusDisplayName?: string
 	statusColor?: string
 	rejectionReason?: string
+	externalIcon?: ExternalIcon
+	breadcrumbItems?: BreadcrumbItem[]
 }
 
 export function IconDetails({
 	icon,
 	iconData,
 	authorData,
-	allIcons,
+	relatedIcons = [],
+	relatedCategories = [],
 	status,
 	statusDisplayName,
 	statusColor,
 	rejectionReason,
+	externalIcon,
+	breadcrumbItems,
 }: IconDetailsProps) {
 	const authorName = authorData.name || authorData.login || ""
 	const _iconColorVariants = iconData.colors
@@ -157,15 +172,22 @@ export function IconDetails({
 		year: "numeric",
 	})
 
+	const isExternalIcon = !!externalIcon
+	const externalSourceConfig = externalIcon ? EXTERNAL_SOURCES[externalIcon.source as ExternalSourceId] : undefined
+	const externalPreviewUrl = externalIcon ? getExternalIconPreviewUrl(externalIcon) : null
+
 	type CommunityIconData = Icon & {
 		mainIconUrl?: string
 		assetUrls?: string[]
 	}
 
 	const communityData = iconData as CommunityIconData
-	const isCommunityIcon = !!communityData.mainIconUrl || (typeof iconData.base === "string" && iconData.base.startsWith("http"))
+	const isCommunityIcon =
+		!isExternalIcon && (!!communityData.mainIconUrl || (typeof iconData.base === "string" && iconData.base.startsWith("http")))
 	const mainIconUrl = communityData.mainIconUrl || (isCommunityIcon ? iconData.base : null)
 	const assetUrls = communityData.assetUrls || []
+
+	const heroImageUrl = externalPreviewUrl ?? mainIconUrl ?? `${BASE_URL}/${iconData.base}/${icon}.${iconData.base}`
 
 	const shouldShowBaseIcon = () => {
 		if (!iconData.colors) return true
@@ -200,6 +222,9 @@ export function IconDetails({
 	}
 
 	const getAvailableFormats = (): string[] => {
+		if (isExternalIcon && externalIcon) {
+			return (externalIcon.formats ?? []).filter((f) => COPY_SUPPORTED_FORMATS.has(f))
+		}
 		if (isCommunityIcon) {
 			if (assetUrls.length > 0) {
 				const formats = assetUrls
@@ -232,7 +257,6 @@ export function IconDetails({
 	const [copiedUrlKey, setCopiedUrlKey] = useState<string | null>(null)
 	const [copiedImageKey, setCopiedImageKey] = useState<string | null>(null)
 	const [isCustomizerOpen, setIsCustomizerOpen] = useState(false)
-	const [hasGradients, setHasGradients] = useState<boolean | null>(null)
 	const [selectedVariant, setSelectedVariant] = useState<string>("base")
 
 	const launchConfetti = useCallback((originX?: number, originY?: number) => {
@@ -276,6 +300,11 @@ export function IconDetails({
 		try {
 			await navigator.clipboard.writeText(url)
 			setCopiedUrlKey(variantKey)
+			posthog.capture("icon_url_copied", {
+				icon_name: icon,
+				variant: variantKey,
+				is_external: isExternalIcon,
+			})
 			setTimeout(() => {
 				setCopiedUrlKey(null)
 			}, 2000)
@@ -332,6 +361,12 @@ export function IconDetails({
 					launchConfetti()
 				}
 
+				posthog.capture("icon_image_copied", {
+					icon_name: icon,
+					format: "svg",
+					variant: variantKey,
+					is_external: isExternalIcon,
+				})
 				toast.dismiss()
 				toast.success("SVG Markup Copied", {
 					description: "The SVG code has been copied to your clipboard.",
@@ -361,6 +396,12 @@ export function IconDetails({
 					launchConfetti()
 				}
 
+				posthog.capture("icon_image_copied", {
+					icon_name: icon,
+					format,
+					variant: variantKey,
+					is_external: isExternalIcon,
+				})
 				toast.dismiss()
 				toast.success("Image copied", {
 					description: `The ${format.toUpperCase()} image has been copied to your clipboard.`,
@@ -396,7 +437,6 @@ export function IconDetails({
 			const blobUrl = URL.createObjectURL(blob)
 			const link = document.createElement("a")
 			link.href = blobUrl
-			// Sanitize filename
 			const sanitizedFilename = filename
 				.replace(/[^a-z0-9.-]/gi, "-")
 				.replace(/-+/g, "-")
@@ -406,6 +446,13 @@ export function IconDetails({
 			link.click()
 			document.body.removeChild(link)
 			setTimeout(() => URL.revokeObjectURL(blobUrl), 100)
+
+			const format = filename.split(".").pop() || "unknown"
+			posthog.capture("icon_downloaded", {
+				icon_name: icon,
+				format,
+				is_external: isExternalIcon,
+			})
 
 			toast.dismiss()
 			toast.success("Download started", {
@@ -425,7 +472,13 @@ export function IconDetails({
 		let imageUrl: string
 		let githubUrl: string
 
-		if (isCommunityIcon && mainIconUrl) {
+		if (isExternalIcon && externalIcon) {
+			const key = theme ? `${format}_${theme}` : format
+			const hasVariant = theme ? externalIcon.variants?.[theme] : externalIcon.formats?.includes(format)
+			if (!hasVariant || !canResolveExternalIconUrl(externalIcon, key)) return null
+			imageUrl = resolveExternalIconUrl(externalIcon, key)
+			githubUrl = ""
+		} else if (isCommunityIcon && mainIconUrl) {
 			const formatExt = format === "svg" ? "svg" : format === "png" ? "png" : "webp"
 
 			// Try to find a specific asset URL that matches the requested variant filename
@@ -540,6 +593,19 @@ export function IconDetails({
 	const getAvailableSvgVariants = (): VariantOption[] => {
 		const variants: VariantOption[] = []
 
+		if (isExternalIcon && externalIcon) {
+			if (externalIcon.formats.includes("svg")) {
+				variants.push({ value: "base", label: "Base Icon", iconName: externalIcon.slug })
+			}
+			if (externalIcon.variants?.light && canResolveExternalIconUrl(externalIcon, "svg_light")) {
+				variants.push({ value: "light", label: "Light Variant", iconName: `${externalIcon.slug}-light` })
+			}
+			if (externalIcon.variants?.dark && canResolveExternalIconUrl(externalIcon, "svg_dark")) {
+				variants.push({ value: "dark", label: "Dark Variant", iconName: `${externalIcon.slug}-dark` })
+			}
+			return variants
+		}
+
 		if (isCommunityIcon) {
 			const baseSvg = assetUrls.find((url: string) => typeof url === "string" && url.toLowerCase().endsWith(".svg"))
 			if (baseSvg || (mainIconUrl && mainIconUrl.toLowerCase().endsWith(".svg"))) {
@@ -553,10 +619,7 @@ export function IconDetails({
 			const lightVariant = iconData.colors?.light
 			if (lightVariant) {
 				const lightSvg = assetUrls.find(
-					(url: string) =>
-						typeof url === "string" &&
-						url.toLowerCase().endsWith(".svg") &&
-						url.includes(lightVariant),
+					(url: string) => typeof url === "string" && url.toLowerCase().endsWith(".svg") && url.includes(lightVariant),
 				)
 				if (lightSvg) {
 					variants.push({
@@ -570,10 +633,7 @@ export function IconDetails({
 			const darkVariant = iconData.colors?.dark
 			if (darkVariant) {
 				const darkSvg = assetUrls.find(
-					(url: string) =>
-						typeof url === "string" &&
-						url.toLowerCase().endsWith(".svg") &&
-						url.includes(darkVariant),
+					(url: string) => typeof url === "string" && url.toLowerCase().endsWith(".svg") && url.includes(darkVariant),
 				)
 				if (darkSvg) {
 					variants.push({
@@ -587,10 +647,7 @@ export function IconDetails({
 			const wordmarkLight = iconData.wordmark?.light
 			if (wordmarkLight) {
 				const wordmarkLightSvg = assetUrls.find(
-					(url: string) =>
-						typeof url === "string" &&
-						url.toLowerCase().endsWith(".svg") &&
-						url.includes(wordmarkLight),
+					(url: string) => typeof url === "string" && url.toLowerCase().endsWith(".svg") && url.includes(wordmarkLight),
 				)
 				if (wordmarkLightSvg) {
 					variants.push({
@@ -604,10 +661,7 @@ export function IconDetails({
 			const wordmarkDark = iconData.wordmark?.dark
 			if (wordmarkDark) {
 				const wordmarkDarkSvg = assetUrls.find(
-					(url: string) =>
-						typeof url === "string" &&
-						url.toLowerCase().endsWith(".svg") &&
-						url.includes(wordmarkDark),
+					(url: string) => typeof url === "string" && url.toLowerCase().endsWith(".svg") && url.includes(wordmarkDark),
 				)
 				if (wordmarkDarkSvg) {
 					variants.push({
@@ -672,6 +726,16 @@ export function IconDetails({
 			return null
 		}
 
+		if (isExternalIcon && externalIcon) {
+			if (!externalIcon.formats.includes("svg")) return null
+			if (variant === "base") return resolveExternalIconUrl(externalIcon, "svg")
+			if (variant === "light" && externalIcon.variants?.light && canResolveExternalIconUrl(externalIcon, "svg_light"))
+				return resolveExternalIconUrl(externalIcon, "svg_light")
+			if (variant === "dark" && externalIcon.variants?.dark && canResolveExternalIconUrl(externalIcon, "svg_dark"))
+				return resolveExternalIconUrl(externalIcon, "svg_dark")
+			return null
+		}
+
 		if (isCommunityIcon) {
 			if (variant === "base") {
 				if (mainIconUrl && mainIconUrl.toLowerCase().endsWith(".svg")) {
@@ -682,10 +746,7 @@ export function IconDetails({
 			}
 
 			const matchingUrl = assetUrls.find(
-				(url: string) =>
-					typeof url === "string" &&
-					url.toLowerCase().endsWith(".svg") &&
-					url.includes(variantOption.iconName),
+				(url: string) => typeof url === "string" && url.toLowerCase().endsWith(".svg") && url.includes(variantOption.iconName),
 			)
 			return matchingUrl || null
 		}
@@ -697,32 +758,10 @@ export function IconDetails({
 		return null
 	}
 
-	const svgUrl = useMemo(() => getSvgUrl(selectedVariant), [selectedVariant, availableVariants, isCommunityIcon, mainIconUrl, assetUrls, iconData, icon])
-
-	useEffect(() => {
-		if (!svgUrl) {
-			setHasGradients(null)
-			return
-		}
-
-		const checkForGradients = async () => {
-			try {
-				const response = await fetch(svgUrl)
-				if (!response.ok) {
-					setHasGradients(null)
-					return
-				}
-				const text = await response.text()
-				const hasLinearGradient = /<linearGradient[\s/>]/i.test(text)
-				const hasRadialGradient = /<radialGradient[\s/>]/i.test(text)
-				setHasGradients(hasLinearGradient || hasRadialGradient)
-			} catch {
-				setHasGradients(null)
-			}
-		}
-
-		checkForGradients()
-	}, [svgUrl])
+	const svgUrl = useMemo(
+		() => getSvgUrl(selectedVariant),
+		[selectedVariant, availableVariants, isCommunityIcon, isExternalIcon, externalIcon, mainIconUrl, assetUrls, iconData, icon],
+	)
 
 	useEffect(() => {
 		if (availableVariants.length > 0 && !availableVariants.find((v) => v.value === selectedVariant)) {
@@ -730,25 +769,47 @@ export function IconDetails({
 		}
 	}, [availableVariants, selectedVariant])
 
-	const canCustomize = svgUrl !== null && availableFormats.includes("svg") && hasGradients === false && availableVariants.length > 0
+	const canCustomize = svgUrl !== null && availableFormats.includes("svg") && availableVariants.length > 0
 
 	return (
-		<main className="container mx-auto pt-12 pb-14 px-4 sm:px-6 lg:px-8">
+		<div className="container mx-auto pt-12 pb-14 px-4 sm:px-6 lg:px-8">
 			<div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+				{breadcrumbItems && breadcrumbItems.length > 0 && (
+					<div className="lg:col-span-4">
+						<Breadcrumb className="justify-end">
+							<BreadcrumbList>
+								{breadcrumbItems.flatMap((item, index) => [
+									<BreadcrumbItem key={index}>
+										{item.href ? (
+											<BreadcrumbLink asChild>
+												<Link href={item.href}>{item.label}</Link>
+											</BreadcrumbLink>
+										) : (
+											<BreadcrumbPage>{item.label}</BreadcrumbPage>
+										)}
+									</BreadcrumbItem>,
+									...(index < breadcrumbItems.length - 1 ? [<BreadcrumbSeparator key={`sep-${index}`} />] : []),
+								])}
+							</BreadcrumbList>
+						</Breadcrumb>
+					</div>
+				)}
 				<div className="lg:col-span-1">
 					<Card className="h-full bg-background/50 border shadow-lg">
 						<CardHeader className="pb-4">
 							<div className="flex flex-col items-center bg-background">
-								<div className="relative w-32 h-32 rounded-xl ring-1 ring-white/5 dark:ring-white/10 bg-primary/15 dark:bg-secondary/10 overflow-hidden flex items-center justify-center p-3">
-									<Image
-										src={isCommunityIcon && mainIconUrl ? mainIconUrl : `${BASE_URL}/${iconData.base}/${icon}.${iconData.base}`}
-										priority
-										width={96}
-										height={96}
-										placeholder="empty"
-										alt={`High quality ${formatedIconName} icon in ${iconData.base.toUpperCase()} format`}
-										className="w-full h-full object-contain"
-									/>
+								<div className="relative">
+									<div className="relative w-32 h-32 rounded-xl ring-1 ring-white/5 dark:ring-white/10 bg-primary/15 dark:bg-secondary/10 overflow-hidden flex items-center justify-center p-3">
+										<Image
+											src={heroImageUrl}
+											priority
+											width={96}
+											height={96}
+											placeholder="empty"
+											alt={`${formatedIconName} icon and logo in ${iconData.base.toUpperCase()} format`}
+											className="w-full h-full object-contain"
+										/>
+									</div>
 								</div>
 								<CardTitle className="text-2xl font-bold capitalize text-center mb-2">
 									<h1>{formatedIconName}</h1>
@@ -842,8 +903,15 @@ export function IconDetails({
 											Perfect for adding to dashboards, app directories, documentation, or anywhere you need the {formatIconName(icon)}{" "}
 											logo.
 										</p>
+										{isExternalIcon && externalSourceConfig && <p>External icon provided by {externalSourceConfig.label}.</p>}
 									</div>
 								</div>
+								{isExternalIcon && externalIcon && (
+									<div className="rounded-md border border-border p-3 text-xs text-muted-foreground">
+										<p className="font-medium text-foreground">{externalIcon.attribution}</p>
+										<p className="mt-1">License: {externalIcon.license}</p>
+									</div>
+								)}
 							</div>
 						</CardContent>
 					</Card>
@@ -998,7 +1066,20 @@ export function IconDetails({
 									</div>
 								)}
 
-								{!isCommunityIcon && (
+								{isExternalIcon && externalIcon && externalSourceConfig && (
+									<div className="">
+										<h3 className="text-sm font-semibold text-muted-foreground mb-2">Source</h3>
+										<Button variant="outline" className="w-full gap-2" asChild>
+											<Link href={externalIcon.source_url} target="_blank" rel="noopener noreferrer">
+												<Image src={externalSourceConfig.icon} alt="" width={16} height={16} className="shrink-0" unoptimized />
+												View on {externalSourceConfig.label}
+												<ExternalLink className="w-4 h-4 ml-auto" />
+											</Link>
+										</Button>
+									</div>
+								)}
+
+								{!isCommunityIcon && !isExternalIcon && (
 									<div className="">
 										<h3 className="text-sm font-semibold text-muted-foreground mb-2">Source</h3>
 										<Button variant="outline" className="w-full" asChild>
@@ -1054,63 +1135,38 @@ export function IconDetails({
 					</Card>
 				</div>
 			</div>
-			{iconData.categories &&
-				iconData.categories.length > 0 &&
-				(() => {
-					const MAX_RELATED_ICONS = 16
-					const currentCategories = iconData.categories || []
-
-					const relatedIconsWithScore = Object.entries(allIcons)
-						.map(([name, data]) => {
-							if (name === icon) return null // Exclude the current icon
-
-							const otherCategories = data.categories || []
-							const commonCategories = currentCategories.filter((cat) => otherCategories.includes(cat))
-							const score = commonCategories.length
-
-							return score > 0 ? { name, data, score } : null
-						})
-						.filter((item): item is { name: string; data: Icon; score: number } => item !== null) // Type guard
-						.sort((a, b) => b.score - a.score) // Sort by score DESC
-
-					const topRelatedIcons = relatedIconsWithScore.slice(0, MAX_RELATED_ICONS)
-
-					const viewMoreUrl = `/icons?${currentCategories.map((cat) => `category=${encodeURIComponent(cat)}`).join("&")}`
-
-					if (topRelatedIcons.length === 0) return null
-
-					return (
-						<section className="container mx-auto mt-12" aria-labelledby="related-icons-title">
-							<Card className="bg-background/50 border shadow-lg">
-								<CardHeader>
-									<CardTitle>
-										<h2 id="related-icons-title">Related Icons</h2>
-									</CardTitle>
-									<CardDescription>
-										Other icons from {currentCategories.map((cat) => cat.replace(/-/g, " ")).join(", ")} categories
-									</CardDescription>
-								</CardHeader>
-								<CardContent>
-									<IconsGrid filteredIcons={topRelatedIcons} matchedAliases={{}} />
-									{relatedIconsWithScore.length > MAX_RELATED_ICONS && (
-										<div className="mt-6 text-center">
-											<Button
-												asChild
-												variant="link"
-												className="text-muted-foreground hover:text-primary transition-colors duration-200 hover:no-underline"
-											>
-												<Link href={viewMoreUrl} className="no-underline">
-													View all related icons
-													<ArrowRight className="ml-2 h-4 w-4" />
-												</Link>
-											</Button>
-										</div>
-									)}
-								</CardContent>
-							</Card>
-						</section>
-					)
-				})()}
-		</main>
+			{relatedIcons.length > 0 && (
+				<section className="container mx-auto mt-12" aria-labelledby="related-icons-title">
+					<Card className="bg-background/50 border shadow-lg">
+						<CardHeader>
+							<CardTitle>
+								<h2 id="related-icons-title">Related Icons</h2>
+							</CardTitle>
+							<CardDescription>
+								Other icons from {relatedCategories.map((cat) => cat.replace(/-/g, " ")).join(", ")} categories
+							</CardDescription>
+						</CardHeader>
+						<CardContent>
+							<IconsGrid filteredIcons={relatedIcons} matchedAliases={{}} />
+							<div className="mt-6 text-center">
+								<Button
+									asChild
+									variant="link"
+									className="text-muted-foreground hover:text-primary transition-colors duration-200 hover:no-underline"
+								>
+									<Link
+										href={`/icons?${relatedCategories.map((cat) => `category=${encodeURIComponent(cat)}`).join("&")}`}
+										className="no-underline"
+									>
+										View all related icons
+										<ArrowRight className="ml-2 h-4 w-4" />
+									</Link>
+								</Button>
+							</div>
+						</CardContent>
+					</Card>
+				</section>
+			)}
+		</div>
 	)
 }
